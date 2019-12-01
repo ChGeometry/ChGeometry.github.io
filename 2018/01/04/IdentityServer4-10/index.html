@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="IdentityServer4 添加对外部认证的支持之QQ登录IdentityServer4 前言前面我们提到过IdentityServer4是可以添加外部认证的，如果外部认证支持OAuth2，那么添加到IdentityServer4是非常简单的，在ASP.NET Core下提供了非常多的外部认证实现，比如Google，Facebook，Twitter，Microsoft帐户和OpenID Con">
+<meta name="keywords" content="dotnet core,c#,IdentityServer4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IdentityServer4-10 - 添加对外部认证的支持之QQ登录">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2018&#x2F;01&#x2F;04&#x2F;IdentityServer4-10&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="IdentityServer4 添加对外部认证的支持之QQ登录IdentityServer4 前言前面我们提到过IdentityServer4是可以添加外部认证的，如果外部认证支持OAuth2，那么添加到IdentityServer4是非常简单的，在ASP.NET Core下提供了非常多的外部认证实现，比如Google，Facebook，Twitter，Microsoft帐户和OpenID Con">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-9.png">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-10-1.png">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>IdentityServer4-10 - 添加对外部认证的支持之QQ登录 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IdentityServer4-10 - 添加对外部认证的支持之QQ登录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-04 16:52:00" itemprop="dateCreated datePublished" datetime="2018-01-04T16:52:00+08:00">2018-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IdentityServer4/" itemprop="url" rel="index">
+                    <span itemprop="name">IdentityServer4</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="IdentityServer4-添加对外部认证的支持之QQ登录"><a href="#IdentityServer4-添加对外部认证的支持之QQ登录" class="headerlink" title="IdentityServer4 添加对外部认证的支持之QQ登录"></a>IdentityServer4 添加对外部认证的支持之QQ登录</h1><h2 id="IdentityServer4-前言"><a href="#IdentityServer4-前言" class="headerlink" title="IdentityServer4 前言"></a>IdentityServer4 前言</h2><p>前面我们提到过IdentityServer4是可以添加外部认证的，如果外部认证支持OAuth2，那么添加到IdentityServer4是非常简单的，在ASP.NET Core下提供了非常多的外部认证实现，比如Google，Facebook，Twitter，Microsoft帐户和OpenID Connect等，但是对于我们国内来说最常用的莫过于QQ登录。</p>
+<h2 id="申请QQ登录"><a href="#申请QQ登录" class="headerlink" title="申请QQ登录"></a>申请QQ登录</h2><h3 id="访问QQ互联官方网站：https-connect-qq-com"><a href="#访问QQ互联官方网站：https-connect-qq-com" class="headerlink" title="访问QQ互联官方网站：https://connect.qq.com/"></a>访问QQ互联官方网站：<a href="https://connect.qq.com/" target="_blank" rel="noopener">https://connect.qq.com/</a></h3><h3 id="点击“应用管理”-gt-“创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。"><a href="#点击“应用管理”-gt-“创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。" class="headerlink" title="点击“应用管理”-&gt; “创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。"></a>点击“应用管理”-&gt; “创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。</h3><p><img src="http://blog.chenlis.com/static/identityserver4-10-1.png" alt=""></p>
+<p>填写完善资料的时候，唯一一个需要注意的就是回调地址，这里我们后面详细介绍。</p>
+<h3 id="等待审核结果，这里审核还是非常快的，一般一天左右就行了"><a href="#等待审核结果，这里审核还是非常快的，一般一天左右就行了" class="headerlink" title="等待审核结果，这里审核还是非常快的，一般一天左右就行了"></a>等待审核结果，这里审核还是非常快的，一般一天左右就行了</h3><p><img src="http://blog.chenlis.com/static/identityserver4-10-2.png" alt=""></p>
+<blockquote>
+<p>注意：如果网站没有备案号我不知道是否能通过申请，我自己是拥有备案号的，然后网站LOGO必须上传，不然会申请不过的。</p>
+</blockquote>
+<h2 id="添加QQ登录"><a href="#添加QQ登录" class="headerlink" title="添加QQ登录"></a>添加QQ登录</h2><p>QQ登录是支持OAuth2，所以可以集成到IdentityServer4。本来是打算自己写一个的，但是在查找信息的过程中，发现已经有人实现了，组件名为：Microsoft.AspNetCore.Authentication.QQ，Nuget可以直接安装。</p>
+<h3 id="1-先将-Microsoft-AspNetCore-Authentication-QQ-组件添加到项目中"><a href="#1-先将-Microsoft-AspNetCore-Authentication-QQ-组件添加到项目中" class="headerlink" title="1.先将 Microsoft.AspNetCore.Authentication.QQ 组件添加到项目中"></a>1.先将 Microsoft.AspNetCore.Authentication.QQ 组件添加到项目中</h3><h3 id="2-配置QQ登录信息"><a href="#2-配置QQ登录信息" class="headerlink" title="2.配置QQ登录信息"></a>2.配置QQ登录信息</h3><p>在Startup类的ConfigureServices方法里添加如下代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">services.AddAuthentication()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        .AddQQ(qqOptions =&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            qqOptions.AppId = <span class="string">""</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            qqOptions.AppKey = <span class="string">""</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        &#125;)</span></pre></td></tr></table></figure>
+
+<h3 id="3-在QQ互联后台配置回调地址"><a href="#3-在QQ互联后台配置回调地址" class="headerlink" title="3.在QQ互联后台配置回调地址"></a>3.在QQ互联后台配置回调地址</h3><p>回调地址是随时可以在QQ互联后台配置的，因为这个回调地址已经在QQ登录组件里定义了的，所以此处配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;你的域名&#x2F;signin-qq</span></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;localhost:2692&#x2F;signin-qq</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.baidu.com&#x2F;signin-qq</span></pre></td></tr></table></figure>
+
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-3.png" alt=""></p>
+<h3 id="4-添加跳转的action"><a href="#4-添加跳转的action" class="headerlink" title="4.添加跳转的action"></a>4.添加跳转的action</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[<span class="meta">HttpGet</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">ExternalLogin</span>(<span class="params"><span class="keyword">string</span> provider, <span class="keyword">string</span> returnUrl</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> props = <span class="keyword">new</span> AuthenticationProperties()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        RedirectUri = Url.Action(<span class="string">"ExternalLoginCallback"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        Items =</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            &#123; <span class="string">"returnUrl"</span>, returnUrl &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">     <span class="comment">// start challenge and roundtrip the return URL</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    props.Items.Add(<span class="string">"scheme"</span>, provider);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> Challenge(props, provider);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h3 id="5-添加回调处理成功跳转的Action"><a href="#5-添加回调处理成功跳转的Action" class="headerlink" title="5.添加回调处理成功跳转的Action"></a>5.添加回调处理成功跳转的Action</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">HttpGet]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">ExternalLoginCallback</span>(<span class="params"></span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// read external identity from the temporary cookie</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> result = <span class="keyword">await</span> HttpContext.AuthenticateAsync(<span class="string">"QQ"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (result?.Succeeded != <span class="literal">true</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"External authentication error"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// retrieve claims of the external user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> externalUser = result.Principal;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> claims = externalUser.Claims.ToList();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// try to determine the unique id of the external user (issued by the provider)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// the most common claim type for that are the sub claim and the NameIdentifier</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// depending on the external provider, some other claim type might be used</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> userIdClaim = claims.FirstOrDefault(x =&gt; x.Type == JwtClaimTypes.Subject);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (userIdClaim == <span class="literal">null</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        userIdClaim = claims.FirstOrDefault(x =&gt; x.Type == ClaimTypes.NameIdentifier);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (userIdClaim == <span class="literal">null</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"Unknown userid"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// remove the user id claim from the claims collection and move to the userId property</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// also set the name of the external authentication provider</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    claims.Remove(userIdClaim);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> provider = result.Properties.Items[<span class="string">"scheme"</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> userId = userIdClaim.Value;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// this is where custom logic would most likely be needed to match your users from the</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// external provider's authentication result, and provision the user as you see fit.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// </span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// check if the external user is already provisioned</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> user = _users.FindByExternalProvider(provider, userId);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (user == <span class="literal">null</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// this sample simply auto-provisions new external user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// another common approach is to start a registrations workflow first</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">        user = _users.AutoProvisionUser(provider, userId, claims);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> additionalClaims = <span class="keyword">new</span> List&lt;Claim&gt;();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// if the external system sent a session id claim, copy it over</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// so we can use it for single sign-out</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> sid = claims.FirstOrDefault(x =&gt; x.Type == JwtClaimTypes.SessionId);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (sid != <span class="literal">null</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">        additionalClaims.Add(<span class="keyword">new</span> Claim(JwtClaimTypes.SessionId, sid.Value));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// if the external provider issued an id_token, we'll keep it for signout</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">    AuthenticationProperties props = <span class="literal">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> id_token = result.Properties.GetTokenValue(<span class="string">"id_token"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (id_token != <span class="literal">null</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">62</span></pre></td><td class="code"><pre><span class="line">        props = <span class="keyword">new</span> AuthenticationProperties();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">63</span></pre></td><td class="code"><pre><span class="line">        props.StoreTokens(<span class="keyword">new</span>[] &#123; <span class="keyword">new</span> AuthenticationToken &#123; Name = <span class="string">"id_token"</span>, Value = id_token &#125; &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">64</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">65</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">66</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// issue authentication cookie for user</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">67</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">await</span> _events.RaiseAsync(<span class="keyword">new</span> UserLoginSuccessEvent(provider, userId, user.SubjectId, user.Username));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">68</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">await</span> HttpContext.SignInAsync(user.SubjectId, user.Username, provider, props, additionalClaims.ToArray());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">69</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">70</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// delete temporary cookie used during external authentication</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">71</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">await</span> HttpContext.SignOutAsync(IdentityServer4.IdentityServerConstants.ExternalCookieAuthenticationScheme);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">72</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">73</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// validate return URL and redirect back to authorization endpoint or a local page</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">74</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> returnUrl = result.Properties.Items[<span class="string">"returnUrl"</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">75</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (_interaction.IsValidReturnUrl(returnUrl) || Url.IsLocalUrl(returnUrl))</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">76</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">77</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">return</span> Redirect(returnUrl);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">78</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">79</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">80</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> Redirect(<span class="string">"~/"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">81</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>画了一张图来表示这个流程：</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-4.png" alt=""></p>
+<h2 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h2><p>1.打开登录页面，点击“QQ”</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-5.png" alt=""></p>
+<p>2.从QQ登录</p>
+<p>我们通过第一步，跳转到了QQ的登录页面：</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-6.png" alt=""></p>
+<p>登录之后，QQ也有相应的提醒</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-7.png" alt=""></p>
+<p>登录之后跳转回我们自己的程序：</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-8.png" alt=""></p>
+<blockquote>
+<p>这里显示的名称是根据QQ获取用户信息接口返回的QQ昵称</p>
+</blockquote>
+<p>同时，我们也可以在QQ互联里面的授权管理查看我们刚刚授权登录的信息：</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-10-9.png" alt=""></p>
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><p>如果遇到其他异常可以用抓包软件比如fiddler，抓一下与QQ通信的请求信息，看看是否有异常。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/dotnet-core/" rel="tag"># dotnet core</a>
+              <a href="/tags/c/" rel="tag"># c#</a>
+              <a href="/tags/IdentityServer4/" rel="tag"># IdentityServer4</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/03/IdentityServer4-9/" rel="prev" title="IdentityServer4-9 - 使用OpenID Connect添加用户认证">
+      <i class="fa fa-chevron-left"></i> IdentityServer4-9 - 使用OpenID Connect添加用户认证
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/05/git-common-cmd/" rel="next" title="常用的git命令行">
+      常用的git命令行 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityServer4-添加对外部认证的支持之QQ登录"><span class="nav-number">1.</span> <span class="nav-text">IdentityServer4 添加对外部认证的支持之QQ登录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IdentityServer4-前言"><span class="nav-number">1.1.</span> <span class="nav-text">IdentityServer4 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申请QQ登录"><span class="nav-number">1.2.</span> <span class="nav-text">申请QQ登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问QQ互联官方网站：https-connect-qq-com"><span class="nav-number">1.2.1.</span> <span class="nav-text">访问QQ互联官方网站：https://connect.qq.com/</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点击“应用管理”-gt-“创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。"><span class="nav-number">1.2.2.</span> <span class="nav-text">点击“应用管理”-&gt; “创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#等待审核结果，这里审核还是非常快的，一般一天左右就行了"><span class="nav-number">1.2.3.</span> <span class="nav-text">等待审核结果，这里审核还是非常快的，一般一天左右就行了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加QQ登录"><span class="nav-number">1.3.</span> <span class="nav-text">添加QQ登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-先将-Microsoft-AspNetCore-Authentication-QQ-组件添加到项目中"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.先将 Microsoft.AspNetCore.Authentication.QQ 组件添加到项目中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置QQ登录信息"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.配置QQ登录信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在QQ互联后台配置回调地址"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.在QQ互联后台配置回调地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-添加跳转的action"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.添加跳转的action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加回调处理成功跳转的Action"><span class="nav-number">1.3.5.</span> <span class="nav-text">5.添加回调处理成功跳转的Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行测试"><span class="nav-number">1.4.</span> <span class="nav-text">运行测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他说明"><span class="nav-number">1.5.</span> <span class="nav-text">其他说明</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

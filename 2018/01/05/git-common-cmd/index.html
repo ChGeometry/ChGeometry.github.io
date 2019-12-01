@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Git自己在工作中常用的git命令行！ Git基本操作">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用的git命令行">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2018&#x2F;01&#x2F;05&#x2F;git-common-cmd&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="Git自己在工作中常用的git命令行！ Git基本操作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.772Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2018/01/05/git-common-cmd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>常用的git命令行 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/01/05/git-common-cmd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          常用的git命令行
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-05 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-05T00:00:00+08:00">2018-01-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>自己在工作中常用的git命令行！</p>
+<h2 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a><a name="basic">Git基本操作</a></h2><h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><p>当我们要进行Git提交的时候，我们作为提交者要以什么姓名和电子邮件地址进行提交？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git config --global user.name "Default"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git config --global user.email abc@example.com</span></pre></td></tr></table></figure>
+<h2 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git config --list</span></pre></td></tr></table></figure>
+<p>上面命令配置好的用户信息可以通过<code>git config --list</code>命令查看用户名、邮箱、别名、remote地址等等！真是一览无遗！当然也可以到.git目录下的查看config文件</p>
+<h2 id="从现有的仓库克隆到本地"><a href="#从现有的仓库克隆到本地" class="headerlink" title="从现有的仓库克隆到本地"></a>从现有的仓库克隆到本地</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git clone https://github.com/abc/repertory.git A/B</span></pre></td></tr></table></figure>
+<p>以上命令是将现有的仓库克隆到<strong>A目录下的B文件夹</strong>里面，如果后面没有添加<strong>A/B</strong>就会默认新建一个名为<strong>repertory</strong>文件夹，且将仓库克隆到这个文件夹下面！</p>
+<h2 id="提交代码到本地仓库"><a href="#提交代码到本地仓库" class="headerlink" title="提交代码到本地仓库"></a>提交代码到本地仓库</h2><p>当我们在本地修改了文件，比如修改了<code>README.md</code>文件，我们首先查看状态确定哪些文件当前处于什么状态！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git status</span></pre></td></tr></table></figure>
+<p>该命令执行完终端输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">On branch master</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Your branch is up-to-date with 'origin/master'.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Changes not staged for commit:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">(use "git add &lt;file&gt;..." to update what will be committed)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">(use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">modified:   README.md</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">no changes added to commit (use "git add" and/or "git commit -a")</span></pre></td></tr></table></figure>
+<p>当前<code>README.md</code>文件是有做修改的，该文件还没有添加到stage的，提示我们可以通过<strong>git add <file></strong>来添加，当然我们也可以通过<strong>git checkout – <file></strong>来撤销本次做到修改，建议不要轻易这么干！后续我会讲讲相关撤销操作。</p>
+<p>现在我们加入stage</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git add README.md</span></pre></td></tr></table></figure>
+<p>如果我们现在要将本地所有修改的文件进行添加，可以用该命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git add .</span></pre></td></tr></table></figure>
+<p>最后，我们进行提交</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit -m "fix 具体哪个功能"</span></pre></td></tr></table></figure>
+<p>如果本地我们改的内容有点多，涉及到修改多个模块的代码，建议多次添加并提交！</p>
+<h2 id="将本地代码提交到远程仓库"><a href="#将本地代码提交到远程仓库" class="headerlink" title="将本地代码提交到远程仓库"></a>将本地代码提交到远程仓库</h2><p>继上面的提交操作之后<br><br>我们先拉取一下远程仓库的更新内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch</span></pre></td></tr></table></figure>
+<p>接下来，我们就可以手动<code>merge</code>远程仓库的修改了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git merge</span></pre></td></tr></table></figure>
+<p>我们为了让我们的提交记录比较美观一些的话，在这里我们会用<code>rebase</code>去代替<code>merge</code>操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git rebase</span></pre></td></tr></table></figure>
+<p>或者用<code>pull</code>来拉取代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git pull</span></pre></td></tr></table></figure>
+<p><code>fetch</code>跟<code>pull</code>有啥区别呢？<br><br><code>fetch</code>从远程仓库抓取到本地之后不会自动<code>merge</code>操作，但<code>pull</code>会自动<code>merge</code></p>
+<p>最后我们进行<code>push</code>操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push</span></pre></td></tr></table></figure>
+<p>这样我们就可以做到远程仓库和本地仓库的同步了！</p>
+<hr>
+<h2 id="Git进阶"><a href="#Git进阶" class="headerlink" title="Git进阶"></a>Git进阶</h2><p>上面讲的是一些<a href="#basic"><strong>Git</strong>基本操作</a>。<br><br>接下来讲讲一些Git进阶小技巧</p>
+<h2 id="提交技巧"><a href="#提交技巧" class="headerlink" title="提交技巧"></a>提交技巧</h2><h5 id="当我们要将stage里的修改分多次提交到本地仓库-也就是具体到哪个文件"><a href="#当我们要将stage里的修改分多次提交到本地仓库-也就是具体到哪个文件" class="headerlink" title="当我们要将stage里的修改分多次提交到本地仓库,也就是具体到哪个文件"></a>当我们要将<code>stage</code>里的修改分多次提交到本地仓库,也就是具体到哪个文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit DefaultYuan.txt -m "fix 具体功能"</span></pre></td></tr></table></figure>
+<h5 id="如果我们想查看要提交的内容与版本库中的比较，然后进行提交"><a href="#如果我们想查看要提交的内容与版本库中的比较，然后进行提交" class="headerlink" title="如果我们想查看要提交的内容与版本库中的比较，然后进行提交"></a>如果我们想查看要提交的内容与版本库中的比较，然后进行提交</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit -v</span></pre></td></tr></table></figure>
+<h5 id="将工作区和stage中的所有修改的文件一次性提交到本地仓库"><a href="#将工作区和stage中的所有修改的文件一次性提交到本地仓库" class="headerlink" title="将工作区和stage中的所有修改的文件一次性提交到本地仓库"></a>将工作区和<code>stage</code>中的所有修改的文件一次性提交到本地仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit -a</span></pre></td></tr></table></figure>
+<p>这样会默认使用 vi 添加描述,我们也可以在<code>.git/config</code>的<code>core</code>中<code>editor = vim</code>指定编辑器<br><br>当然也可以使用<code>-m</code>选项直接添加提交信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit -a -m "fix 具体功能"</span></pre></td></tr></table></figure>
+<h5 id="有时候我们需要对上一次提交信息进行修改"><a href="#有时候我们需要对上一次提交信息进行修改" class="headerlink" title="有时候我们需要对上一次提交信息进行修改"></a>有时候我们需要对上一次提交信息进行修改</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git commit --amend</span></pre></td></tr></table></figure>
+<p>也可以后面添加参数<code>-m</code>做到修改</p>
+<h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><h5 id="查看工作区中所有目录下文件的变动"><a href="#查看工作区中所有目录下文件的变动" class="headerlink" title="查看工作区中所有目录下文件的变动"></a>查看工作区中所有目录下文件的变动</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git status</span></pre></td></tr></table></figure>
+<h5 id="比较工作区与暂存区的改动"><a href="#比较工作区与暂存区的改动" class="headerlink" title="比较工作区与暂存区的改动"></a>比较工作区与暂存区的改动</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git diff</span></pre></td></tr></table></figure>
+<h5 id="添加参数-cached，比较暂存区和版本库之间的区别"><a href="#添加参数-cached，比较暂存区和版本库之间的区别" class="headerlink" title="添加参数--cached，比较暂存区和版本库之间的区别"></a>添加参数<code>--cached</code>，比较暂存区和版本库之间的区别</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git diff --cached</span></pre></td></tr></table></figure>
+<h5 id="添加参数HEAD，比较工作区、暂存区和版本库之间的区别"><a href="#添加参数HEAD，比较工作区、暂存区和版本库之间的区别" class="headerlink" title="添加参数HEAD，比较工作区、暂存区和版本库之间的区别"></a>添加参数<code>HEAD</code>，比较工作区、暂存区和版本库之间的区别</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git diff HEAD</span></pre></td></tr></table></figure>
+<p><code>HEAD</code>关键字它指的是当前分支的最新提交，相当于一个<strong>指针</strong>,后续讲到新建分支也会提到它</p>
+<h2 id="stash的使用"><a href="#stash的使用" class="headerlink" title="stash的使用"></a><code>stash</code>的使用</h2><p>有时候我们在工作区进行开发并且不想提交的时候，这时我们又想<code>pull</code>最新代码；或者又想切到另外一个分支上修改紧急bug的时候<br><br><strong>git stash</strong>可以暂存当前的工作区内容</p>
+<h5 id="可以先暂存当前的工作区的内容"><a href="#可以先暂存当前的工作区的内容" class="headerlink" title="可以先暂存当前的工作区的内容"></a>可以先暂存当前的工作区的内容</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash</span></pre></td></tr></table></figure>
+<p>等我们切到另外分支修改完了bug之后，可以切回之前分支</p>
+<h5 id="然后恢复之前工作区的内容继续开发"><a href="#然后恢复之前工作区的内容继续开发" class="headerlink" title="然后恢复之前工作区的内容继续开发"></a>然后恢复之前工作区的内容继续开发</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash pop</span></pre></td></tr></table></figure>
+<h5 id="也可以查看stash的Git栈信息"><a href="#也可以查看stash的Git栈信息" class="headerlink" title="也可以查看stash的Git栈信息"></a>也可以查看<code>stash</code>的Git栈信息</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash list</span></pre></td></tr></table></figure>
+<p>当我们的<code>stash</code>栈列表里面有很多，并且我们想要找到对应的版本号</p>
+<h5 id="并且将我们想要的版本号为stash-2-的工作内容取出来"><a href="#并且将我们想要的版本号为stash-2-的工作内容取出来" class="headerlink" title="并且将我们想要的版本号为stash@{2}的工作内容取出来"></a>并且将我们想要的版本号为<strong>stash@{2}</strong>的工作内容取出来</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;2&#125;</span></pre></td></tr></table></figure>
+<h5 id="也可以查看版本号为stash-2-的工作内容"><a href="#也可以查看版本号为stash-2-的工作内容" class="headerlink" title="也可以查看版本号为stash@{2}的工作内容"></a>也可以查看版本号为<strong>stash@{2}</strong>的工作内容</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash show stash@&#123;2&#125;</span></pre></td></tr></table></figure>
+<p>当我们的<code>stash</code>栈列表的工作内容都应用回来的时候</p>
+<h5 id="可以将栈清空"><a href="#可以将栈清空" class="headerlink" title="可以将栈清空"></a>可以将栈清空</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git stash clear</span></pre></td></tr></table></figure>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>分支在Git里面是比较廉价的，我们在开发的时候可以在本地仓库创建很多条分支</p>
+<h5 id="新建一条名字为dev的分支"><a href="#新建一条名字为dev的分支" class="headerlink" title="新建一条名字为dev的分支"></a>新建一条名字为dev的分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git branch dev</span></pre></td></tr></table></figure>
+<p>这种创建方式会依然停留在当前分支</p>
+<h5 id="开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发"><a href="#开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发" class="headerlink" title="开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发"></a>开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git checkout -b dev_fixHot</span></pre></td></tr></table></figure>
+<h5 id="也可以从当前分支新建一个dev分支，指向指定commit"><a href="#也可以从当前分支新建一个dev分支，指向指定commit" class="headerlink" title="也可以从当前分支新建一个dev分支，指向指定commit"></a>也可以从当前分支新建一个dev分支，指向指定<code>commit</code></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git branch dev f0299e2</span></pre></td></tr></table></figure>
+<p><code>f0299e2</code>是随便写的，具体要以我们自己的<code>commit</code></p>
+<h5 id="切换到指定分支"><a href="#切换到指定分支" class="headerlink" title="切换到指定分支"></a>切换到指定分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git checkout dev</span></pre></td></tr></table></figure>
+<p>分支其实也是指向某个<code>commit</code>的指针，<code>HEAD</code>也是一个指针，它指向当前工作目录下的<code>commit</code><br><br>因此<code>checkout</code>就是让<code>HEAD</code>指向dev分支</p>
+<h5 id="删除dev分支"><a href="#删除dev分支" class="headerlink" title="删除dev分支"></a>删除dev分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git branch -d dev</span></pre></td></tr></table></figure>
+<h5 id="强制删除dev分支"><a href="#强制删除dev分支" class="headerlink" title="强制删除dev分支"></a>强制删除dev分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git branch -D dev</span></pre></td></tr></table></figure>
+<h5 id="将本地dev分支与dev-fixHot远程分支建立追踪关系"><a href="#将本地dev分支与dev-fixHot远程分支建立追踪关系" class="headerlink" title="将本地dev分支与dev_fixHot远程分支建立追踪关系"></a>将本地dev分支与dev_fixHot远程分支建立追踪关系</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git branch --set-upstream dev origin/dev_fixHot</span></pre></td></tr></table></figure>
+<h5 id="添加一个dev远程分支"><a href="#添加一个dev远程分支" class="headerlink" title="添加一个dev远程分支"></a>添加一个dev远程分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push origin dev:dev</span></pre></td></tr></table></figure>
+<h5 id="删除dev远程分支"><a href="#删除dev远程分支" class="headerlink" title="删除dev远程分支"></a>删除dev远程分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push origin :dev</span></pre></td></tr></table></figure>
+<p>或者<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push origin --delete dev</span></pre></td></tr></table></figure>
+<h5 id="选择一个commit-合并到当前分支"><a href="#选择一个commit-合并到当前分支" class="headerlink" title="选择一个commit,合并到当前分支"></a>选择一个<code>commit</code>,合并到当前分支</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git cherry-pick f0299e2</span></pre></td></tr></table></figure>
+<h2 id="合并分支rebase和merge"><a href="#合并分支rebase和merge" class="headerlink" title="合并分支rebase和merge"></a>合并分支<code>rebase</code>和<code>merge</code></h2><p>####在工作中，如果团队开发同一个项目的人数特别多的时候，每个人都在自己的分支上开发<br><br>在开发过程中，为了使提交记录直观，方便在一条分支上查看提交记录，可以对分支进行衍合，一般是在做了一些小的修改之后会用它<br><br>将修改<code>commit</code>到本地分支上之后<br><br>当本地分支上有相对应的远程分支，可以直接使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git rebase</span></pre></td></tr></table></figure>
+<p>为了方便讲解，<code>origin/dev_homepageFix</code>这个远程分支是随便写的分支名<br><br>当这次<code>commit</code>要衍合到<code>dev_homepageFix</code>分支上时<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git rebase origin/dev_homepageFix</span></pre></td></tr></table></figure>
+<p>最后就可以<code>push</code>跟远程仓库同步了<br>####当我们到项目接近尾声的时候，需要将各自的分支都合并到<code>dev</code>分支上去<br><br>先抓取最新仓库更新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git fetch</span></pre></td></tr></table></figure>
+<p>然后切到<code>dev</code>分支上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git checkout dev</span></pre></td></tr></table></figure>
+<p>再分别合并各个分支，这里以<code>dev_homepageFix</code>分支为例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git merge origin/dev_homepageFix</span></pre></td></tr></table></figure>
+<h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>当我们想去整理我的提交，或者是把不该这次提交的修改提交了，我们可以对修改进行撤销，或者对提交进行撤销</p>
+<h5 id="恢复暂存区的所有文件到工作区"><a href="#恢复暂存区的所有文件到工作区" class="headerlink" title="恢复暂存区的所有文件到工作区"></a>恢复暂存区的所有文件到工作区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git reset HEAD</span></pre></td></tr></table></figure>
+<h5 id="恢复暂存区的指定的某个文件到工作区"><a href="#恢复暂存区的指定的某个文件到工作区" class="headerlink" title="恢复暂存区的指定的某个文件到工作区"></a>恢复暂存区的指定的某个文件到工作区</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git reset HEAD README.md</span></pre></td></tr></table></figure>
+
+<p>我们做了一些修改，然后觉得自己做错了，不想提交</p>
+<h5 id="可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！"><a href="#可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！" class="headerlink" title="可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！"></a>可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git reset --hard</span></pre></td></tr></table></figure>
+
+<p>当我们想重新整理提交的时候，比如说将上两次的提交整理到一次提交,我们可以重置到上两次的上次提交<code>commit</code></p>
+<h5 id="可以重置到指定的commit-并重置了暂存区，但工作区是不变的"><a href="#可以重置到指定的commit-并重置了暂存区，但工作区是不变的" class="headerlink" title="可以重置到指定的commit,并重置了暂存区，但工作区是不变的"></a>可以重置到指定的<code>commit</code>,并重置了暂存区，但工作区是不变的</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git reset 2126dce</span></pre></td></tr></table></figure>
+<p>这种情况也会引发另外一个问题，当我们本地仓库与远程仓库一致的时候，然后我们重置，就需要用到<code>push</code>的<code>force</code>来进行强推，这是我们不想操作的，后续我会讲解一下强推的小建议！</p>
+<h5 id="新建一个commit，用来撤销指定commit，后者所有变化都会被前者抵消，并应用到当前分支"><a href="#新建一个commit，用来撤销指定commit，后者所有变化都会被前者抵消，并应用到当前分支" class="headerlink" title="新建一个commit，用来撤销指定commit，后者所有变化都会被前者抵消，并应用到当前分支 "></a>新建一个<code>commit</code>，用来撤销指定<code>commit</code>，后者所有变化都会被前者抵消，并应用到当前分支 <br></h5><p>我们也是不要轻易这么去做！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git revert 2126dce</span></pre></td></tr></table></figure>
+<h2 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h2><p>当我们有比较常用的命令行用的比较频繁，但是我们又觉得完整把它们敲出来费事<br>#####可以在 <code>~/.gitconfig</code> 文件里面进行设置别名,添加<code>alias</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">[alias]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">ft = fetch</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">ck = checkout</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">st = status</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">br = branch</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">rb = rebase</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">lg = log</span></pre></td></tr></table></figure>
+<p>然后试一下<code>git st</code>就管用了！</p>
+<h2 id="标签的相关操作"><a href="#标签的相关操作" class="headerlink" title="标签的相关操作"></a>标签的相关操作</h2><p>标签可以针对某一时间点的版本做标记，常用于版本发布<br>#####列出标签</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git tag</span></pre></td></tr></table></figure>
+<h5 id="创建附注标签"><a href="#创建附注标签" class="headerlink" title="创建附注标签"></a>创建附注标签</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git tag -a v0.0.1-pro -m "pro发版"</span></pre></td></tr></table></figure>
+<h5 id="切换到标签"><a href="#切换到标签" class="headerlink" title="切换到标签"></a>切换到标签</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git checkout v0.0.1-pro</span></pre></td></tr></table></figure>
+<h5 id="查看标签的版本信息"><a href="#查看标签的版本信息" class="headerlink" title="查看标签的版本信息"></a>查看标签的版本信息</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git show v0.0.1-pro</span></pre></td></tr></table></figure>
+<h5 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git tag -d v0.0.1-pro</span></pre></td></tr></table></figure>
+<h5 id="给指定的commit打标签"><a href="#给指定的commit打标签" class="headerlink" title="给指定的commit打标签"></a>给指定的commit打标签</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git tag -a v0.0.1-pro 9fbc3dd</span></pre></td></tr></table></figure>
+<h5 id="将v0-0-1-pro标签提交到git服务器"><a href="#将v0-0-1-pro标签提交到git服务器" class="headerlink" title="将v0.0.1-pro标签提交到git服务器"></a>将v0.0.1-pro标签提交到git服务器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push origin v0.0.1-pro</span></pre></td></tr></table></figure>
+<h5 id="将本地所有标签一次性提交到git服务器"><a href="#将本地所有标签一次性提交到git服务器" class="headerlink" title="将本地所有标签一次性提交到git服务器"></a>将本地所有标签一次性提交到git服务器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git push origin –tags</span></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/04/IdentityServer4-10/" rel="prev" title="IdentityServer4-10 - 添加对外部认证的支持之QQ登录">
+      <i class="fa fa-chevron-left"></i> IdentityServer4-10 - 添加对外部认证的支持之QQ登录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/07/frp-intro/" rel="next" title="FRP内网穿透工具">
+      FRP内网穿透工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">Git基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户信息"><span class="nav-number">1.2.</span> <span class="nav-text">用户信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看配置信息"><span class="nav-number">1.3.</span> <span class="nav-text">查看配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从现有的仓库克隆到本地"><span class="nav-number">1.4.</span> <span class="nav-text">从现有的仓库克隆到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交代码到本地仓库"><span class="nav-number">1.5.</span> <span class="nav-text">提交代码到本地仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将本地代码提交到远程仓库"><span class="nav-number">1.6.</span> <span class="nav-text">将本地代码提交到远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git进阶"><span class="nav-number">1.7.</span> <span class="nav-text">Git进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交技巧"><span class="nav-number">1.8.</span> <span class="nav-text">提交技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#当我们要将stage里的修改分多次提交到本地仓库-也就是具体到哪个文件"><span class="nav-number">1.8.0.0.1.</span> <span class="nav-text">当我们要将stage里的修改分多次提交到本地仓库,也就是具体到哪个文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果我们想查看要提交的内容与版本库中的比较，然后进行提交"><span class="nav-number">1.8.0.0.2.</span> <span class="nav-text">如果我们想查看要提交的内容与版本库中的比较，然后进行提交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将工作区和stage中的所有修改的文件一次性提交到本地仓库"><span class="nav-number">1.8.0.0.3.</span> <span class="nav-text">将工作区和stage中的所有修改的文件一次性提交到本地仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有时候我们需要对上一次提交信息进行修改"><span class="nav-number">1.8.0.0.4.</span> <span class="nav-text">有时候我们需要对上一次提交信息进行修改</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看状态"><span class="nav-number">1.9.</span> <span class="nav-text">查看状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查看工作区中所有目录下文件的变动"><span class="nav-number">1.9.0.0.1.</span> <span class="nav-text">查看工作区中所有目录下文件的变动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#比较工作区与暂存区的改动"><span class="nav-number">1.9.0.0.2.</span> <span class="nav-text">比较工作区与暂存区的改动</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加参数-cached，比较暂存区和版本库之间的区别"><span class="nav-number">1.9.0.0.3.</span> <span class="nav-text">添加参数--cached，比较暂存区和版本库之间的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加参数HEAD，比较工作区、暂存区和版本库之间的区别"><span class="nav-number">1.9.0.0.4.</span> <span class="nav-text">添加参数HEAD，比较工作区、暂存区和版本库之间的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stash的使用"><span class="nav-number">1.10.</span> <span class="nav-text">stash的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以先暂存当前的工作区的内容"><span class="nav-number">1.10.0.0.1.</span> <span class="nav-text">可以先暂存当前的工作区的内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#然后恢复之前工作区的内容继续开发"><span class="nav-number">1.10.0.0.2.</span> <span class="nav-text">然后恢复之前工作区的内容继续开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#也可以查看stash的Git栈信息"><span class="nav-number">1.10.0.0.3.</span> <span class="nav-text">也可以查看stash的Git栈信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#并且将我们想要的版本号为stash-2-的工作内容取出来"><span class="nav-number">1.10.0.0.4.</span> <span class="nav-text">并且将我们想要的版本号为stash@{2}的工作内容取出来</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#也可以查看版本号为stash-2-的工作内容"><span class="nav-number">1.10.0.0.5.</span> <span class="nav-text">也可以查看版本号为stash@{2}的工作内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可以将栈清空"><span class="nav-number">1.10.0.0.6.</span> <span class="nav-text">可以将栈清空</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">1.11.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建一条名字为dev的分支"><span class="nav-number">1.11.0.0.1.</span> <span class="nav-text">新建一条名字为dev的分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发"><span class="nav-number">1.11.0.0.2.</span> <span class="nav-text">开发新功能、或者修改bug，我们会创建一条分支并切到新开分支上开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#也可以从当前分支新建一个dev分支，指向指定commit"><span class="nav-number">1.11.0.0.3.</span> <span class="nav-text">也可以从当前分支新建一个dev分支，指向指定commit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切换到指定分支"><span class="nav-number">1.11.0.0.4.</span> <span class="nav-text">切换到指定分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除dev分支"><span class="nav-number">1.11.0.0.5.</span> <span class="nav-text">删除dev分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#强制删除dev分支"><span class="nav-number">1.11.0.0.6.</span> <span class="nav-text">强制删除dev分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将本地dev分支与dev-fixHot远程分支建立追踪关系"><span class="nav-number">1.11.0.0.7.</span> <span class="nav-text">将本地dev分支与dev_fixHot远程分支建立追踪关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加一个dev远程分支"><span class="nav-number">1.11.0.0.8.</span> <span class="nav-text">添加一个dev远程分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除dev远程分支"><span class="nav-number">1.11.0.0.9.</span> <span class="nav-text">删除dev远程分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择一个commit-合并到当前分支"><span class="nav-number">1.11.0.0.10.</span> <span class="nav-text">选择一个commit,合并到当前分支</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并分支rebase和merge"><span class="nav-number">1.12.</span> <span class="nav-text">合并分支rebase和merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作"><span class="nav-number">1.13.</span> <span class="nav-text">撤销操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#恢复暂存区的所有文件到工作区"><span class="nav-number">1.13.0.0.1.</span> <span class="nav-text">恢复暂存区的所有文件到工作区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#恢复暂存区的指定的某个文件到工作区"><span class="nav-number">1.13.0.0.2.</span> <span class="nav-text">恢复暂存区的指定的某个文件到工作区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！"><span class="nav-number">1.13.0.0.3.</span> <span class="nav-text">可以重置暂存区、工作区，这样就能与上次提交保持一致，建议不要轻易这么做！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可以重置到指定的commit-并重置了暂存区，但工作区是不变的"><span class="nav-number">1.13.0.0.4.</span> <span class="nav-text">可以重置到指定的commit,并重置了暂存区，但工作区是不变的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新建一个commit，用来撤销指定commit，后者所有变化都会被前者抵消，并应用到当前分支"><span class="nav-number">1.13.0.0.5.</span> <span class="nav-text">新建一个commit，用来撤销指定commit，后者所有变化都会被前者抵消，并应用到当前分支 </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#起别名"><span class="nav-number">1.14.</span> <span class="nav-text">起别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签的相关操作"><span class="nav-number">1.15.</span> <span class="nav-text">标签的相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建附注标签"><span class="nav-number">1.15.0.0.1.</span> <span class="nav-text">创建附注标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#切换到标签"><span class="nav-number">1.15.0.0.2.</span> <span class="nav-text">切换到标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看标签的版本信息"><span class="nav-number">1.15.0.0.3.</span> <span class="nav-text">查看标签的版本信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除标签"><span class="nav-number">1.15.0.0.4.</span> <span class="nav-text">删除标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#给指定的commit打标签"><span class="nav-number">1.15.0.0.5.</span> <span class="nav-text">给指定的commit打标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将v0-0-1-pro标签提交到git服务器"><span class="nav-number">1.15.0.0.6.</span> <span class="nav-text">将v0.0.1-pro标签提交到git服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将本地所有标签一次性提交到git服务器"><span class="nav-number">1.15.0.0.7.</span> <span class="nav-text">将本地所有标签一次性提交到git服务器</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

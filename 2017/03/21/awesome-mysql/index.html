@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Contents Awesome MySQL  Analysis Backup Benchmarking ChatOps Configuration Connectors Deployment Development GUI HA Proxy Replication Schema Server Sharding Toolkits   Resources  Conferences E-Books M">
+<meta name="keywords" content="awesome,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="资源mysql大全">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2017&#x2F;03&#x2F;21&#x2F;awesome-mysql&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="Contents Awesome MySQL  Analysis Backup Benchmarking ChatOps Configuration Connectors Deployment Development GUI HA Proxy Replication Schema Server Sharding Toolkits   Resources  Conferences E-Books M">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.764Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2017/03/21/awesome-mysql/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>资源mysql大全 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2017/03/21/awesome-mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          资源mysql大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-21 16:10:00" itemprop="dateCreated datePublished" datetime="2017-03-21T16:10:00+08:00">2017-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/awesome/" itemprop="url" rel="index">
+                    <span itemprop="name">awesome</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><ul>
+<li><p><a href="#awesome-mysql">Awesome MySQL</a></p>
+<ul>
+<li><a href="#analysis">Analysis</a></li>
+<li><a href="#backup">Backup</a></li>
+<li><a href="#benchmarking">Benchmarking</a></li>
+<li><a href="#chatops">ChatOps</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#connectors">Connectors</a></li>
+<li><a href="#deployment">Deployment</a></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#gui">GUI</a></li>
+<li><a href="#ha">HA</a></li>
+<li><a href="#proxy">Proxy</a></li>
+<li><a href="#replication">Replication</a></li>
+<li><a href="#schema">Schema</a></li>
+<li><a href="#server">Server</a></li>
+<li><a href="#sharding">Sharding</a></li>
+<li><a href="#toolkits">Toolkits</a></li>
+</ul>
+</li>
+<li><p><a href="#resources">Resources</a></p>
+<ul>
+<li><a href="#conferences">Conferences</a></li>
+<li><a href="#e-books">E-Books</a></li>
+<li><a href="#media">Media</a></li>
+<li><a href="#newsletters">Newsletters</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p><em>Performance, structure &amp; data analysis tools</em></p>
+<ul>
+<li><a href="https://github.com/box/Anemometer" target="_blank" rel="noopener">Anemometer</a> - Box SQL slow query monitor.</li>
+<li><a href="https://github.com/jeremycole/innodb_ruby" target="_blank" rel="noopener">innodb-ruby</a> - A parser for InnoDB file formats, in Ruby.</li>
+<li><a href="https://github.com/innotop/innotop" target="_blank" rel="noopener">innotop</a> - a ‘top’ clone for MySQL with many features and flexibility.</li>
+<li><a href="https://prometheus.io/" target="_blank" rel="noopener">Prometheus</a>/<a href="https://github.com/prometheus/mysqld_exporter" target="_blank" rel="noopener">mysqld_exporter</a> - Time series database for real-time monitoring and alerting.</li>
+<li><a href="https://github.com/sjmudd/ps-top" target="_blank" rel="noopener">pstop</a> - a top-like program for MySQL, collecting, aggregating and displaying information from performance_schema.</li>
+<li><a href="https://github.com/db-art/mysql-statsd" target="_blank" rel="noopener">mysql-statsd</a> - A Python daemon to collect information from MySQL and send it via StatsD to Graphite.</li>
+<li><a href="http://mysqltuner.com" target="_blank" rel="noopener">MySQLTuner-perl</a> - A script that allows you to review a MySQL installation quickly and make adjustments to increase performance and stability.</li>
+<li><a href="https://www.percona.com/doc/percona-monitoring-and-management/index.html" target="_blank" rel="noopener">Percona Monitoring and Management</a> -  An open-source platform for managing and monitoring MySQL performance. <h2 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h2></li>
+</ul>
+<p><em>Backup/restore/recovery tools</em></p>
+<ul>
+<li><a href="https://launchpad.net/mydumper" target="_blank" rel="noopener">MyDumper</a> - Logical, parallel backup/dumper tool for MySQL</li>
+<li><a href="http://www.mysqldumper.net/" target="_blank" rel="noopener">MySQLDumper</a> - open-source web based backup tool - useful for shared webhosting</li>
+<li><a href="http://www.percona.com/doc/percona-xtrabackup" target="_blank" rel="noopener">Percona Xtrabackup</a> - an open-source hot backup utility for MySQL - based servers that doesn’t lock your database during the backup.</li>
+</ul>
+<h2 id="Benchmarking"><a href="#Benchmarking" class="headerlink" title="Benchmarking"></a>Benchmarking</h2><p><em>Tools to stress your servers</em></p>
+<ul>
+<li><a href="https://github.com/tmcallaghan/iibench-mysql" target="_blank" rel="noopener">iibench-mysql</a> - Java based version of the Index Insertion Benchmark for MySQL/Percona/MariaDB.</li>
+<li><a href="https://github.com/akopytov/sysbench" target="_blank" rel="noopener">Sysbench</a> - a modular, cross-platform and multi-threaded benchmark tool.</li>
+<li><a href="https://code.launchpad.net/~percona-dev/perconatools/tpcc-mysql" target="_blank" rel="noopener">TPCC-MySQL</a> - A port of the popular <a href="http://www.tpc.org/tpcc/" target="_blank" rel="noopener">TPCC</a> benchmark for MySQL.</li>
+</ul>
+<h2 id="ChatOps"><a href="#ChatOps" class="headerlink" title="ChatOps"></a>ChatOps</h2><p><em>Scripts integrated into chat rooms</em></p>
+<ul>
+<li><a href="https://github.com/samlambert/hubot-mysql-chatops" target="_blank" rel="noopener">Hubot MySQL ChatOps</a></li>
+</ul>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p><em>MySQL sample configuration and advisors</em></p>
+<ul>
+<li><a href="https://github.com/morgo/mysql-compatibility-config" target="_blank" rel="noopener">mysql-compatibility-config</a> - make MySQL configuration behave more like newer (or older) releases of MySQL.</li>
+</ul>
+<h2 id="Connectors"><a href="#Connectors" class="headerlink" title="Connectors"></a>Connectors</h2><p><em>MySQL connectors for various programming languages</em></p>
+<ul>
+<li><a href="https://dev.mysql.com/downloads/connector/python/" target="_blank" rel="noopener">Connector/Python</a> - a standardized database driver for Python platforms and development.</li>
+<li><a href="https://dev.mysql.com/downloads/connector/net/" target="_blank" rel="noopener">Connector/Net</a> - a standardized database driver for .Net platforms and development.</li>
+<li><a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">Connector/J</a> - a standardized database driver for the Java platforms and development.</li>
+<li><a href="https://metacpan.org/pod/DBD::mysql" target="_blank" rel="noopener">DBD::mysql</a> - MySQL driver for the Perl5 Database Interface.</li>
+<li><a href="https://github.com/go-sql-driver/mysql" target="_blank" rel="noopener">go-sql-driver</a> - a lightweight and fast MySQL-Driver for Go’s (golang) database/sql package.</li>
+<li><a href="https://github.com/libattachsql/libattachsql" target="_blank" rel="noopener">libAttachSQL</a> - libAttachSQL is a lightweight, non-blocking C API for MySQL servers.</li>
+<li><a href="https://mariadb.com/kb/en/mariadb/mariadb-connector-j/" target="_blank" rel="noopener">MariaDB Java Client</a> - LGPL-licensed MariaDB Client Library for Java Applications.</li>
+<li><a href="https://github.com/PyMySQL/mysqlclient-python" target="_blank" rel="noopener">mysqlclient-python</a> - (Old) MySQL database connector for Python.</li>
+<li><a href="https://github.com/felixge/node-mysql" target="_blank" rel="noopener">node-mysql</a> - A pure Nodejs Javascript client implementing the MySQL protocol.</li>
+<li><a href="https://dev.mysql.com/downloads/connector/php-mysqlnd/" target="_blank" rel="noopener">PHP mysqlnd</a> - MySQL native driver for MySQL, deprecating older libmysql based driver.</li>
+<li><a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">PyMySQL</a> - MySQL database connector for Python.</li>
+<li><a href="https://github.com/brianmario/mysql2" target="_blank" rel="noopener">Ruby Mysql2 gem</a> - MySQL driver for Ruby and Rails projects.</li>
+</ul>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p><em>MySQL deployment tools</em></p>
+<ul>
+<li><a href="https://hub.docker.com/_/mysql/" target="_blank" rel="noopener">MySQL Docker</a> - Official Docker images.</li>
+<li><a href="http://mysqlsandbox.net/" target="_blank" rel="noopener">MySQL Sandbox</a> - a tool that installs one or more MySQL servers within seconds, easily, securely, and with full control.</li>
+</ul>
+<h2 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h2><p><em>Tools to support MySQL-related development</em></p>
+<ul>
+<li><a href="http://flywaydb.org/getstarted/" target="_blank" rel="noopener">Flywaydb</a> - Database migrations; Evolve your database schema easily and reliably across all your instances</li>
+<li><a href="http://www.liquibase.org/" target="_blank" rel="noopener">Liquibase</a> - Source control for your database</li>
+<li><a href="https://github.com/outbrain/propagator" target="_blank" rel="noopener">Propagator</a> - Centralized schema &amp; data deployment on a multi-everything topology</li>
+<li><a href="https://github.com/square/shift" target="_blank" rel="noopener">Shift</a> - An application that helps you run schema migrations on MySQL databases</li>
+</ul>
+<h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><p><em>GUI frontends &amp; applications</em></p>
+<ul>
+<li><a href="https://www.adminer.org/" target="_blank" rel="noopener">Adminer</a> - Database management in a single PHP file.</li>
+<li><a href="http://www.heidisql.com/" target="_blank" rel="noopener">HeidiSQL</a> - MySQL GUI frontend for Windows.</li>
+<li><a href="http://dev.mysql.com/downloads/workbench/" target="_blank" rel="noopener">MySQL Workbench</a> - provides DBAs and developers an integrated tools environment for database design &amp; modeling; SQL devleopment; database administration.</li>
+<li><a href="https://www.phpmyadmin.net/" target="_blank" rel="noopener">phpMyAdmin</a> - a free software tool written in PHP, intended to handle the administration of MySQL over the Web.</li>
+<li><a href="https://github.com/sequelpro/sequelpro" target="_blank" rel="noopener">SequelPro</a> - a Mac database management application for working with MySQL databases.</li>
+<li><a href="https://github.com/dbcli/mycli" target="_blank" rel="noopener">mycli</a> - A Terminal Client for MySQL with AutoCompletion and Syntax Highlighting.</li>
+<li><a href="https://github.com/webyog/sqlyog-community/wiki/Downloads" target="_blank" rel="noopener">SQLyog Community edition</a> - SQLyog Community edition. For Windows, works fine under wine in Mac and Linux</li>
+<li><a href="https://www.percona.com/doc/percona-monitoring-and-management/index.html" target="_blank" rel="noopener">Percona Monitoring and Management</a> -  An open-source platform for managing and monitoring MySQL performance. </li>
+<li><a href="https://github.com/okbob/pspg" target="_blank" rel="noopener">pspg</a> - provides a pager with enhanced visualization and navigation for tabular data. Originally implemented for PostgreSQL, but also supports MySQL.</li>
+</ul>
+<h2 id="HA"><a href="#HA" class="headerlink" title="HA"></a>HA</h2><p><em>High availability solutions</em></p>
+<ul>
+<li><a href="http://galeracluster.com/products/" target="_blank" rel="noopener">Galera Cluster</a> - a true Multimaster Cluster based on synchronous replication.</li>
+<li><a href="https://github.com/mariadb-corporation/replication-manager" target="_blank" rel="noopener">MariaDB Replication Manager</a> - a high availability solution to manage MariaDB 10.x GTID replication.</li>
+<li><a href="http://code.google.com/p/mysql-master-ha/" target="_blank" rel="noopener">MHA</a> - Master High Availability Manager and tools for MySQL</li>
+<li><a href="https://www.mysql.com/products/enterprise/fabric.html" target="_blank" rel="noopener">MySQL Fabric</a> - an extensible framework for managing farms of MySQL Servers.</li>
+<li><a href="https://github.com/percona/percona-pacemaker-agents/" target="_blank" rel="noopener">Percona Replication Manager</a> - Asynchronous MySQL replication manager agent for Pacemaker. Supports file and GTID based replication, geo-distributed clusters using booth.</li>
+</ul>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><p><em>Proxies to MySQL</em></p>
+<ul>
+<li><a href="https://github.com/mariadb-corporation/MaxScale" target="_blank" rel="noopener">MaxScale</a> - open-source, database-centric proxy.</li>
+<li><a href="https://github.com/siddontang/mixer" target="_blank" rel="noopener">Mixer</a> - a MySQL proxy powered by Go which aims to supply a simple solution for MySQL sharding.</li>
+<li><a href="https://launchpad.net/mysql-proxy" target="_blank" rel="noopener">MySQL Proxy</a> - A simple program that sits between your client and MySQL server(s) that can monitor, analyze or transform their communication.</li>
+<li><a href="https://github.com/renecannao/proxysql" target="_blank" rel="noopener">ProxySQL</a> - High performance proxy for MySQL.</li>
+<li><a href="https://dev.mysql.com/doc/mysql-router/en/" target="_blank" rel="noopener">MySQL Router</a> - MySQL Router is lightweight middleware that provides transparent routing between your application and any backend MySQL Servers.</li>
+</ul>
+<h2 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h2><p><em>Replication related software</em></p>
+<ul>
+<li><a href="https://github.com/outbrain/orchestrator" target="_blank" rel="noopener">orchestrator</a> - MySQL replication topology management and visualization tool.</li>
+<li><a href="https://github.com/vmware/tungsten-replicator" target="_blank" rel="noopener">Tungsten Replicator</a> - A high performance, open source, data replication engine for MySQL.</li>
+</ul>
+<h2 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h2><p><em>Add-on schemas</em></p>
+<ul>
+<li><a href="https://github.com/shlomi-noach/common_schema" target="_blank" rel="noopener">common_schema</a> - DBA’s framework for MySQL, providing a function library, views library and QueryScript interpreter.</li>
+<li><a href="https://github.com/mysql/mysql-sys" target="_blank" rel="noopener">sys</a> - A collection of views, functions and procedures to help MySQL administrators get insight in to MySQL Database usage.</li>
+</ul>
+<h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><p><em>MySQL server flavors</em></p>
+<ul>
+<li><a href="https://github.com/MariaDB/server" target="_blank" rel="noopener">MariaDB</a> - Community developed fork of MySQL server.</li>
+<li><a href="https://github.com/mysql/mysql-server" target="_blank" rel="noopener">MySQL Server &amp; MySQL Cluster</a> - Official Oracle’s MySQL server &amp; MySQL Cluster distribution.</li>
+<li><a href="https://launchpad.net/percona-server" target="_blank" rel="noopener">Percona Server</a> - An enhanced, drop-in MySQL replacement.</li>
+<li><a href="https://github.com/webscalesql/webscalesql-5.6" target="_blank" rel="noopener">WebScaleSQL</a> - WebScaleSQL, Version 5.6, based upon the MySQL-5.6 community releases.</li>
+</ul>
+<h2 id="Sharding"><a href="#Sharding" class="headerlink" title="Sharding"></a>Sharding</h2><p><em>Sharding solutions/frameworks</em></p>
+<ul>
+<li><a href="https://github.com/youtube/vitess" target="_blank" rel="noopener">vitess</a> - vitess provides servers and tools which facilitate scaling of MySQL databases for large scale web services.</li>
+<li><a href="https://github.com/tumblr/jetpants" target="_blank" rel="noopener">jetpants</a> - An automation suite for managing large range sharding clusters, by Tumblr.</li>
+</ul>
+<h2 id="Toolkits"><a href="#Toolkits" class="headerlink" title="Toolkits"></a>Toolkits</h2><p><em>Toolkits, general purpose scripts</em></p>
+<ul>
+<li><a href="https://github.com/siddontang/go-mysql" target="_blank" rel="noopener">go-mysql</a> - A pure go library to handle MySQL network protocol and replication.</li>
+<li><a href="https://dev.mysql.com/downloads/utilities/" target="_blank" rel="noopener">MySQL Utilities</a> - a collection of command-line utilities, written in Python, that are used for maintaining and administering MySQL servers, either individually, or within Replication hierarchies.</li>
+<li><a href="https://www.percona.com/software/mysql-tools/percona-toolkit" target="_blank" rel="noopener">Percona Toolkit</a> - a collection of advanced command-line tools to perform a variety of MySQL server and system tasks that are too difficult or complex to perform manually.</li>
+<li><a href="https://github.com/github/gh-ost/" target="_blank" rel="noopener">gh-ost</a> - GitHub’s online schema migration for MySQL.</li>
+<li><a href="http://code.openark.org/forge/openark-kit" target="_blank" rel="noopener">openark kit</a> - a set of utilities that solve everyday maintenance tasks, which may be complicated or time consuming to do by hand, written in Python.</li>
+<li><a href="https://bitbucket.org/Marc-T/undrop-for-innodb" target="_blank" rel="noopener">UnDROP</a> - a tool to recover data from dropped or corrupted InnoDB tables.</li>
+</ul>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p><em>At this stage “resources” will not include websites, blogs, slides, presentation videos, etc. in fear of list size</em></p>
+<h2 id="Conferences"><a href="#Conferences" class="headerlink" title="Conferences"></a>Conferences</h2><p><em>Public, recurring conferences on and around MySQL</em></p>
+<ul>
+<li><a href="https://fosdem.org/" target="_blank" rel="noopener">FOSDEM</a> - a free event for software developers to meet, share ideas and collaborate. Annually, in Brussels. Offers “MySQL &amp; friends” room.</li>
+<li><a href="https://www.oracle.com/openworld/mysql/index.html" target="_blank" rel="noopener">MySQL Central</a> - Oracle’s annual MySQL conference, as part of Oracle Open World.</li>
+<li><a href="https://www.percona.com/live/conferences" target="_blank" rel="noopener">Percona Live</a> - MySQL &amp; Openstack focused conference.</li>
+<li><a href="https://www.socallinuxexpo.org" target="_blank" rel="noopener">SCALE</a> - A community organized Linux and Open Source conference held annually in Southern California. The local MySQL community runs a track under the name MySQL Community Day.</li>
+</ul>
+<h2 id="e-books"><a href="#e-books" class="headerlink" title="e-books"></a>e-books</h2><p><em>e-books as well as relevant materials on and around MySQL</em></p>
+<ul>
+<li><a href="https://github.com/XD-DENG/SQL-exercise" target="_blank" rel="noopener">SQL-exercise</a> - contains several SQL exercises, including the schema description figure, SQL code to build schema, questions and solutions in SQL. Based on wikibook <a href="https://en.wikibooks.org/wiki/SQL_Exercises" target="_blank" rel="noopener">SQL Exercises</a>.</li>
+</ul>
+<h2 id="Media"><a href="#Media" class="headerlink" title="Media"></a>Media</h2><p><em>Public, ongoing video &amp; audio casts. This excludes conference presentations in fear of list size</em></p>
+<ul>
+<li><a href="http://dbhangops.github.io/" target="_blank" rel="noopener">DBHangOps</a> - a bi-weekly google hangout meeting of various members of the MySQL community that simply want to talk shop about MySQL in their day-to-day .</li>
+<li><a href="http://www.oursql.com/" target="_blank" rel="noopener">OurSQL Podcast</a> - The MySQL database community podcast.</li>
+</ul>
+<h2 id="Newsletters"><a href="#Newsletters" class="headerlink" title="Newsletters"></a>Newsletters</h2><p><em>Newsletters require an email address, by definition. List below are newsletters that require nothing but an email address</em></p>
+<ul>
+<li><a href="http://mysqlnewsletter.com/" target="_blank" rel="noopener">Weekly MySQL News</a> - Unofficial weekly news digest of all things MySQL.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/awesome/" rel="tag"># awesome</a>
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/03/07/ngrok-intro/" rel="prev" title="ngrok内网穿透工具">
+      <i class="fa fa-chevron-left"></i> ngrok内网穿透工具
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/04/21/awesome-dotnet-cn/" rel="next" title="资源dotnet大全中文版">
+      资源dotnet大全中文版 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Contents"><span class="nav-number">1.</span> <span class="nav-text">Contents</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number"></span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backup"><span class="nav-number"></span> <span class="nav-text">Backup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Benchmarking"><span class="nav-number"></span> <span class="nav-text">Benchmarking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatOps"><span class="nav-number"></span> <span class="nav-text">ChatOps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuration"><span class="nav-number"></span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectors"><span class="nav-number"></span> <span class="nav-text">Connectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number"></span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Development"><span class="nav-number"></span> <span class="nav-text">Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI"><span class="nav-number"></span> <span class="nav-text">GUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HA"><span class="nav-number"></span> <span class="nav-text">HA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proxy"><span class="nav-number"></span> <span class="nav-text">Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Replication"><span class="nav-number"></span> <span class="nav-text">Replication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema"><span class="nav-number"></span> <span class="nav-text">Schema</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Server"><span class="nav-number"></span> <span class="nav-text">Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sharding"><span class="nav-number"></span> <span class="nav-text">Sharding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Toolkits"><span class="nav-number"></span> <span class="nav-text">Toolkits</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resources"><span class="nav-number"></span> <span class="nav-text">Resources</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Conferences"><span class="nav-number"></span> <span class="nav-text">Conferences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-books"><span class="nav-number"></span> <span class="nav-text">e-books</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Media"><span class="nav-number"></span> <span class="nav-text">Media</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Newsletters"><span class="nav-number"></span> <span class="nav-text">Newsletters</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

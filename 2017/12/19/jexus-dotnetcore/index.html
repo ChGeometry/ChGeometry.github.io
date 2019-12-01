@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Jexus 即 Jexus Web Server，简称JWS，是Linux平台上的一款ASP.NET WEB服务器，是 Linux、Unix、FreeBSD 等非Windows系统架设 ASP.NET WEB 服务器的核心程序，是企业级ASP.NET跨平台部署的一种可选方案。与其它WEB服务器相比，Jexus不但具有跨平台ASP.NET服务器这样的标志性特征，同时还拥有内核级的安全监控、入侵检测、">
+<meta name="keywords" content="c#,linux,jexus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jexus 支持dotnet core 项目">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2017&#x2F;12&#x2F;19&#x2F;jexus-dotnetcore&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="Jexus 即 Jexus Web Server，简称JWS，是Linux平台上的一款ASP.NET WEB服务器，是 Linux、Unix、FreeBSD 等非Windows系统架设 ASP.NET WEB 服务器的核心程序，是企业级ASP.NET跨平台部署的一种可选方案。与其它WEB服务器相比，Jexus不但具有跨平台ASP.NET服务器这样的标志性特征，同时还拥有内核级的安全监控、入侵检测、">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.776Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2017/12/19/jexus-dotnetcore/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>jexus 支持dotnet core 项目 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2017/12/19/jexus-dotnetcore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jexus 支持dotnet core 项目
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-19 13:39:25" itemprop="dateCreated datePublished" datetime="2017-12-19T13:39:25+08:00">2017-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Jexus 即 Jexus Web Server，简称JWS，是Linux平台上的一款ASP.NET WEB服务器，是 Linux、Unix、FreeBSD 等非Windows系统架设 ASP.NET WEB 服务器的核心程序，是企业级ASP.NET跨平台部署的一种可选方案。与其它WEB服务器相比，Jexus不但具有跨平台ASP.NET服务器这样的标志性特征，同时还拥有内核级的安全监控、入侵检测、URL重写、无文件路由等一系列重要功能和专有特性。</p>
+<p>关于它的定义简单明了，就是一款Linux上的Asp.Net Web服务器，相当于我们的Windows上的IIS，Jexus5.8.2的正式发布为Asp.Net Core进入生产环境提供了平台支持。</p>
+<p>本版的亮点是新增“AppHost”配置项，将HTTP自宿主应用程序（如Asp.net Core应用程序、Node.js应用程序等）统一纳入Jexus的工作进程序列进行管控（启动、停止、重启、崩溃后自动恢复等管理、监控功能），为Asp.Net Core应用程序进入企业化生产环境提供了强有力的平台保障。使用 jexus整合asp.net core的优点：</p>
+<pre><code>1)支持多站点，同一端口可以同时支持任何多的asp.net core应用程序；
+
+2)应用程序启动、停止、重启与站点的启动、停止、重启等操作一致，无需手工管理asp.net core应用程序；
+
+3)具有应用程序崩溃后自动重启功能，为企业级不间断运行保障；
+
+4)具有比反向代理更高的性能优势；
+
+5)提供与IIS相同的HTTP环境参数。</code></pre><h3 id="安装jexus独立版"><a href="#安装jexus独立版" class="headerlink" title="安装jexus独立版"></a>安装jexus独立版</h3><blockquote>
+<p>注：运行安装命令，需要操作者有root权限</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">curl https://jexus.org/release/x64/install.sh|sh</span></pre></td></tr></table></figure>
+<h3 id="Jexus-系统配置"><a href="#Jexus-系统配置" class="headerlink" title="Jexus 系统配置"></a>Jexus 系统配置</h3><p>Jexus按默认配置就能很好的工作，进一步配置是为了Jexus更适合自己的需要。<br>Jexus最核心的一个配置文件，固定文件名是jws.conf，这个文件与jexus的其它工作文件在同一个文件夹中。</p>
+<p>jws.conf有如果基本配置内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">SiteLogDir&#x3D;log    #网站日志以及Jexus系统日志的存放位置，必填项。可以使用基于jws.exe文件的相对路径</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">SiteConfigDir&#x3D;siteconf     #网站配置文件存放的位置，是必填项。可以使用绝对路径，也可以使用基于jws.conf文件的相对路径</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Runtime&#x3D;v4.0.30319    #设定Jexus工作进程运行于哪个.NET版本</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">httpd.processes&#x3D;1     #工作进程的数量，建议每6-8核CPU用一个进程，最多可设4个进程</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">httpd.user&#x3D;www-data     #工作进程以什么用户身份和对应权限工作，默认为root</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">php-fcgi.set&#x3D;&#x2F;usr&#x2F;bin&#x2F;php-cgi,6    #如果需要Jexus同时充当PHP FastCGI服务器，这一句就是fast-cgi设置，分两个部分，逗号前为php-cgi这个文件的路径，逗号后是php进程数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">CertificateFile&#x3D;&#x2F;xxxx&#x2F;xx.crt    #SSL证书路径（如果需要使用https协议才填）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">CertificateKeyFile&#x3D;&#x2F;xxxx&#x2F;xx.key    #SSL密钥文件路径（如果需要使用https协议才填）</span></pre></td></tr></table></figure>
+<blockquote>
+<p>注：jws.conf 中,SiteConfigDir 和 SiteLogDir 两项是必填项</p>
+</blockquote>
+<h3 id="网站配置"><a href="#网站配置" class="headerlink" title="网站配置"></a>网站配置</h3><p>Jexus支持多站点，可以用不同的端口、域名、虚拟路径设置任意多的网站，配置时，首先要注意如下三个规则：</p>
+<pre><code>1）必须把所有网站配置文件放到jws.conf指定的网站配置文件夹内，这个文件夹除了网站配置文件，不能有其它任何文件，因为jexus会认为这儿的任何一个文件都代表着一个不同的网站。
+
+2）每个网站有且只有一个配置文件，配置文件的文件名就是这个网站的名称，比如 www.mysite.cn这个网站，配置文件名可以写成“mysite”，当然也可以写成其它文件名，以便管理员容易记忆和识别，但要特别注意：文件名不能有空格！
+
+3）一个网站可以拥有任意多的域名，不同网站不能有相同的域名，没有域名的网站只能有一个，这个没有域名的网站叫做“默认网站”，而一台服务器最多只能有一个默认网站。</code></pre><h3 id="配置实例"><a href="#配置实例" class="headerlink" title="配置实例"></a>配置实例</h3><p>A、网站配置的基本内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">port&#x3D;80                          # jexus WEB服务器侦听端口（必填。当然可以是其它端口）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">root&#x3D;&#x2F; &#x2F;var&#x2F;www&#x2F;mysite           # 网站URL根路径（虚拟目录）和对应的物理路径，两个路径字串之间必须用空格分开（必填。既使这个网站是一个纯粹的反向代理站，也得填）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">#可选项</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">hosts&#x3D;mysite.cn,www.mysite.cn    # 网站域名（建议填写），可以用泛域名，比如：*.mysite.cn（不填此项或只填一个“*”号表示这是默认网站，一个端口只能有一个默认站）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">indexs&#x3D;index.aspx,index.htm      # 首页文件名，可以写多个，用英文逗号分开（可以不填。因为JWS系统含有常用首页名）</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">aspnet_exts&#x3D;mspx,ttt             # 添加新出现的或自定义的ASP.NET扩展名（不建议填。多个扩展名用英文逗号分开，不加点号。系统含有常用扩展名）</span></pre></td></tr></table></figure>
+<p>B、最简配置示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">port&#x3D;80</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">root&#x3D;&#x2F; &#x2F;var&#x2F;www&#x2F;default</span></pre></td></tr></table></figure>
+<p>C、网站配置的高级选项<br>网站配置的高级选项全是可选项，应该根据网站的实际需要选填。<br>灵活使用高级选项，可以架设出一台与众不同的、功能强大的服务器平台或者服务器群组。</p>
+<pre><code>1、使用“URL重写”功能
+URL重写是指WEB服务器将访问者的请求URL路径资源按指定的匹配规则解释和匹配为另外的一个真实RUL路径资源。
+
+比如，希望别人访问“.php”类型的文件时，服务器返回 /404.html 这个文件：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">rewrite&#x3D;^&#x2F;.+?\.(asp|php|cgi)$ &#x2F;404.html</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"># 格式：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"># “rewrite&#x3D;”的后面是两部分阻成，两部分之间由一个空格分开。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  空格前是匹配的条件：用正则表达式描述URL的匹配条件。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  空格后是匹配的目标：指的是如果用户访问的路径合乎前面的匹配条件，服务器将以哪个规则回应。</span></pre></td></tr></table></figure>
+
+<pre><code>又如：
+把“/bbs”解析为“/bbs/index.aspx”，把“/bbs/file-1” 匹配为 “/bbs/show.aspx?id=1”：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">rewrite&#x3D;^&#x2F;bbs$ &#x2F;bbs&#x2F;index.aspx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">rewrite&#x3D;^&#x2F;bbs&#x2F;file-([0-9]&#123;1,6&#125;)$ &#x2F;bbs&#x2F;show.aspx?id&#x3D;$1</span></pre></td></tr></table></figure>
+<pre><code>格式解释：rewrite的等号后含有两部分内容，用空隔分开。前半部分是一个正则表达式，用于描述需要URL重写的（用户浏览器中的）url路径样式，后半部分是当用户的URL合乎前面的正则表达式时，JWS应该重写和访问的真实URL路径。
+
+2、禁止某IP或IP段访问本网站</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">denyfrom&#x3D;111.222.111.*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">denyfrom&#x3D;101.202.111.*</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">denyfrom&#x3D;101.201.1.132</span></pre></td></tr></table></figure>
+
+<pre><code>3、禁止访问某文件夹及其子文件夹中的内容</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">DenyDirs&#x3D;网站文件夹路径的URL路径，如 “&#x2F;abcfiles”或 “~&#x2F;abcfiles”，多个路径，用英文逗号分开</span></pre></td></tr></table></figure>
+
+<pre><code>4、是否对请求的URL等进行安全检测
+本选项默认是true，即需要检查，除非你的确需要关掉这个选项，否则可以不填，格式如下：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">checkquery&#x3D;false</span></pre></td></tr></table></figure>
+<blockquote>
+<p>（关掉本项可以提高服务器速度，但就安全而言，不建议关掉它）</p>
+</blockquote>
+<pre><code>5、NOFILE（无文件）功能</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nofile&#x3D;&#x2F;mvc&#x2F;controller.aspx</span></pre></td></tr></table></figure>
+<blockquote>
+<p>（注：这是Jexus特有的功能，指的是如果服务器不存在用户要访问的文件，服务器将使用什么文件应答。）</p>
+</blockquote>
+<blockquote>
+<p>（提示：路由后，原RUL路径会存贮在Jexus特有一个服务器变量“X-Real-Uri”中）</p>
+</blockquote>
+<blockquote>
+<p>（技巧：用这个功能，或者再加上URL Rewrite功能，你完全可以把URL路径与真实路径隔离开来，达到信息隐藏和简化URL的作用。）</p>
+</blockquote>
+<pre><code>6、NOLOG（无日志）功能</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">nolog&#x3D;yes</span></pre></td></tr></table></figure>
+<blockquote>
+<p>（注：禁用网站日志功能会提高WEB服务器系统的的处理速度，但不足也是明显的，就是你无法详细了解网站的访问情况了）</p>
+</blockquote>
+<pre><code>7、长连接开关</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">keep_alive&#x3D;true</span></pre></td></tr></table></figure>
+<blockquote>
+<p>注：V5.1版默认值是true，即默认使用长连接，可以不填。</p>
+</blockquote>
+<pre><code>8、反向代理功能</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">reproxy&#x3D; &#x2F;abc&#x2F; http:&#x2F;&#x2F;www.xxxx.com:890&#x2F;abc&#x2F;</span></pre></td></tr></table></figure>
+<blockquote>
+<p>参数的值由本站RUL根路径和目标网站URL根路径两部分组成，之间用空隔分开。</p>
+</blockquote>
+<blockquote>
+<p>*技巧：反向代量的目标地址可以有多个，用英文逗号分隔，如：<br>reproxy=/abc/ <a href="http://192.168.0.3/abc/,http://192.168.0.4/abc/" target="_blank" rel="noopener">http://192.168.0.3/abc/,http://192.168.0.4/abc/</a><br>这时，当用户访问/abc/时，jexus就会随机选择一台服务器进行访问，达到负载均衡或服务器集群的效果。</p>
+</blockquote>
+<pre><code>9、接受FAST-CGI提供的服务
+对于TCP连接：
+fastcgi.add=需要fast-cgi处理的文件扩展名|tcp:fast-cgi服务的IP地址:端口
+如：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">fastcgi.add&#x3D;php,php3|tcp:127.0.0.1:9000</span></pre></td></tr></table></figure>
+<pre><code>对于unix sockets：
+fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
+如:</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">fastcgi.add&#x3D;php,php3|socket:&#x2F;tmp&#x2F;phpsvr</span></pre></td></tr></table></figure>
+
+<pre><code>10、启用gzip压缩功能</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">usegzip&#x3D;true    #即UseGzip</span></pre></td></tr></table></figure>
+<blockquote>
+<p>解释：启用这个功能后，当用户访问“.htm”“.js”等文件时，Jexus会将这些文件进行GZIP压缩后发送给用户浏览器，这样，可以节约更多的网络带宽。</p>
+</blockquote>
+<pre><code>11、启用HTTPS进行SSL安全传输
+本功能是对服务器与客户之间的数据进行加密传送，提供数据的保密性。具体方法请访问www.linuxdot.net的专题讲解。
+
+12、AppHost
+格式：AppHost={CmdLine=命行行; AppRoot=工作路径; Port=端口号}  </code></pre><blockquote>
+<p>说明：CmdLine:必选项。表示启动这个web应用程序的命令（含参数），如 CmdLine= dotnet /var/www/aspnetcore/AspNetCoreStarted.dll<br>AppRoot:必选项。表示这个应用程序的工作目录，如：AppRoot=/var/www/aspnetcore  </p>
+</blockquote>
+<blockquote>
+<p>Port:可选项。表示这个应用程序的侦听端口，多个端口用英文逗号分隔（注：如果没有填写这一项，就请在AppHost.port或reproxy中填写端口号，否则，请求数据无法转发给应用程序）。  </p>
+</blockquote>
+<blockquote>
+<p>Env:可选参数。表示这个应用程序工作时需要的环境变量，如 env=(PATH=/usr/local/bin:/var/www/aspnetcore:$PATH),多个设置用英文逗号分开。  </p>
+</blockquote>
+<blockquote>
+<p>ErrLog:可选项。表示将这个应用程序的异常输出重定向到指定的文件（需填写完整路径）,如果不原意输出日志，可以不用OutLog项。这时, jexus会自动关掉控制台输出（实质是重定向到/dev/null中了）；  </p>
+</blockquote>
+<blockquote>
+<p>OutLog:可选项。表示将这个应用程序的控制台输出重定向到指定的文件（需填写完整路径）；  </p>
+</blockquote>
+<blockquote>
+<p>User: 可选项。以指定的用户身份运行该应用程序，默认为root身份。  </p>
+</blockquote>
+<blockquote>
+<p>注意：<br>   1，AppHost像AppHost.Port一样，不支持虚拟路径；<br>   2，AppHost功能是将指定的具有http服务能力的web应用程序纳入jexus工作进程进行管理，对Asp.Net Core或Node.js等自宿主web程序用于生产环境具有重要的意义。  </p>
+</blockquote>
+<h3 id="Jexus操作"><a href="#Jexus操作" class="headerlink" title="Jexus操作"></a>Jexus操作</h3><p>Jexus自带了三个脚本，分别是：jws.start、jws.restart、jws.stop。</p>
+<pre><code>功能1，对Jexus服务器操作：</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jws.start     <span class="comment">#启动JEXUS服务，可以写入rc.local文件中，从而达到开机自启动的目的；</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">jws.stop      <span class="comment">#停止Jexus的运行。</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">jws.restart   <span class="comment">#重启Jexus；</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">jws.status   <span class="comment">#Jexus运行状态；</span></span></pre></td></tr></table></figure>
+
+<pre><code>功能2，对某个指定的网站操作：</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jws.restart 网站名     <span class="comment">#加载/启动/重启一个指定的网站</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">jws.stop 网站名        <span class="comment">#停止一个指定的网站</span></span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意，这些脚本需要具有可执行权限，同时操作者也必须拥有管理员（root）权限。</p>
+</blockquote>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><blockquote>
+<p>Jexus目录 /usr/jexus</p>
+</blockquote>
+<blockquote>
+<p>Jexus站点配置目录 /usr/jexus/siteconf</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c#</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/jexus/" rel="tag"># jexus</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/07/01/awesome-unity/" rel="prev" title="资源unity大全">
+      <i class="fa fa-chevron-left"></i> 资源unity大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/12/19/jexus-ubuntu-powerboot/" rel="next" title="jexus 添加自启 ubuntu">
+      jexus 添加自启 ubuntu <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装jexus独立版"><span class="nav-number">1.</span> <span class="nav-text">安装jexus独立版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jexus-系统配置"><span class="nav-number">2.</span> <span class="nav-text">Jexus 系统配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站配置"><span class="nav-number">3.</span> <span class="nav-text">网站配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置实例"><span class="nav-number">4.</span> <span class="nav-text">配置实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jexus操作"><span class="nav-number">5.</span> <span class="nav-text">Jexus操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备注"><span class="nav-number">6.</span> <span class="nav-text">备注</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

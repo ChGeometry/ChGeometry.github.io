@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="IdentityServer4 使用OpenID Connect添加用户认证IdentityServer4 OpenID ConnectOpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。 它允许客户端基于授权服务器执行的身份验证来验证最终用户的身份，以及以可互操作和类似REST的方式获取关于最终用户的基本配置文件信息。">
+<meta name="keywords" content="dotnet core,c#,IdentityServer4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IdentityServer4-9 - 使用OpenID Connect添加用户认证">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2018&#x2F;01&#x2F;03&#x2F;IdentityServer4-9&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="IdentityServer4 使用OpenID Connect添加用户认证IdentityServer4 OpenID ConnectOpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。 它允许客户端基于授权服务器执行的身份验证来验证最终用户的身份，以及以可互操作和类似REST的方式获取关于最终用户的基本配置文件信息。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-6.png">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.758Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-9-1.png">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2018/01/03/IdentityServer4-9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>IdentityServer4-9 - 使用OpenID Connect添加用户认证 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/01/03/IdentityServer4-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IdentityServer4-9 - 使用OpenID Connect添加用户认证
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-03 17:30:00" itemprop="dateCreated datePublished" datetime="2018-01-03T17:30:00+08:00">2018-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IdentityServer4/" itemprop="url" rel="index">
+                    <span itemprop="name">IdentityServer4</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="IdentityServer4-使用OpenID-Connect添加用户认证"><a href="#IdentityServer4-使用OpenID-Connect添加用户认证" class="headerlink" title="IdentityServer4 使用OpenID Connect添加用户认证"></a>IdentityServer4 使用OpenID Connect添加用户认证</h1><h2 id="IdentityServer4-OpenID-Connect"><a href="#IdentityServer4-OpenID-Connect" class="headerlink" title="IdentityServer4 OpenID Connect"></a>IdentityServer4 OpenID Connect</h2><p>OpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。 它允许客户端基于授权服务器执行的身份验证来验证最终用户的身份，以及以可互操作和类似REST的方式获取关于最终用户的基本配置文件信息。</p>
+<p>OpenID Connect允许所有类型的客户端（包括基于Web的移动和JavaScript客户端）请求和接收关于认证会话和最终用户的信息。 规范套件是可扩展的，允许参与者使用可选功能，例如身份数据的加密，OpenID提供商的发现和会话管理。</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-9-1.png" alt=""></p>
+<h2 id="OpenID-Connect-和-OAuth的关系"><a href="#OpenID-Connect-和-OAuth的关系" class="headerlink" title="OpenID Connect 和 OAuth的关系"></a>OpenID Connect 和 OAuth的关系</h2><p>OpenID Connect 在OAuth2上构建了一个身份层，是一个基于OAuth2协议的身份认证标准协议。我们都知道OAuth2是一个授权协议，它无法提供完善的身份认证功能，OpenID Connect 使用OAuth2的授权服务器来为第三方客户端提供用户的身份认证，并把对应的身份认证信息传递给客户端，且可以适用于各种类型的客户端（比如服务端应用，移动APP，JS应用），且完全兼容OAuth2，也就是说你搭建了一个OpenID Connect 的服务后，也可以当作一个OAuth2的服务来用。应用场景如图</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-9-2.png" alt=""></p>
+<p>简而言之，OpenID Connect是在OAuth2.0上进行的一个扩展协议，OpenID Connect=Identity +OAuth 2.0，OpenID Connect主要用于身份认证（Authentication）,OAuth主要用于授权（Authorization）。</p>
+<blockquote>
+<p>更深入了解OpenID Connect和OAuth，如果你准备使用IdentityServer4，十分推荐阅读这几篇文章：<a href="http://www.cnblogs.com/linianhui/category/929878.html" target="_blank" rel="noopener">http://www.cnblogs.com/linianhui/category/929878.html</a> 。</p>
+</blockquote>
+<h2 id="创建一个MVC客户端"><a href="#创建一个MVC客户端" class="headerlink" title="创建一个MVC客户端"></a>创建一个MVC客户端</h2><h3 id="新建一个ASP-NET-Core-MVC应用程序"><a href="#新建一个ASP-NET-Core-MVC应用程序" class="headerlink" title="新建一个ASP.NET Core MVC应用程序"></a>新建一个ASP.NET Core MVC应用程序</h3><p><img src="http://blog.chenlis.com/static/identityserver4-9-3.png" alt=""></p>
+<h3 id="配置-OpenID-Connect-认证"><a href="#配置-OpenID-Connect-认证" class="headerlink" title="配置 OpenID Connect 认证"></a>配置 OpenID Connect 认证</h3><p>在类Startup的 ConfigureServices方法中添加以下代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ConfigureServices</span>(<span class="params">IServiceCollection services</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    services.AddMvc();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    services.AddAuthentication(options =&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        options.DefaultScheme = <span class="string">"Cookies"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        options.DefaultChallengeScheme = <span class="string">"oidc"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    &#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    .AddCookie(<span class="string">"Cookies"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    .AddOpenIdConnect(<span class="string">"oidc"</span>, options =&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        options.SignInScheme = <span class="string">"Cookies"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        options.Authority = <span class="string">"http://localhost:5000"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        options.RequireHttpsMetadata = <span class="literal">false</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">        options.ClientId = <span class="string">"mvc"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">        options.SaveTokens = <span class="literal">true</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    &#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>AddAuthentication将认证服务添加到依赖注入容器中，使用Cookie作为验证用户的主要方法（通过”Cookies”作为 DefaultScheme）。</p>
+<p>DefaultChallengeScheme 设置为”oidc”(OIDC是OpenID Connect的简称)，因为当我们需要用户登录时，我们将使用OpenID Connect方案。</p>
+<p>然后我们使用AddCookie添加可以处理Cookie的处理程序。</p>
+<p>最后，AddOpenIdConnect用于配置执行OpenID Connect协议的处理程序。Authority表示id4服务的地址。 然后我们通过ClientId识别该客户端。SignInScheme 用于在OpenID Connect协议完成后使用cookie处理程序发出cookie。 而SaveTokens用于在Cookie中保存IdentityServer中的令牌（稍后将需要）。</p>
+<p>然后确保在每个请求上执行认证服务，在Startup中的Configure方法添加UseAuthentication：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Configure</span>(<span class="params">IApplicationBuilder app, IHostingEnvironment env</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (env.IsDevelopment())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        app.UseDeveloperExceptionPage();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        app.UseExceptionHandler(<span class="string">"/Home/Error"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    app.UseAuthentication();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    app.UseStaticFiles();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    app.UseMvcWithDefaultRoute();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>验证中间件应该在MVC之前添加。</p>
+<p>最后一步是触发认证。为了进入HomeController，并在其中一个Action上添加特性[Authorize]</p>
+<p>还要修改该Action的View以显示用户的信息，例如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    @<span class="keyword">foreach</span> (<span class="keyword">var</span> claim <span class="keyword">in</span> User.Claims)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        &lt;dt&gt;@claim.Type&lt;/dt&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        &lt;dd&gt;@claim.Value&lt;/dd&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&lt;/dl&gt;</span></pre></td></tr></table></figure>
+
+<p>如果您现在使用浏览器访问HomeController，将会导致重定向到IdentityServer,这将导致错误，因为MVC客户端尚未注册。</p>
+<h2 id="添加OpenID-Connect-Identity-Scopes的支持"><a href="#添加OpenID-Connect-Identity-Scopes的支持" class="headerlink" title="添加OpenID Connect Identity Scopes的支持"></a>添加OpenID Connect Identity Scopes的支持</h2><p>与OAuth 2.0类似，OpenID Connect也使用Scopes概念。 再次，Scopes代表您想要保护的客户端希望访问的内容。 与OAuth相反，OIDC中的范围不代表API，而是代表用户ID，姓名或电子邮件地址等身份信息。</p>
+<p>在Config.cs中添加如下代码：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;IdentityResource&gt; <span class="title">GetIdentityResources</span>(<span class="params"></span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> List&lt;IdentityResource&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> IdentityResources.OpenId(),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> IdentityResources.Profile(),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>所有标准Scopes及其相应的声明都可以在OpenID Connect规范中找到。</p>
+</blockquote>
+<p>然后，您需要将这些身份资源添加到Startup.cs中的IdentityServer配置中。使用AddInMemoryIdentityResources扩展方法调用AddIdentityServer()：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ConfigureServices</span>(<span class="params">IServiceCollection services</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    services.AddMvc();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// configure identity server with in-memory stores, keys, clients and scopes</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    services.AddIdentityServer()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        .AddDeveloperSigningCredential()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        .AddInMemoryIdentityResources(Config.GetIdentityResources())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        .AddInMemoryApiResources(Config.GetApiResources())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        .AddInMemoryClients(Config.GetClients())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        .AddTestUsers(Config.GetUsers());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="为OpenID-Connect-implicit-flow-添加客户端"><a href="#为OpenID-Connect-implicit-flow-添加客户端" class="headerlink" title="为OpenID Connect implicit flow 添加客户端"></a>为OpenID Connect implicit flow 添加客户端</h2><blockquote>
+<p>Implicit Flow指的是使用OAuth2的Implicit流程获取Id Token和Access Token</p>
+</blockquote>
+<p>最后一步是将MVC客户端的配置添加到IdentityServer。</p>
+<p>基于OpenID Connect的客户端与我们迄今添加的OAuth 2.0客户端非常相似。 但是由于OIDC中的流程始终是交互式的，我们需要在配置中添加一些重定向URL。</p>
+<p>将以下内容添加到您的客户端配置：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;Client&gt; <span class="title">GetClients</span>(<span class="params"></span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> List&lt;Client&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// other clients omitted...</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// OpenID Connect implicit flow client (MVC)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> Client</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            ClientId = <span class="string">"mvc"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            ClientName = <span class="string">"MVC Client"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            AllowedGrantTypes = GrantTypes.Implicit,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// where to redirect to after login</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            RedirectUris = &#123; <span class="string">"http://localhost:5002/signin-oidc"</span> &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            <span class="comment">// where to redirect to after logout</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">            PostLogoutRedirectUris = &#123; <span class="string">"http://localhost:5002/signout-callback-oidc"</span> &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">            AllowedScopes = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">            &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">                IdentityServerConstants.StandardScopes.OpenId,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">                IdentityServerConstants.StandardScopes.Profile</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h2 id="测试客户端"><a href="#测试客户端" class="headerlink" title="测试客户端"></a>测试客户端</h2><p>通过访问受保护的Action来触发身份验证握手。 你应该看到重定向到IdentityServer的登录页面。</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-9-4.png" alt=""></p>
+<p>成功登录后，用户将看到同意画面。 在这里，用户可以决定是否要将他的身份信息发布到客户端应用程序。</p>
+<blockquote>
+<p>可以使用客户端对象上的RequireConsent属性以每个客户端为基础关闭同意询问。</p>
+</blockquote>
+<p><img src="http://blog.chenlis.com/static/identityserver4-9-5.png" alt=""></p>
+<p>最后浏览器重定向到客户端应用程序，该应用程序显示了用户的声明。</p>
+<p><img src="http://blog.chenlis.com/static/identityserver4-9-6.png" alt=""></p>
+<p>在开发过程中，您有时可能会看到一个异常，说明令牌无法验证。 这是因为签名密钥信息是即时创建的，并且只保存在内存中。 当客户端和IdentityServer不同步时，会发生此异常。 只需在客户端重复操作，下次元数据已经追上，一切都应该正常工作。</p>
+<h2 id="添加注销"><a href="#添加注销" class="headerlink" title="添加注销"></a>添加注销</h2><p>最后一步是给MVC客户端添加注销功能。</p>
+<p>使用IdentityServer等身份验证服务，仅清除本地应用程序Cookie是不够的。 此外，您还需要往身份服务器交互，以清除单点登录会话。</p>
+<p>确切的协议步骤在OpenID Connect中间件内实现，只需将以下代码添加到某个控制器即可触发注销：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Logout</span>(<span class="params"></span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">await</span> HttpContext.SignOutAsync(<span class="string">"Cookies"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">await</span> HttpContext.SignOutAsync(<span class="string">"oidc"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>这将清除本地cookie，然后重定向到IdentityServer。 IdentityServer将清除它的cookie，然后给用户一个链接返回到MVC应用程序。</p>
+<h2 id="进一步实验"><a href="#进一步实验" class="headerlink" title="进一步实验"></a>进一步实验</h2><p>如上所述，OpenID Connect中间件默认要求配置 profile scope。 这个scope还包括像名字或网站这样的声明。</p>
+<p>让我们将这些声明添加到用户，以便IdentityServer可以将它们放入身份令牌中：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;TestUser&gt; <span class="title">GetUsers</span>(<span class="params"></span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> List&lt;TestUser&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> TestUser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            SubjectId = <span class="string">"1"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            Username = <span class="string">"alice"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            Password = <span class="string">"password"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            Claims = <span class="keyword">new</span> []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">new</span> Claim(<span class="string">"name"</span>, <span class="string">"Alice"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">new</span> Claim(<span class="string">"website"</span>, <span class="string">"https://alice.com"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">new</span> TestUser</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">            SubjectId = <span class="string">"2"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">            Username = <span class="string">"bob"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">            Password = <span class="string">"password"</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">            Claims = <span class="keyword">new</span> []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">            &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">new</span> Claim(<span class="string">"name"</span>, <span class="string">"Bob"</span>),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">new</span> Claim(<span class="string">"website"</span>, <span class="string">"https://bob.com"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<p>下一次您进行身份验证时，你的声明页面现在将显示额外的声明。</p>
+<p>OpenID Connect中间件上的Scope属性是您配置哪些Scope将在身份验证期间发送到IdentityServer。</p>
+<p>值得注意的是，对令牌中身份信息的遍历是一个扩展点 - IProfileService。因为我们正在使用 AddTestUser，所以默认使用的是 TestUserProfileService。你可以检出这里的源代码来查看它的工作原理。</p>
+<h2 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h2><p>参考官方文档：<a href="https://identityserver4.readthedocs.io/en/release/quickstarts/3_interactive_login.html" target="_blank" rel="noopener">https://identityserver4.readthedocs.io/en/release/quickstarts/3_interactive_login.html</a></p>
+<p>官方的Demo已经更新到最新的.NET Core 2.0。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/dotnet-core/" rel="tag"># dotnet core</a>
+              <a href="/tags/c/" rel="tag"># c#</a>
+              <a href="/tags/IdentityServer4/" rel="tag"># IdentityServer4</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/02/IdentityServer4-8/" rel="prev" title="IdentityServer4-8 - 使用密码认证方式控制API访问">
+      <i class="fa fa-chevron-left"></i> IdentityServer4-8 - 使用密码认证方式控制API访问
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/04/IdentityServer4-10/" rel="next" title="IdentityServer4-10 - 添加对外部认证的支持之QQ登录">
+      IdentityServer4-10 - 添加对外部认证的支持之QQ登录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IdentityServer4-使用OpenID-Connect添加用户认证"><span class="nav-number">1.</span> <span class="nav-text">IdentityServer4 使用OpenID Connect添加用户认证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IdentityServer4-OpenID-Connect"><span class="nav-number">1.1.</span> <span class="nav-text">IdentityServer4 OpenID Connect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenID-Connect-和-OAuth的关系"><span class="nav-number">1.2.</span> <span class="nav-text">OpenID Connect 和 OAuth的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个MVC客户端"><span class="nav-number">1.3.</span> <span class="nav-text">创建一个MVC客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个ASP-NET-Core-MVC应用程序"><span class="nav-number">1.3.1.</span> <span class="nav-text">新建一个ASP.NET Core MVC应用程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-OpenID-Connect-认证"><span class="nav-number">1.3.2.</span> <span class="nav-text">配置 OpenID Connect 认证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加OpenID-Connect-Identity-Scopes的支持"><span class="nav-number">1.4.</span> <span class="nav-text">添加OpenID Connect Identity Scopes的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为OpenID-Connect-implicit-flow-添加客户端"><span class="nav-number">1.5.</span> <span class="nav-text">为OpenID Connect implicit flow 添加客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试客户端"><span class="nav-number">1.6.</span> <span class="nav-text">测试客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加注销"><span class="nav-number">1.7.</span> <span class="nav-text">添加注销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进一步实验"><span class="nav-number">1.8.</span> <span class="nav-text">进一步实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址"><span class="nav-number">1.9.</span> <span class="nav-text">地址</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="LAMP一键安装包LAMP 一键安装包是一个用 Linux Shell 编写的可以为 CentOS&#x2F;Debian&#x2F;Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL&#x2F;MariaDB&#x2F;Percona + PHP) 生产环境的 Shell 程序 1#事前准备（安装 wget、screen、unzip，创建 screen 会话）2yum -y instal">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux下常用一键脚本收集">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2018&#x2F;01&#x2F;19&#x2F;linux-script-collection&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="LAMP一键安装包LAMP 一键安装包是一个用 Linux Shell 编写的可以为 CentOS&#x2F;Debian&#x2F;Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL&#x2F;MariaDB&#x2F;Percona + PHP) 生产环境的 Shell 程序 1#事前准备（安装 wget、screen、unzip，创建 screen 会话）2yum -y instal">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.778Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2018/01/19/linux-script-collection/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Linux下常用一键脚本收集 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/01/19/linux-script-collection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux下常用一键脚本收集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-19 10:39:00" itemprop="dateCreated datePublished" datetime="2018-01-19T10:39:00+08:00">2018-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="LAMP一键安装包"><a href="#LAMP一键安装包" class="headerlink" title="LAMP一键安装包"></a>LAMP一键安装包</h1><p>LAMP 一键安装包是一个用 Linux Shell 编写的可以为 CentOS/Debian/Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL/MariaDB/Percona + PHP) 生产环境的 Shell 程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#事前准备（安装 wget、screen、unzip，创建 screen 会话）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">yum -y install wget screen git      // <span class="keyword">for</span> CentOS</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">apt-get -y install wget screen git  // <span class="keyword">for</span> Debian/Ubuntu</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#git clone 并赋予脚本执行权限</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/teddysun/lamp.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lamp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">chmod +x *.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#开始安装</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">screen -S lamp</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">./lamp.sh</span></pre></td></tr></table></figure>
+<blockquote>
+<p>官网：<a href="https://lamp.sh" target="_blank" rel="noopener">https://lamp.sh</a></p>
+</blockquote>
+<h1 id="OneinStack"><a href="#OneinStack" class="headerlink" title="OneinStack"></a>OneinStack</h1><p>搭建网站环境用它就够了，一键安装Apache、Nginx、Mysql、Tomcat…等，比如流行的LNMP环境。注意：该脚本不支持WEB面板，若对Linux不是很熟悉的朋友建议使用宝塔/AMH等替代。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">yum -y install wget screen curl python <span class="comment">#for CentOS/Redhat</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">wget http://mirrors.linuxeye.com/oneinstack-full.tar.gz</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">tar xzf oneinstack-full.tar.gz</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> oneinstack</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">screen -S oneinstack</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">./install.sh</span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>官网：<a href="https://oneinstack.com/" target="_blank" rel="noopener">https://oneinstack.com/</a></p>
+</blockquote>
+<h1 id="LACY一键搭建Aria2实现离线下载"><a href="#LACY一键搭建Aria2实现离线下载" class="headerlink" title="LACY一键搭建Aria2实现离线下载"></a>LACY一键搭建Aria2实现离线下载</h1><p>Linux环境下一键安装Aria2 + Caddy + YAAW，可实现离线下载、文件管理、在线播放等功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#Centos用户</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">yum -y install wget unzip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果是Debian or Ubuntu用户</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">apt-get install -y wget unzip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#下面的命令通用，直接复制</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">wget https://github.com/helloxz/aria2/archive/master.zip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">unzip master.zip &amp;&amp; <span class="built_in">cd</span> aria2-master &amp;&amp; chmod u+x *.sh &amp;&amp; ./install_aria2.sh</span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装说明：Linux一键安装Aria2 + YAAW实现离线下载</p>
+</blockquote>
+<blockquote>
+<p>帮助文档：<a href="http://doc.xiaoz.me/lacy/473927" target="_blank" rel="noopener">http://doc.xiaoz.me/lacy/473927</a></p>
+</blockquote>
+<blockquote>
+<p>源码：<a href="https://github.com/helloxz/aria2" target="_blank" rel="noopener">https://github.com/helloxz/aria2</a></p>
+</blockquote>
+<h1 id="CentOS-7一键安装Seafile搭建私有网盘"><a href="#CentOS-7一键安装Seafile搭建私有网盘" class="headerlink" title="CentOS 7一键安装Seafile搭建私有网盘"></a>CentOS 7一键安装Seafile搭建私有网盘</h1><p>Seafile 是一款开源企业云盘，使用Python开发，Seafile非常稳定、安全，搭建私有云的不二之选</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">yum -y install wget</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/helloxz/seafile/master/install_seafile.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">chmod +x install_seafile.sh &amp;&amp; ./install_seafile.sh</span></pre></td></tr></table></figure>
+<blockquote>
+<p>安装说明：CentOS 7一键安装Seafile搭建私有云存储</p>
+</blockquote>
+<blockquote>
+<p>源码：<a href="https://github.com/helloxz/seafile" target="_blank" rel="noopener">https://github.com/helloxz/seafile</a></p>
+</blockquote>
+<h1 id="CentOS一键安装Resilio-Sync脚本"><a href="#CentOS一键安装Resilio-Sync脚本" class="headerlink" title="CentOS一键安装Resilio Sync脚本"></a>CentOS一键安装Resilio Sync脚本</h1><p>Resilio Sync是一种依赖于BitTorrent协议的专用文件共享系统，原为BitTorrent Sync，可用于文件共享、同步等</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装必要的软件包</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">yum -y install wget unzip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载脚本</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">wget https://github.com/helloxz/Resilio-Sync/archive/master.zip</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">#解压并安装</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">unzip master.zip &amp;&amp; <span class="built_in">cd</span> Resilio-Sync-master &amp;&amp; chmod +x mysync.sh sync.sh &amp;&amp; ./sync.sh</span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>安装说明：CentOS一键安装Resilio Sync脚本</p>
+</blockquote>
+<blockquote>
+<p>源码：<a href="https://github.com/helloxz/Resilio-Sync" target="_blank" rel="noopener">https://github.com/helloxz/Resilio-Sync</a></p>
+</blockquote>
+<h1 id="Shadowsocks-一键安装脚本（四合一）"><a href="#Shadowsocks-一键安装脚本（四合一）" class="headerlink" title="Shadowsocks 一键安装脚本（四合一）"></a>Shadowsocks 一键安装脚本（四合一）</h1><p>秋水逸冰大神的脚本，至于他能干嘛，不可言喻，你懂的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">chmod +x shadowsocks-all.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span></pre></td></tr></table></figure>
+<blockquote>
+<p>原文地址：<a href="https://teddysun.com/486.html" target="_blank" rel="noopener">https://teddysun.com/486.html</a></p>
+</blockquote>
+<h1 id="ShadowsocksR一键安装脚本"><a href="#ShadowsocksR一键安装脚本" class="headerlink" title="ShadowsocksR一键安装脚本"></a>ShadowsocksR一键安装脚本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">chmod +x shadowsocksR.sh</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span></pre></td></tr></table></figure>
+
+<h1 id="一键升级内核并开启Google-BBR"><a href="#一键升级内核并开启Google-BBR" class="headerlink" title="一键升级内核并开启Google BBR"></a>一键升级内核并开启Google BBR</h1><p>Google 开源了的 TCP BBR 拥塞控制算法，有效提高TCP传输速度，搭配Shadowsocks使用效果更佳，你的邻居把出口带宽占满了，你不想点办法还能上网？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span></pre></td></tr></table></figure>
+<blockquote>
+<p>原文地址：<a href="https://teddysun.com/342.html" target="_blank" rel="noopener">https://teddysun.com/342.html</a></p>
+</blockquote>
+<h1 id="一键测试脚本bench-sh"><a href="#一键测试脚本bench-sh" class="headerlink" title="一键测试脚本bench.sh"></a>一键测试脚本bench.sh</h1><p>bench.sh可以方便的查看CPU/内存等信息，还可以对VPS磁盘I/O，下载速度等进行测试在，做VPS评测必备</p>
+<p>命令1：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget -qO- bench.sh | bash</span></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">curl -Lso- bench.sh | bash</span></pre></td></tr></table></figure>
+<p>命令2：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">wget -qO- 86.re/bench.sh | bash</span></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">curl -so- 86.re/bench.sh | bash</span></pre></td></tr></table></figure>
+
+<blockquote>
+<p>原文地址：<a href="https://teddysun.com/444.html" target="_blank" rel="noopener">https://teddysun.com/444.html</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/01/13/aspnet-core-deploy/" rel="prev" title="aspnet core 发布和部署">
+      <i class="fa fa-chevron-left"></i> aspnet core 发布和部署
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/22/efcore-migration/" rel="next" title="EntityFrameworkCore 数据库迁移命令整理">
+      EntityFrameworkCore 数据库迁移命令整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LAMP一键安装包"><span class="nav-number">1.</span> <span class="nav-text">LAMP一键安装包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OneinStack"><span class="nav-number">2.</span> <span class="nav-text">OneinStack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LACY一键搭建Aria2实现离线下载"><span class="nav-number">3.</span> <span class="nav-text">LACY一键搭建Aria2实现离线下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-7一键安装Seafile搭建私有网盘"><span class="nav-number">4.</span> <span class="nav-text">CentOS 7一键安装Seafile搭建私有网盘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS一键安装Resilio-Sync脚本"><span class="nav-number">5.</span> <span class="nav-text">CentOS一键安装Resilio Sync脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shadowsocks-一键安装脚本（四合一）"><span class="nav-number">6.</span> <span class="nav-text">Shadowsocks 一键安装脚本（四合一）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ShadowsocksR一键安装脚本"><span class="nav-number">7.</span> <span class="nav-text">ShadowsocksR一键安装脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一键升级内核并开启Google-BBR"><span class="nav-number">8.</span> <span class="nav-text">一键升级内核并开启Google BBR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一键测试脚本bench-sh"><span class="nav-number">9.</span> <span class="nav-text">一键测试脚本bench.sh</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

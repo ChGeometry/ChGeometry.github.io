@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="DotNet 资源大全中文版（注：下面用 [$] 标注的表示收费工具，但部分收费工具针对开源软件的开发&#x2F;部署&#x2F;托管是免费的） API">
+<meta name="keywords" content="c#,dotnet,awesome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="资源dotnet大全中文版">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2017&#x2F;04&#x2F;21&#x2F;awesome-dotnet-cn&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="DotNet 资源大全中文版（注：下面用 [$] 标注的表示收费工具，但部分收费工具针对开源软件的开发&#x2F;部署&#x2F;托管是免费的） API">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;ww4.sinaimg.cn&#x2F;small&#x2F;63918611gw1epb2c79isfj20460460tr.jpg">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.760Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;ww4.sinaimg.cn&#x2F;small&#x2F;63918611gw1epb2c79isfj20460460tr.jpg">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2017/04/21/awesome-dotnet-cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>资源dotnet大全中文版 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2017/04/21/awesome-dotnet-cn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          资源dotnet大全中文版
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-21 18:06:00" itemprop="dateCreated datePublished" datetime="2017-04-21T18:06:00+08:00">2017-04-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dotnet/" itemprop="url" rel="index">
+                    <span itemprop="name">dotnet</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dotnet/awesome/" itemprop="url" rel="index">
+                    <span itemprop="name">awesome</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="DotNet-资源大全中文版"><a href="#DotNet-资源大全中文版" class="headerlink" title="DotNet 资源大全中文版"></a>DotNet 资源大全中文版</h1><p>（注：下面用 [$] 标注的表示收费工具，但部分收费工具针对开源软件的开发/部署/托管是免费的）</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li>框架<ul>
+<li>NancyFx：轻量、用于构建 HTTP 基础服务的非正式（low-ceremony）框架，基于.Net 及 Mono 平台。<a href="https://github.com/NancyFx/Nancy" target="_blank" rel="noopener">官网</a></li>
+<li>ASP.NET WebAPI：快捷创建 HTTP 服务的框架，可以广泛用于多种不同的客户端，包括浏览器和移动设备。<a href="http://www.asp.net/web-api/" target="_blank" rel="noopener">官网</a></li>
+<li>ServiceStack：架构缜密、速度飞快、令人愉悦的 web 服务。<a href="https://github.com/ServiceStack/ServiceStack" target="_blank" rel="noopener">官网</a></li>
+<li>Nelibur：Nelibur 是一个使用纯 WCF 构建的基于消息的 web 服务框架。Nelibur 可以便捷地创建高性能、基于消息的 web 服务，使得你全面拥有 WCF 的强大能力。<a href="https://github.com/Nelibur/Nelibur" target="_blank" rel="noopener">官网</a></li>
+</ul>
+</li>
+<li>WebAPI Contrib：帮助你提高 ASP.NET Web API 能力的开源项目集合。<a href="https://github.com/WebApiContrib/WebAPIContrib" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="应用框架（Application-Frameworks）"><a href="#应用框架（Application-Frameworks）" class="headerlink" title="应用框架（Application Frameworks）"></a>应用框架（Application Frameworks）</h2><ul>
+<li>ASP.NET Boilerplate：现代 ASP.NET MVC web 应用程序的入门，包含最佳实践和最流行的工具。<a href="https://github.com/aspnetboilerplate/aspnetboilerplate" target="_blank" rel="noopener">官网</a></li>
+<li>Orleans：Orleans 框架提供了直接构建分布式、大规模计算应用的方法，无需学习和使用复杂的并行或扩展模型。<a href="https://github.com/dotnet/orleans" target="_blank" rel="noopener">官网</a></li>
+<li>CoreFX：corefx 仓库包含了 .NET 核心功能库的实现（被称为“CoreFX”）。包含了 System.Collections、System.IO、System.Xml 以及诸多其它组件。目前构建并运行于 Windows 平台。你可以关注这个仓库，了解在未来的几个月内即将增加的对 Linux 和 Mac 的支持。<a href="https://github.com/dotnet/corefx" target="_blank" rel="noopener">官网</a></li>
+<li>CSLA .NET：业务层开发框架 <a href="http://www.cslanet.com" target="_blank" rel="noopener">http://www.cslanet.com</a>。<a href="https://github.com/MarimerLLC/csla" target="_blank" rel="noopener">官网</a></li>
+<li>Mono：Mono 是 ECMA CLI、C# 以及 .NET 的开源实现。<a href="https://github.com/mono/mono" target="_blank" rel="noopener">官网</a></li>
+<li>Mono-Addins：Mono.Addins 是一个通用框架，用于创建可扩展的应用程序<del><span style="color: #ff0000;">，</del>以及这些应用程序的扩展插件。<a href="https://github.com/mono/mono-addins" target="_blank" rel="noopener">官网</a></li>
+<li>Spring.Net：Spring.NET 是一个开源的应用程序框架，可以便捷地创建企业级 .NET 项目。<a href="https://github.com/spring-projects/spring-net" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="应用模板（Application-Templates）"><a href="#应用模板（Application-Templates）" class="headerlink" title="应用模板（Application Templates）"></a>应用模板（Application Templates）</h2><ul>
+<li>MVC.Template：ASP.NET MVC 5 入门项目模板。<a href="https://github.com/NonFactors/MVC.Template" target="_blank" rel="noopener">官网</a></li>
+<li>ProjectScaffold：F# 基金会推荐的 .NET 解决方案的原型——包括文件系统的搭建、用于管理依赖的 Paket 以及用于自动化构建、测试的 FAKE。默认情况下，构建流程也会对文档进行编译，并生成 NuGet 程序包。<a href="https://github.com/fsprojects/ProjectScaffold" target="_blank" rel="noopener">官网</a></li>
+<li>Side-Waffle ：包含大量有用的 Web 和桌面开发模板。<a href="https://github.com/LigerShark/side-waffle" target="_blank" rel="noopener">Side-Waffle</a></li>
+<li>Template10 ：带有设计模式的 Windows 10 模板。<a href="https://github.com/Windows-XAML/Template10" target="_blank" rel="noopener">Template10</a></li>
+</ul>
+<h2 id="人工智能（Artificial-Intelligence）"><a href="#人工智能（Artificial-Intelligence）" class="headerlink" title="人工智能（Artificial Intelligence）"></a>人工智能（Artificial Intelligence）</h2><ul>
+<li>AIMLBot（Program#）：使用 C# 编写的一个小型、快速、兼容标准、易于定制的聊天机器人，基于 AIML （人工智能标记语言 Artificial Intelligence Markup Language）。<a href="http://aimlbot.sourceforge.net/" target="_blank" rel="noopener">官网</a></li>
+<li>SIML：智能综合智能标记语言（Synthetic Intelligence Markup Language），下一代聊天机器人及数字助手语言。<a href="http://simlbot.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="程序集处理（Assembly-Manipulation）"><a href="#程序集处理（Assembly-Manipulation）" class="headerlink" title="程序集处理（Assembly Manipulation）"></a>程序集处理（Assembly Manipulation）</h2><ul>
+<li>dnSpy：dnSpy 是一个 .NET 程序集编辑器、反编译器和调试器，来自 ILSpy 分支。<a href="https://github.com/0xd4d/dnSpy" target="_blank" rel="noopener">官网</a></li>
+<li>Fody：织入（weaving）.net 程序集的可扩展工具。<a href="https://github.com/Fody/Fody" target="_blank" rel="noopener">官网</a></li>
+<li>Mono.Cecil：Cecil 类库用于生成和检查 ECMA CIL 程序和库。<a href="https://github.com/jbevain/cecil" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="资源（Assets）"><a href="#资源（Assets）" class="headerlink" title="资源（Assets）"></a>资源（Assets）</h2><ul>
+<li>Cassette：管理 .NET web 应用程序资源（脚本、css 和 模板）<a href="https://github.com/andrewdavey/cassette" target="_blank" rel="noopener">Cassette</a></li>
+<li>NodeAssets：.net 资源管理器，通过 SignalR 实时更新 css，也可以使用 NodeJS 编译器。<a href="https://github.com/ajorkowski/NodeAssets" target="_blank" rel="noopener">官网</a></li>
+<li>Bundler：编译和最小化 Less、Sass、Stylus、Css、JS、CoffeeScript、LiveScript 文件。MVC集成了 MVC 和 ServiceStack。<a href="https://github.com/ServiceStack/Bundler" target="_blank" rel="noopener">官网</a></li>
+<li>ClientDependency：压缩CSS与JS，提供WebForm与MVC版本。<a href="https://github.com/Shazwazza/ClientDependency" target="_blank" rel="noopener">官网</a></li>
+<li>SquishIt：让你<strong>轻松</strong>合并一些 css 和 javascript。<a href="https://github.com/jetheredge/SquishIt" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="认证和授权（Authentication-and-Authorization）"><a href="#认证和授权（Authentication-and-Authorization）" class="headerlink" title="认证和授权（Authentication and Authorization）"></a>认证和授权（Authentication and Authorization）</h2><ul>
+<li>ASP.NET Identity：用于 ASP.NET 应用程序的新身份系统。<a href="https://aspnetidentity.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>DotNetOpenAuth：OpenID、OAuth 和 InfoCard 协议的一个 C# 实现。<a href="https://github.com/DotNetOpenAuth/DotNetOpenAuth" target="_blank" rel="noopener">官网</a></li>
+<li>Logibit Hawk：一个 F# <a href="https://github.com/hueniverse/hawk#usage-example" target="_blank" rel="noopener">Hawk</a> 认证库。<a href="https://github.com/logibit/logibit.hawk/" target="_blank" rel="noopener">官网</a></li>
+<li>IdentityModel：.NET 4.5 和 MVC4、Web API 身份和访问控制的辅助库。<a href="https://github.com/IdentityModel" target="_blank" rel="noopener">官网</a></li>
+<li>IdentityServer：可扩展的 OAuth2 和 OpenID 连接提供程序框架。<a href="https://github.com/IdentityServer" target="_blank" rel="noopener">官网</a></li>
+<li>OAuth：超轻量级 OAuth 1.0a 签名生成库，C# 编写。<a href="https://github.com/danielcrenna/oauth" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="自动构建（Build-Automation）"><a href="#自动构建（Build-Automation）" class="headerlink" title="自动构建（Build Automation）"></a>自动构建（Build Automation）</h2><ul>
+<li>Psake：基于 .NET 的自动化构建工具，使用 PowerShell 编写。<a href="https://github.com/psake/psake" target="_blank" rel="noopener">官网</a></li>
+<li>FAKE：F# Make，一个跨平台自动构建系统。<a href="https://github.com/fsharp/FAKE" target="_blank" rel="noopener">官网</a></li>
+<li>Invoke-Build：PowerShell 自动构建和测试工具，灵感来自 Psake。<a href="https://github.com/nightroman/Invoke-Build" target="_blank" rel="noopener">官网</a></li>
+<li>MSBuild：微软构建引擎（MSBuild）是 .NET 和 Visual Studio 的构建平台。<a href="https://github.com/Microsoft/msbuild" target="_blank" rel="noopener">官网</a></li>
+<li>Cake：Cake（C# Make）使用 C# DSL 的跨平台自动构建系统。<a href="https://github.com/cake-build/cake" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="缓存（Caching）"><a href="#缓存（Caching）" class="headerlink" title="缓存（Caching）"></a>缓存（Caching）</h2><ul>
+<li>CacheCow：ASP.NET Web API HTTP 客户端和服务器端缓存实现。<a href="https://github.com/aliostad/CacheCow" target="_blank" rel="noopener">官网</a></li>
+<li>Akavache：一个异步、持久化的键值存储。<a href="https://github.com/akavache/Akavache" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><ul>
+<li>Command Line Parser：Command Line Parser 类库为 CLR 应用程序提供了一套简洁的 API，用于处理命令行参数及相关任务。<a href="https://github.com/gsscoder/commandline" target="_blank" rel="noopener">官网</a></li>
+<li>Fluent Command Line Parser：一个简单、强类型的 .NET C# 命令行解析库，交互方式流畅易用。<a href="https://github.com/fclp/fluent-command-line-parser" target="_blank" rel="noopener">官网</a></li>
+<li>Power Args：PowerArgs 将命令行参数转换为 .NET 对象，便于程序使用。它还提供了大量可选的扩展，例如参数校验、自动生成使用帮助、tab 补全等等。<a href="https://github.com/adamabdelhamed/PowerArgs" target="_blank" rel="noopener">官网</a></li>
+<li>UnionArgParser：针对 F# 应用程序的声明式 CLI 参数和 XML 配置解析器。<a href="https://github.com/nessos/UnionArgParser" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="CLR"><a href="#CLR" class="headerlink" title="CLR"></a>CLR</h2><ul>
+<li>CoreCLR：coreclr repo 包含了完整的 .NET 核心运行时实现（称为“CoreCLR”）。它包括 RyuJIT、.NET GC、非托管代码交互（native interop）等诸多组件。它目前构建和运行于 Windows 平台。你可以关注这个仓库，了解未来的几个月内即将增加的对 Linux 和 Mac 的支持。<a href="https://github.com/dotnet/coreclr" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h2><ul>
+<li>Composite C1：一个 web 内容管理系统，着重在用户体验及适应性。<a href="https://compositec1.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>mojoPortal：MojoPortal 是一个可扩展、跨数据库、移动友好的 web 内容管理系统（CMS）和 web 应用程序框架，使用 C# ASP.NET 编写。<a href="https://mojoportal.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>N2CMS：开源、轻量、代码优先的 CMS，可以无缝地集成到任何 MVC 项目中。<a href="http://www.n2cms.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Orchard：免费、开源、专注社区的项目，目标是在 ASP.NET 平台上提供应用程序和可重用组件。<a href="https://github.com/OrchardCMS/Orchard" target="_blank" rel="noopener">官网</a></li>
+<li>Piranha CMS：Piranha 是一个有趣、快速、轻量级的 .NET 框架，用于开发基于 cms 附带其它功能的 web 应用程序。它基于 ASP.NET MVC 和 Web 页面创建，完全兼容 Visual Studio 和 WebMatrix。<a href="https://github.com/PiranhaCMS/Piranha" target="_blank" rel="noopener">官网</a></li>
+<li>Umbraco：Umbraco 是一个免费开源的内容管理系统，基于 ASP.NET 平台构建。<a href="https://github.com/umbraco/Umbraco-CMS" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="代码分析和度量（Code-Analysis-and-Metrics）"><a href="#代码分析和度量（Code-Analysis-and-Metrics）" class="headerlink" title="代码分析和度量（Code Analysis and Metrics）"></a>代码分析和度量（Code Analysis and Metrics）</h2><ul>
+<li>CodeMaid：Visual studio 扩展，用于清理、挖掘和简化 C#、C++、F#、VB、PHP、JSON、XAML、XML、ASP、HTML、CSS、LESS、SCSS、JavaScript 和 TypeScript 代码。<a href="http://www.codemaid.net/" target="_blank" rel="noopener">官网</a></li>
+<li>StyleCop：StyleCop 使用一组风格和一致性规则，对 C# 源代码进行分析和强制性检查。<a href="https://stylecop.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Gendarme：可扩展的、基于规则的工具，用于在 .NET 应用程序和类库中查找问题。<a href="https://github.com/spouliot/gendarme" target="_blank" rel="noopener">官网</a></li>
+<li>Metrics-Net：捕获 CLR 和应用程序级别的度量值。所以你知道它的功能。<a href="https://github.com/danielcrenna/metrics-net" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="编译器（Compiler）"><a href="#编译器（Compiler）" class="headerlink" title="编译器（Compiler）"></a>编译器（Compiler）</h2><ul>
+<li>Bridge.NET：将 C# 编译成 JavaScript 的开源编译器 <a href="http://bridge.net/" target="_blank" rel="noopener">http://bridge.net/</a>。<a href="https://github.com/bridgedotnet/Bridge" target="_blank" rel="noopener">官网</a></li>
+<li>ClojureCLR：从 Clojure 到 CLR 的转换，是 Clojure 项目的一部分。<a href="https://github.com/clojure/clojure-clr" target="_blank" rel="noopener">官网</a></li>
+<li>F#：F# 编译器、核心库和工具——更安全、更快、代码更好的函数式编程语言。<a href="https://github.com/fsharp/fsharp/" target="_blank" rel="noopener">官网</a></li>
+<li>FunScript：F# 到 JavaScript 的编译器，可以通过 TypeScript 类型提供程序使用 JQuery 等 JavaScript 库。<a href="http://funscript.info/" target="_blank" rel="noopener">官网</a></li>
+<li>JSIL：CIL 到 Javascript 的编译器 <a href="http://jsil.org/" target="_blank" rel="noopener">http://jsil.org/</a>。<a href="https://github.com/sq/JSIL" target="_blank" rel="noopener">官网</a></li>
+<li>Mono-basic：Visual Basic 编译器和运行时。<a href="https://github.com/mono/mono-basic" target="_blank" rel="noopener">官网</a></li>
+<li>Nemerle：Nemerle 是一个 .NET 平台高级静态类型编程语言。它提供函数式、面向对象式和命令式编程语言的特性。它拥有一个简单的类似 C# 的语法和强大的元编程（meta-programming）系统。 <a href="http://nemerle.org" target="_blank" rel="noopener">官网</a> <a href="https://github.com/rsdn/nemerle" target="_blank" rel="noopener">Github</a></li>
+<li>Netjs：.NET 到 TypeScript 和 JavaScript 编译器。兼容可移植类库。你甚至可以使用 EXE 文件。<a href="https://github.com/praeclarum/Netjs" target="_blank" rel="noopener">官网</a></li>
+<li>Roslyn：.NET 编译平台（“Roslyn”）提供开源的 C# 和 Visual Basic 编译器，包含丰富的代码分析 API。它可以使用和 Visual Studio 一样的 API 来构建代码分析工具。<a href="https://github.com/dotnet/roslyn" target="_blank" rel="noopener">官网</a></li>
+<li>VisualFSharp：Visual F# 编译器和工具。<a href="https://github.com/Microsoft/visualfsharp" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="压缩（Compression）"><a href="#压缩（Compression）" class="headerlink" title="压缩（Compression）"></a>压缩（Compression）</h2><ul>
+<li>SharpCompress：SharpCompress 是一个用于 .NET、Mono、Silverlight、WP7 的压缩类库，可以解压rar、7zip、zip、tar、bzip2 和 gzip，提供单向读取和随机文件访问 API。支持对 zip/tar/bzip2/gzip 进行写入的实现。<a href="https://github.com/adamhathcock/sharpcompress" target="_blank" rel="noopener">官网</a></li>
+<li>DotNetZip.Semverd：一个开源项目，提供对 ZIP 文件处理的 .NET 类库和相关工具。 （分支自 <a href="http://dotnetzip.codeplex.com" target="_blank" rel="noopener"><strong>已经不再维护的</strong> DotNetZip</a>）<a href="https://github.com/haf/DotNetZip.Semverd" target="_blank" rel="noopener">DotNetZip.Semverd</a></li>
+<li>SharpZipLib：一个 Zip、GZip、Tar 和 BZip2 的类库，完全由 C# 编写，面向 .NET 平台。<a href="http://icsharpcode.github.io/SharpZipLib/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="持续集成（Continuous-Integration）"><a href="#持续集成（Continuous-Integration）" class="headerlink" title="持续集成（Continuous Integration）"></a>持续集成（Continuous Integration）</h2><ul>
+<li>TeamCity：可以直接使用的，可扩展、面向开发人员友好的构建服务器——开箱即用<strong>。</strong> <strong>[$]</strong><a href="http://www.jetbrains.com/teamcity/" target="_blank" rel="noopener">官网</a></li>
+<li>CruiseControl.NET：一个自动化持续集成服务器，使用 .NET Framework 实现。<a href="http://www.cruisecontrolnet.org/" target="_blank" rel="noopener">官网</a></li>
+<li>MyGet：为NuGet、NPM、Bower 和 VSIX 提供持续集成、部署、宿主程序包仓库的服务。<strong>[<a href="https://www.myget.org/opensource" target="_blank" rel="noopener">开源软件免费</a>]</strong> <strong>[$]</strong><a href="http://www.myget.org/" target="_blank" rel="noopener">官网</a></li>
+<li>AppVeyor：.NET 持续构建和部署服务。 <strong>[$]</strong> <strong>[开源软件免费]</strong><a href="http://www.appveyor.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="加密（Cryptography）"><a href="#加密（Cryptography）" class="headerlink" title="加密（Cryptography）"></a>加密（Cryptography）</h2><ul>
+<li>BouncyCastle：和 .Net 的 System.Security.Cryptography 一起，在 CLR 上提供加密算法的实现。<a href="https://bouncycastle.org/" target="_blank" rel="noopener">官网</a></li>
+<li>HashLib：HashLib 包含了几乎所有你见过的哈希算法，它几乎支持所有东西并且非常容易使用。<a href="http://hashlib.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>libsodium-net：libsodium for .NET——一个安全加密库。<a href="https://github.com/adamcaudill/libsodium-net" target="_blank" rel="noopener">官网</a></li>
+<li>StreamCryptor：使用 libsodium 和 protobuf 对流进行加密和解密。<a href="https://github.com/bitbeans/StreamCryptor" target="_blank" rel="noopener">官网</a> </li>
+</ul>
+<h2 id="数据库（Database）"><a href="#数据库（Database）" class="headerlink" title="数据库（Database）"></a>数据库（Database）</h2><ul>
+<li>BrightstarDb：BrightstarDB 是一个原生的 .NET RDF 三元组数据库（triple store）。<a href="https://github.com/BrightstarDB/BrightstarDB" target="_blank" rel="noopener">官网</a></li>
+<li>Event Store：开源的功能性数据库，支持使用 JavaScript 进行复杂事件处理。 <a href="https://geteventstore.com" target="_blank" rel="noopener">https://geteventstore.com</a> <a href="https://github.com/EventStore/EventStore" target="_blank" rel="noopener">官网</a> </li>
+<li>LiteDB：一个 .NET 的 NoSQL 单文件文档数据库。<a href="https://github.com/mbdavid/LiteDB" target="_blank" rel="noopener">官网</a></li>
+<li>RavenDB：支持 linq 的 .NET 文档数据库。<a href="https://github.com/ravendb/ravendb" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="数据库驱动（Database-Drivers）"><a href="#数据库驱动（Database-Drivers）" class="headerlink" title="数据库驱动（Database Drivers）"></a>数据库驱动（Database Drivers）</h2><ul>
+<li>MySQL Connector：完全托管的 MySQL ADO.NET 数据库提供程序、连接器。<a href="https://dev.mysql.com/downloads/connector/net/" target="_blank" rel="noopener">官网</a></li>
+<li>Npgsql：Postgresql 的 .Net 数据提供程序。<a href="https://github.com/npgsql/Npgsql" target="_blank" rel="noopener">官网</a></li>
+<li>MongoDB：MongoDB 官方 C# 驱动。<a href="https://github.com/mongodb/mongo-csharp-driver" target="_blank" rel="noopener">官网</a></li>
+<li>ServiceStack Redis：.NET 领先的 C# Redis 客户端。<a href="https://github.com/ServiceStack/ServiceStack.Redis" target="_blank" rel="noopener">官网</a></li>
+<li>StackExchange Redis：来自 StackExchange 的通用 redis 客户端。<a href="https://github.com/StackExchange/StackExchange.Redis" target="_blank" rel="noopener">官网</a></li>
+<li>Cassandra：DataStax 开发的 Apache Cassandra .NET 驱动程序。<a href="https://github.com/datastax/csharp-driver" target="_blank" rel="noopener">官网</a></li>
+<li>Couchbase：couchbase 官方 .NET 客户端库，基于 Enyim memcached 客户端。<a href="https://github.com/couchbase/couchbase-net-client" target="_blank" rel="noopener">官网</a></li>
+<li>Firebird.NET：由C# 编写的 .NET 数据提供程序，提供对 Firebird API 的高性能原生实现。<a href="http://sourceforge.net/projects/firebird/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="反编译（Decompilation）"><a href="#反编译（Decompilation）" class="headerlink" title="反编译（Decompilation）"></a>反编译（Decompilation）</h2><ul>
+<li>ILSpy：ILSpy 是一个开源的 .NET 程序集查看器和反编译器。<a href="http://ilspy.net/" target="_blank" rel="noopener">官网</a></li>
+<li>JustDecompile Engine：<a href="http://www.telerik.com/products/decompiler.aspx" target="_blank" rel="noopener">JustDecompile</a> 反编译引擎。<a href="https://github.com/telerik/JustDecompileEngine" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="部署（Deployment）"><a href="#部署（Deployment）" class="headerlink" title="部署（Deployment）"></a>部署（Deployment）</h2><ul>
+<li>Unfold：基于 Powershell 的 .net web 应用程序部署解决方案。<a href="https://github.com/thomasvm/unfold" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="DirectX"><a href="#DirectX" class="headerlink" title="DirectX"></a>DirectX</h2><ul>
+<li>SlimDX：为 .NET 应用程序提供的 DirectX 封装。<a href="http://www.slimdx.org" target="_blank" rel="noopener">官网</a></li>
+<li>SharpDX：SharpDX 是一个开源项目，为 .Net 及所有 Windows 平台提供完整的 DirectX API，可以开发高性能的游戏、2D/3D图形渲染以及实时音频应用程序。<a href="https://github.com/sharpdx/SharpDX" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="分布式计算（Distributed-Computing）"><a href="#分布式计算（Distributed-Computing）" class="headerlink" title="分布式计算（Distributed Computing）"></a>分布式计算（Distributed Computing）</h2><ul>
+<li>Project Orleans：Orleans 框架提供了直接构建分布式、大规模计算应用的方法，无需学习和使用复杂的并行或扩展模型。由微软研究院开发。<a href="https://github.com/dotnet/orleans" target="_blank" rel="noopener">官网</a></li>
+<li>Akka.net：Akka.NET 是流行的 Java/Scala 框架 Akka 的 .NET 版本。它由社区提供，与 Typesafe（原始的 Java、Scala 版本的开发商）无关。<a href="https://github.com/akkadotnet/akka.net" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="文档（Documentation）"><a href="#文档（Documentation）" class="headerlink" title="文档（Documentation）"></a>文档（Documentation）</h2><ul>
+<li>Sandcastle：Sandcastle 帮助文件生成器和 NDoc 类似。<a href="http://shfb.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>SharpDox：一个 c# 文档工具。<a href="https://github.com/Geaz/sharpDox" target="_blank" rel="noopener">官网</a></li>
+<li>Swashbuckle：向 WebApi 项目无缝地添加 swagger 文档（译者注：swagger 是一套用于生成、描述、展现 RESTful 风格 web 服务文档的框架和规范）。<a href="https://github.com/domaindrivendev/Swashbuckle" target="_blank" rel="noopener">官网</a></li>
+<li>NSwag：通过Swagger规范生成.NET、TypeScript的Web API客户端。<a href="https://github.com/NSwag/NSwag" target="_blank" rel="noopener">官网</a></li>
+<li>F# Formatting：F# 和 C# 项目的文档工具，文档生成自 F# 脚本文件、Markdown 文档、内嵌 XML 或 Markdown评论。<a href="http://tpetricek.github.io/FSharp.Formatting/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="电子商务和支付（E-Commerce-and-Payments）"><a href="#电子商务和支付（E-Commerce-and-Payments）" class="headerlink" title="电子商务和支付（E-Commerce and Payments）"></a>电子商务和支付（E-Commerce and Payments）</h2><ul>
+<li>Paypal Merchant SDK：Paypal Merchant官方.NET SDK。<a href="https://github.com/paypal/merchant-sdk-dotnet" target="_blank" rel="noopener">官网</a> </li>
+<li>NopCommerce：nopCommerce。开源的电子商务购物车（ASP.NET MVC）。<a href="https://nopcommerce.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>ServiceStack.Stripe：针对 stripe.com REST API 的强类型 .NET 客户端。<a href="https://github.com/ServiceStack/Stripe" target="_blank" rel="noopener">官网</a></li>
+<li>SmartStoreNET：免费 ASP.NET MVC 电子商务购物车解决方案。<a href="https://github.com/smartstoreag/SmartStoreNET" target="_blank" rel="noopener">官网</a></li>
+<li>Stripe.Net：Stripe.net 是针对 <a href="http://stripe.com" target="_blank" rel="noopener">http://stripe.com</a> 完整服务的 .net api。<a href="https://github.com/jaymedavis/stripe.net" target="_blank" rel="noopener">官网</a></li>
+<li>BeYourMarket：BeYourMarket 是一个点对点的市场框架。<a href="http://beyourmarket.com" target="_blank" rel="noopener">官网</a> <a href="https://github.com/beyourmarket/beyourmarket" target="_blank" rel="noopener">Github</a> </li>
+<li>Virto Commerce：Virto Commerce 是第二个版本，也是唯一的开源许可下的企业级别电子商务产品。Virto Commerce 基于 .NET 4.5，使用了 MVC、IoC、EF、Azure、Angular JS 等其他先进技术。它可以在微软的云平台（Azure）、亚马逊云服务（AWS）和企业内部部署。<a href="https://github.com/VirtoCommerce/vc-community" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="环境管理（Environment-Management）"><a href="#环境管理（Environment-Management）" class="headerlink" title="环境管理（Environment Management）"></a>环境管理（Environment Management）</h2><ul>
+<li>DNVM：.NET SDK 管理器，一组命令行工具，用于更新和配置需要使用的运行时环境（DNX）。<a href="https://github.com/aspnet/dnvm" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="ETL"><a href="#ETL" class="headerlink" title="ETL"></a>ETL</h2><ul>
+<li>Reactive ETL：Reactive ETL 使用 .NET 反应性扩展框架（reactive extensions） 重写了 Rhino ETL。<a href="https://reactiveetl.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="游戏（Game）"><a href="#游戏（Game）" class="headerlink" title="游戏（Game）"></a>游戏（Game）</h2><ul>
+<li>MonoGame：一个用来创建跨平台游戏的强大框架。<a href="https://github.com/mono/MonoGame" target="_blank" rel="noopener">官网</a></li>
+<li>CocosSharp：CocosSharp 是 Cocos2D 和 Cocos3D API 的 C# 实现版本，可以在所有支持 MonoGame 的平台上运行。<a href="https://github.com/mono/CocosSharp" target="_blank" rel="noopener">官网</a></li>
+<li>Duality：Duality 是一个 2D 游戏开发框架。专注于功能的模块化，自带一个可视化编辑器。<a href="https://github.com/AdamsLair/duality" target="_blank" rel="noopener">官网</a></li>
+<li>Paradox：Paradox 游戏引擎。<a href="https://github.com/SiliconStudio/paradox" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="地理信息系统（Gis）"><a href="#地理信息系统（Gis）" class="headerlink" title="地理信息系统（Gis）"></a>地理信息系统（Gis）</h2><ul>
+<li>NetTopologySuite：一个 在 .NET 平台上实现快速、可靠的 GIS 系统解决方案。<a href="https://github.com/NetTopologySuite/NetTopologySuite/" target="_blank" rel="noopener">官网</a></li>
+<li>SharpMap：一个易于使用的地图库，可以用于 web 和桌面应用程序。<a href="https://sharpmap.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Git工具（Git-Tools）"><a href="#Git工具（Git-Tools）" class="headerlink" title="Git工具（Git Tools）"></a>Git工具（Git Tools）</h2><ul>
+<li>Bonobo Git Server：Bonobo Git Server for Windows 是一个 web 应用程序，可以安装在你自己的 IIS 上，用于管理和连接你的 git 仓库。 <a href="http://bonobogitserver.com" target="_blank" rel="noopener">官网</a> <a href="https://github.com/jakubgarfield/Bonobo-Git-Server" target="_blank" rel="noopener">Github</a></li>
+<li>GitExtensions：GitExtensions 包含资源管理器扩展、Visual Studio 2008/2010/2012/2013 插件和一个独立的 Git 仓库工具。 <a href="http://gitextensions.github.io/" target="_blank" rel="noopener">官网</a><a href="https://github.com/gitextensions/gitextensions" target="_blank" rel="noopener">Github</a></li>
+<li>GitLink：让用户可以单步调试托管在 GitHub 或 BitBucket 上的代码。<a href="https://github.com/CatenaLogic/GitLink" target="_blank" rel="noopener">官网</a></li>
+<li>GitVersion：根据你的 Git 仓库的状态生成一个语义化版本号（Semantic Version Number）。<a href="https://github.com/Particular/GitVersion" target="_blank" rel="noopener">官网</a></li>
+<li>LibGit2Sharp：LibGit2Sharp 带来了 libgit2 所有的功能和速度，是一个本地 Git 实现，可以运行在 .Net 和 Mono 平台。<a href="https://github.com/libgit2/libgit2sharp" target="_blank" rel="noopener">官网</a></li>
+<li>NGit：NGit 是 JGit 移植到 C# 的版本。<a href="https://github.com/mono/ngit" target="_blank" rel="noopener">官网</a></li>
+<li>posh-git：Git 的 PowerShell 环境。<a href="https://github.com/dahlbyk/posh-git" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="图形（Graphics）"><a href="#图形（Graphics）" class="headerlink" title="图形（Graphics）"></a>图形（Graphics）</h2><ul>
+<li>Oxyplot：OxyPlot 是一个 .NET 跨平台绘图库。<a href="https://github.com/oxyplot/" target="_blank" rel="noopener">官网</a></li>
+<li>OpenTK：Open Toolkit 是一个封装了 OpenGL、OpenCL 和 OpenAL 的 高级底层 C# 开发库。<a href="http://www.opentk.com/" target="_blank" rel="noopener">官网</a></li>
+<li>NGraphics：NGraphics 是一个 .NET 跨平台矢量图形渲染库。<a href="https://github.com/praeclarum/NGraphics" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><ul>
+<li>MahApps.Metro：用于创建 Metro 风格 WPF 应用的工具箱。<a href="https://github.com/MahApps/MahApps.Metro" target="_blank" rel="noopener">官网</a></li>
+<li>Callisto：用于 Windows 8 XAML 应用的控件工具箱。包含若干 UI 控件，让你更容易地创建符合 Windows UI 风格规范的Windows 商店应用。<a href="https://github.com/timheuer/callisto" target="_blank" rel="noopener">官网</a></li>
+<li>ObjectListView：ObjectListView 使用 C# 封装了 .NET 的 ListView 控件。它使得 ListView 更加易用，并且加入了一些新特性。<a href="http://objectlistview.sourceforge.net/cs/index.html" target="_blank" rel="noopener">官网</a></li>
+<li>DockPanelSuite：灵感来自 Visual Studio 的停靠窗口（docking）类库，用于 .NET WinForm 应用。<a href="http://dockpanelsuite.com/" target="_blank" rel="noopener">官网</a> </li>
+<li>AvalonEdit：在 SharpDevelop 中使用，基于 WPF 的文本编辑器组件。<a href="https://github.com/icsharpcode/AvalonEdit" target="_blank" rel="noopener">官网</a> </li>
+<li>XWT：跨平台 UI 工具箱，用于创建 .NET 和 Mono 桌面应用程序。<a href="https://github.com/mono/xwt" target="_blank" rel="noopener">官网</a></li>
+<li>Gtk#：Gtk# 是 Gtk+ GUI 工具箱的 Mono/.NET 版本，绝大多数 Mono 中的 GUI 应用都基于它构建。<a href="https://github.com/mono/gtk-sharp" target="_blank" rel="noopener">官网</a></li>
+<li>MaterialDesignInXamlToolkit：用于创建 Material Design 风格 WPF 应用的工具箱。<a href="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit" target="_blank" rel="noopener">官网</a></li>
+<li>Eto.Forms：跨平台的 GUI 框架，用于 .NET 和 Mono 下的桌面和移动应用程序。<a href="https://github.com/picoe/Eto" target="_blank" rel="noopener">官网</a></li>
+<li>Dragablz：可拖拽、可分离（tearable，译者注：即拖拽标签页成为独立窗口）的 WPF 标签页控件（类似 Chrome）。支持布局和主题，包含兼容 MahApps 和 Material Design 的主题。<a href="https://github.com/ButchersBoy/Dragablz" target="_blank" rel="noopener">官网</a></li>
+<li>Fluent.Ribbon：Fluent Ribbon Control Suite 是一个在 WPF 中实现 Office 和 Windows 8 风格的 Ribbon 库。<a href="https://github.com/fluentribbon/Fluent.Ribbon" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="HTML-和-CSS（HTML-and-CSS）"><a href="#HTML-和-CSS（HTML-and-CSS）" class="headerlink" title="HTML 和 CSS（HTML and CSS）"></a>HTML 和 CSS（HTML and CSS）</h2><ul>
+<li>AngleSharp：支持构建完整的 HTML5 DOM 和 CSS3 模型。<a href="https://github.com/FlorianRappl/AngleSharp" target="_blank" rel="noopener">官网</a></li>
+<li>CsQuery：jQuery 风格的HTML5 解析器，可与 DOM 交互。<a href="https://github.com/jamietre/CsQuery" target="_blank" rel="noopener">官网</a></li>
+<li>dotless：ruby Less CSS 库的 .NET 移植版本。<a href="https://github.com/dotless/dotless" target="_blank" rel="noopener">官网</a></li>
+<li>ExCSS：C# 的 CSS3 解析器开发库。<a href="https://github.com/TylerBrinks/ExCSS" target="_blank" rel="noopener">官网</a></li>
+<li>FluentBootstrap：让ASP.NET MVC 和 WebPages 更容易使用 Boostrap CSS 框架。<a href="http://fluentbootstrap.com" target="_blank" rel="noopener">官网</a></li>
+<li>HtmlAgilityPack：一个灵活的 HTML 解析器，可以对 DOM 进行读写，支持 XPATH 和 XSLT。<a href="http://htmlagilitypack.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Jumony：类似HtmlAgilityPack框架，性能有改善。<a href="https://github.com/Ivony/Jumony" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li>Http.fs：<code>[F#]</code> 中的一个函数式 HTTP 客户端。<a href="https://github.com/relentless/Http.fs" target="_blank" rel="noopener">官网</a></li>
+<li>RestSharp：.NET 下简单的 REST 和 HTTP API 协议客户端。<a href="https://github.com/restsharp/RestSharp" target="_blank" rel="noopener">官网</a></li>
+<li>EasyHttp：C# Http开发库。<a href="https://github.com/hhariri/EasyHttp" target="_blank" rel="noopener">官网</a></li>
+<li>Refit：Xamarin 和 .NET 下自动生成强类型的 REST 库。<a href="https://github.com/paulcbetts/refit" target="_blank" rel="noopener">官网</a> </li>
+<li>RestEase：类型安全且易于使用的 REST API 客户端库，简单可定制。大部分灵感来自 Refit。<a href="https://github.com/canton7/RestEase" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h2><ul>
+<li>SharpDevelop：用于 .NET 编程语言的免费 IDE。<a href="https://github.com/icsharpcode/SharpDevelop" target="_blank" rel="noopener">官网</a></li>
+<li>MonoDevelop：MonoDevelop 是一个跨平台的 IDE，主要面向 Mono/.NET 开发者。<a href="https://github.com/mono/monodevelop" target="_blank" rel="noopener">官网</a></li>
+<li>Visual Studio Express：用于 .NET 开发的免费、轻量版本的 Visual Studio。<a href="http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx" target="_blank" rel="noopener">官网</a></li>
+<li>Visual Studio Community：功能完整的免费 IDE。<a href="http://msdn.microsoft.com/en-us/visual-studio-community-vs.aspx" target="_blank" rel="noopener">官网</a></li>
+<li>Waf DotNetPad：简单快速的代码编辑器，让开发 C# 或 Visual Basic 充满乐趣。<a href="http://dotnetpad.codeplex.com" target="_blank" rel="noopener">官网</a> </li>
+<li>Visual Studio Code：非常棒的编辑器，来自微软，基于 GitHub Atom。<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="图像处理（Image-Processing）"><a href="#图像处理（Image-Processing）" class="headerlink" title="图像处理（Image Processing）"></a>图像处理（Image Processing）</h2><ul>
+<li>ImageResizer：在图片 URL 后面增加命令，在几毫秒内获取修改后的版本，支持实时的对图片进行缩放、编辑。<a href="http://imageresizing.net/" target="_blank" rel="noopener">官网</a></li>
+<li>ImageProcessor：开源 .NET 库，用于实时处理图片。<a href="http://imageprocessor.org/" target="_blank" rel="noopener">官网</a></li>
+<li>DynamicImage：高性能开源图片处理库，用于 ASP.NET。<a href="http://dynamicimage.apphb.com/" target="_blank" rel="noopener">官网</a></li>
+<li>MetadataExtractor：从图片中提取 Exif、IPTC、XMP、ICC 等其它元数据信息。<a href="https://github.com/drewnoakes/metadata-extractor-dotnet" target="_blank" rel="noopener">官网</a></li>
+<li>Emgu CV：OpenCV 的 .NET 跨平台封装。<a href="http://www.emgu.com/wiki/index.php/Main_Page" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="安装工具（Install-Tools）"><a href="#安装工具（Install-Tools）" class="headerlink" title="安装工具（Install Tools）"></a>安装工具（Install Tools）</h2><ul>
+<li>Wix Toolset：强大的工具集，用于创建你自己的 Windows 安装程序。<a href="http://wixtoolset.org/" target="_blank" rel="noopener">官网</a></li>
+<li>Squirrel：Squirrel 即是一套工具也是一个类库，可以无安全管理 Windows 桌面程序的安装和更新。<a href="https://github.com/squirrel/squirrel.windows" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="国际化（Internationalization）"><a href="#国际化（Internationalization）" class="headerlink" title="国际化（Internationalization）"></a>国际化（Internationalization）</h2><ul>
+<li>i18n：ASP.NET MVC 智能国际化工具。<a href="https://github.com/turquoiseowl/i18n" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="互操作（Interoperability）"><a href="#互操作（Interoperability）" class="headerlink" title="互操作（Interoperability）"></a>互操作（Interoperability）</h2><ul>
+<li>CefSharp：Chromium Embedded Framework 的 .NET 支持（WPF 和 WinForm）。<a href="https://github.com/cefsharp/CefSharp" target="_blank" rel="noopener">官网</a></li>
+<li>CppSharp：在 C# 中平滑使用 C++ API 的工具。<a href="https://github.com/mono/CppSharp" target="_blank" rel="noopener">官网</a></li>
+<li>Sharpen：Sharpen 是 db4o 编写的 Eclipse 插件，可以让你把 Java 项目转换为 C#。<a href="https://github.com/mono/sharpen" target="_blank" rel="noopener">官网</a></li>
+<li>CXXI：C++ 互操作框架。<a href="https://github.com/mono/cxxi" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="IoC"><a href="#IoC" class="headerlink" title="IoC"></a>IoC</h2><ul>
+<li>Castle Windsor：Castle Windsor 是一个用于 .NET 和 Silverlight 的成熟的 控制反转（IoC） 容器。<a href="https://github.com/castleproject/Windsor" target="_blank" rel="noopener">官网</a></li>
+<li>Unity：轻量级、可扩展的依赖注入容器，支持构造函数、属性和方法调用注入。<a href="https://unity.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Autofac：令人着迷的 .NET IoC 容器。<a href="https://github.com/autofac/Autofac" target="_blank" rel="noopener">官网</a></li>
+<li>Ninject：.net 依赖注入的忍者。<a href="https://github.com/ninject/ninject" target="_blank" rel="noopener">官网</a></li>
+<li>StructureMap：.Net 最早的 IoC/ID 容器。<a href="https://structuremap.github.io/" target="_blank" rel="noopener">官网</a></li>
+<li>Spring.Net：Spring.NET 是一个开源应用程序框架，可以便捷地创建企业级 .NET 应用。<a href="https://github.com/spring-projects/spring-net" target="_blank" rel="noopener">官网</a></li>
+<li>LightInject：一个超轻量级 IoC 容器。<a href="https://github.com/seesharper/LightInject" target="_blank" rel="noopener">官网</a> </li>
+<li>TinyIoC：单文件、简单、跨平台的 IoC 容器。<a href="https://github.com/grumpydev/TinyIoC" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="日志（Logging）"><a href="#日志（Logging）" class="headerlink" title="日志（Logging）"></a>日志（Logging）</h2><ul>
+<li>Essential Diagnostics：为内置System.Diagnostics 命名空间扩展功能，提供更灵活的日志功能。<a href="http://essentialdiagnostics.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>NLog：先进的 .NET 和 Silverlight 日志工具。<a href="https://github.com/nlog/NLog/" target="_blank" rel="noopener">官网</a></li>
+<li>ELMAH：ELMAH 官方网站。<a href="https://code.google.com/p/elmah/" target="_blank" rel="noopener">官网</a></li>
+<li>Elmah MVC：MVC 版 Elmah。<a href="https://github.com/alexanderbeletsky/elmah-mvc" target="_blank" rel="noopener">官网</a></li>
+<li>Logary：Logary 是一个 mono 和 .Net 平台下高性能、多目标的日志、度量、追踪和健康检查库。支持多目标，为微服务构建。<a href="http://logary.github.io/" target="_blank" rel="noopener">官网</a></li>
+<li>Log4Net：Apache log4net 工具库能够帮助程序员向多种不同的目标输出日志语句。<a href="https://logging.apache.org/log4net/" target="_blank" rel="noopener">官网</a></li>
+<li>Serilog：一个 NoSQL 时代下简单直接的日志库。将多个优秀的传统结构化分析日志功能合并到一个易于使用的程序集中。<a href="https://github.com/serilog/serilog" target="_blank" rel="noopener">官网</a></li>
+<li>StackExchange.Exceptional：Stack Exchange 网络使用的错误处理程序。<a href="https://github.com/NickCraver/StackExchange.Exceptional" target="_blank" rel="noopener">官网</a></li>
+<li>Semantic Logging Application Block (SLAB)：为内置 System.Diagnostics.Tracing 命名空间（EventSource类）扩展功能，支持将日志记录到多个容器中，包括 Azure 表存储、数据库、文件（JSON、XML、文本文件）。通过 ETW 支持进程内和进程外的日志记录，支持 Rx 进行实时的事件过滤和聚合。<a href="http://slab.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Exceptionless：一个免费开源分布式系统的日志收集框架，它可以应用在基于 ASP.NET，ASP.NET Core，Web Api，Web Forms，WPF，Console，MVC 等技术栈的应用程序中，并且提供了Rest接口可以应用在 Javascript，Node.js 中。<a href="http://exceptionless.com/" target="_blank" rel="noopener">官网</a> <a href="https://github.com/exceptionless/Exceptionless" target="_blank" rel="noopener">Github</a></li>
+</ul>
+<h2 id="机器学习和数据科学（Machine-Learning-and-Data-Science）"><a href="#机器学习和数据科学（Machine-Learning-and-Data-Science）" class="headerlink" title="机器学习和数据科学（Machine Learning and Data Science）"></a>机器学习和数据科学（Machine Learning and Data Science）</h2><ul>
+<li>Accord.NET：机器学习框架，包含了音频和图像处理的库（计算机视觉、计算机听觉、信号处理和统计）。<a href="http://accord-framework.net/" target="_blank" rel="noopener">官网</a></li>
+<li>Accord.NET Extensions：高级图像处理和计算机视觉算法扩展。<a href="https://github.com/dajuric/accord-net-extensions" target="_blank" rel="noopener">官网</a></li>
+<li>AForge.NET：为计算机视觉和人工智能领域的开发者和研究人员提供的框架（包括图像处理、神经网络、遗传算法、机器学习、机器人科学）。<a href="http://www.aforgenet.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Deedle：处理探索性数据的数据帧和时序库，支持 C# 和 F#。<a href="http://bluemountaincapital.github.io/Deedle/" target="_blank" rel="noopener">官网</a></li>
+<li>FsLab：数据科学和机器学习库的集合，支持 F# 和 .NET。<a href="http://www.fslab.org" target="_blank" rel="noopener">官网</a></li>
+<li>numl：包含最流行的监督学习和无监督学习算法，尽量减少创建预测模型时的冲突。<a href="https://github.com/sethjuarez/numl" target="_blank" rel="noopener">官网</a> </li>
+<li>R Provider：将 R 语言包和函数封装为类型安全的类型提供程序供 F# 调用。<a href="http://bluemountaincapital.github.io/FSharpRProvider/" target="_blank" rel="noopener">官网</a> </li>
+<li>F# Data：F# 类型提供程序，访问 XML、JSON、CSV 和 HTML 文件（基于样例文档），以及 WorldBank 数据。<a href="http://fsharp.github.io/FSharp.Data/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Markdown-处理（Markdown-Processors）"><a href="#Markdown-处理（Markdown-Processors）" class="headerlink" title="Markdown 处理（Markdown Processors）"></a>Markdown 处理（Markdown Processors）</h2><ul>
+<li>MarkdownSharp：C# 实现的开源 Markdown 处理器，在 Stack Overflow 中使用。<a href="https://code.google.com/p/markdownsharp/" target="_blank" rel="noopener">官网</a></li>
+<li>F# Formatting：用于生成 F# 和 C# 项目文档的工具。该工具库的核心组件中包含了可扩展的 Markdown 解析器。<a href="http://tpetricek.github.io/FSharp.Formatting/" target="_blank" rel="noopener">官网</a></li>
+<li>CommonMark.NET：CommonMark 规范的 C# 实现，用于将 Markdown 文档转换为 HTML。为最佳性能和可移植性进行了优化。<a href="https://github.com/Knagis/CommonMark.NET" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="邮件（Mail）"><a href="#邮件（Mail）" class="headerlink" title="邮件（Mail）"></a>邮件（Mail）</h2><ul>
+<li>FluentEmail：System.Net.Mail 的一个流式（Fluent）封装，支持 razor 模板引擎。<a href="https://github.com/lukencode/FluentEmail" target="_blank" rel="noopener">官网</a></li>
+<li>MailKit：完整的跨平台的邮件协议栈，包括 IMAP、POP3、SMTP，支持验证等特性。基于 MimeKit 构建。<a href="https://github.com/jstedfast/MailKit" target="_blank" rel="noopener">官网</a></li>
+<li>MimeKit：跨平台 .NET MIME 创建和解析库，支持 S/MIME、PGP、TNEF 和 Unix mbox spools。<a href="https://github.com/jstedfast/MimeKit" target="_blank" rel="noopener">官网</a></li>
+<li>PreMailer.Net：一个 C# 开发库，将你的样式表嵌入到内置的 style 属性中，最大限度支持邮件客户端。<a href="https://github.com/milkshakesoftware/PreMailer.Net" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="数学（Mathematics）"><a href="#数学（Mathematics）" class="headerlink" title="数学（Mathematics）"></a>数学（Mathematics）</h2><ul>
+<li>MathNet：Math.NET 是一个开源项目，旨在创建和维护涵盖基础数学在内的工具集，面向高级和日常需要使用此类功能的 .Net 开发人员。<a href="http://www.mathdotnet.com/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="多媒体（Media）"><a href="#多媒体（Media）" class="headerlink" title="多媒体（Media）"></a>多媒体（Media）</h2><ul>
+<li>TagLib#：TagLib#（即 taglib-sharp）是一个读写媒体文件元数据的库，支持视频、音频和照片格式。<a href="https://github.com/mono/taglib-sharp" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="度量（Metrics）"><a href="#度量（Metrics）" class="headerlink" title="度量（Metrics）"></a>度量（Metrics）</h2><ul>
+<li>C# StatsD Client：Etsy StatsD 服务器的 C# 客户端。<a href="https://github.com/goncalopereira/statsd-csharp-client" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="微框架（Micro-Framework）"><a href="#微框架（Micro-Framework）" class="headerlink" title="微框架（Micro Framework）"></a>微框架（Micro Framework）</h2><ul>
+<li>.NET Micro Framework Interpreter：Microsoft® .NET Micro Framework（NETMF）是一个在 Visual Studio 中提供为小型设备上编写嵌入式应用的框架。<a href="https://github.com/NETMF/netmf-interpreter" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="杂项（Misc）"><a href="#杂项（Misc）" class="headerlink" title="杂项（Misc）"></a>杂项（Misc）</h2><ul>
+<li>.NET Fiddle：在浏览器中编写、编译并运行 C# 代码。相当于 C# 版本的 JSFiddle。<a href="https://dotnetfiddle.net/" target="_blank" rel="noopener">官网</a></li>
+<li>AzureCrawler：从 Angular、Ember、Durandal 或任何 JavaScript 应用中获取 HTML 快照。<a href="https://github.com/yagopv/AzureCrawler" target="_blank" rel="noopener">官网</a></li>
+<li>BitSharp：C# 比特币节点。<a href="https://github.com/pmlyon/BitSharp" target="_blank" rel="noopener">官网</a></li>
+<li>CSScript：CS-Script 是一个基于 CLR 的脚本系统，使用 C# 作为编程语言。CS-Script 目前针对微软的 CLR 实现（.NET 2.0/3.0/3.5/4.0/4.5）并完整支持 Mono。附带很多附加特性，比如脚本宿主。<a href="http://www.csscript.net/" target="_blank" rel="noopener">官网</a></li>
+<li>CsvHelper：帮助读写 CSV 文件的开发库。<a href="https://github.com/JoshClose/CsvHelper" target="_blank" rel="noopener">官网</a></li>
+<li>FluentValidation：一个小型的 .NET 校验库，使用流式接口和 lambda 表达式构建校验规则。<a href="https://github.com/JeremySkinner/FluentValidation" target="_blank" rel="noopener">官网</a></li>
+<li>Humanizer：Humanizer 能够在 .NET 平台上满足所有针对字符串、枚举、日期、时间、时间范围、数字等类型数据的操作和显示要求。<a href="https://github.com/MehdiK/Humanizer" target="_blank" rel="noopener">官网</a></li>
+<li>LINQPad：一个 C#/VB/F# 的便签本，能够立即执行任何表达式、语句块或程序，带有富文本显示等有用的特性。同样可以让你使用 LINQ 进行交互性数据库查询。 [$]（译者注：也有免费许可，但是功能受限）。<a href="http://www.linqpad.net" target="_blank" rel="noopener">官网</a></li>
+<li>Polly：快捷便利的异常处理策略，例如 重试、始终重试、等待并重试或断路（Circuit Break）等行为。 （.NET 3.5、4.0、4.5、PCL、Xamarin）<a href="https://github.com/michael-wolfenden/Polly" target="_blank" rel="noopener">官网</a></li>
+<li>Rant：Rant 程序文本生成 DSL（领域特定语言）。 <a href="http://berkin.me/rant" target="_blank" rel="noopener">官网</a> <a href="https://github.com/TheBerkin/Rant" target="_blank" rel="noopener">Github</a></li>
+<li>ScriptCS：使用文本编辑器、nuget 和强大的 Roslyn 来编写 C# 应用！<a href="https://github.com/scriptcs/scriptcs" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><ul>
+<li>Caliburn.Micro：小型但功能强大的框架，可以用来给所有 XAML 平台创建应用。它对 MV* 模式的强大支持可以让你快速构建你的解决方案，与此同时不必牺牲代码质量和可测试能力。<a href="https://github.com/Caliburn-Micro/Caliburn.Micro" target="_blank" rel="noopener">官网</a> </li>
+<li><a href="http://hao.jobbole.com/mvvm-light-toolkit/" target="_blank" rel="noopener">MVVM Light Toolkit</a>：该工具箱主要是用来加速创建和开发 MVVM 应用，适用于 WPF、Silverlight、Windows Store（RT）和 Windows Phone 平台。<a href="https://mvvmlight.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Catel：Catel 是一个应用开发平台，主要着眼在 MVVM（WPF、Silverlight、Windows Phone 及 WinRT）以及 MVC（ASP.NET MVC）。Catel 的核心部分包含 IoC 容器、模型、校验、备忘录模式（memento）、消息中介（message mediator）、参数检查等。<a href="https://catel.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>UpdateControls：Update Controls 不需要你实现 INotifyPropertyChanged 接口或声明一个 DependencyProperty。可以将控件直接关联到 CLR 属性，这使得它完美贴合 MVVM 模式。<a href="http://updatecontrols.net/cs/" target="_blank" rel="noopener">官网</a></li>
+<li>ReactiveUI：一个 .NET 下的 MVVM 框架，集成了反应性扩展框架（Rx），允许开发者使用 WPF、Windows Store Apps、WP8 或 Xamarin 创建优雅的、可测试的应用。<a href="https://github.com/reactiveui/reactiveui/" target="_blank" rel="noopener">官网</a></li>
+<li>Okra App Framework：一个以 app 为中心的 Windows 8.1 MVVM 框架，融合依赖注入，包含一套完整的 Visual Studio MVVM 模板。<a href="http://okraframework.github.io" target="_blank" rel="noopener">官网</a></li>
+<li>WPF Application Framework (WAF)：一个轻量级的框架，能够帮助你创建结构优雅的 WPF 应用。支持你使用分层架构和 MVVM 模式。<a href="http://waf.codeplex.com" target="_blank" rel="noopener">官网</a></li>
+<li>MVVMCross：跨平台mvvm 移动开发框架，针对 WP7 和 WP8 的 WPF/Silverlight、Android 的 Mono、iOS 的 MonoTouch 以及 WPA8.1/Windows 8.1 商店应用的 Windows Universal 项目。它使用可移植类库（PCL）来支持可维护的跨平台 C# 原生应用。<a href="https://github.com/MvvmCross/MvvmCross" target="_blank" rel="noopener">官网</a></li>
+<li>Stylet：最小化 MVVM 框架（参考 Caliburn Micro），包含了良好的文档、高覆盖率的测试以及自带的 IoC 容器。<a href="https://github.com/canton7/stylet/" target="_blank" rel="noopener">官网</a></li>
+<li>Gemini：类似 Visual Studio Shell 的 IDE 框架。基于 WPF、AvalonDock 和 Caliburn Micro 构建。<a href="https://github.com/tgjones/gemini" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Office"><a href="#Office" class="headerlink" title="Office"></a>Office</h2><ul>
+<li>ClosedXML：ClosedXML 能够让开发人员更便捷地创建 Excel 2007、2010 文件。<a href="https://closedxml.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://hao.jobbole.com/npoi/" target="_blank" rel="noopener">NPOI</a>：该项目是 .NET 版本的 POI 项目，原始的 Java 版本位于<a href="http://poi.apache.org/" target="_blank" rel="noopener">http://poi.apache.org/</a> 。<a href="http://npoi.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://hao.jobbole.com/epplus/" target="_blank" rel="noopener">EPPlus</a>：EPPlus 是一个 .net 类库，用于读写 Open Office Xml 格式的 Excel 2007、2010 文件（xlsx）。<a href="http://epplus.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>Open XML SDK：Open XML SDK 是一个开源库，用于处理 Open XML 文档（包括 DOCX、XLSX 和 PPTX）。<a href="https://github.com/officedev/open-xml-sdk" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><ul>
+<li>Entity Framework：对象关系映射器（ORM）框架，让 .NET 开发人员使用领域特定的对象来处理关系型数据。<a href="https://github.com/aspnet/EntityFramework" target="_blank" rel="noopener">官网</a></li>
+<li>BL Toolkit：.NET 平台的业务逻辑工具箱。<a href="https://github.com/igor-tkachev/bltoolkit" target="_blank" rel="noopener">官网</a></li>
+<li>Dapper：一个超小型、快捷轻便的 ORM 框架。<a href="https://github.com/StackExchange/dapper-dot-net" target="_blank" rel="noopener">官网</a></li>
+<li>Dapper Extensions：小型类库，对 Dapper 的功能进行补充，为你的简单传统 CLR 对象提供基础的 CRUD（Get、Insert、Update、Delete） 操作。<a href="https://github.com/tmsmith/Dapper-Extensions" target="_blank" rel="noopener">官网</a></li>
+<li>NHibernate：NHibernate 对象关系映射器（移植自 Java 平台的 Hibernate）。<a href="https://github.com/nhibernate" target="_blank" rel="noopener">官网</a></li>
+<li>Fluent NHibernate：便捷、无需使用 XML、编译安全、自动化、基于约定命名的 NHibernate 映射库。<a href="https://github.com/jagregory/fluent-nhibernate" target="_blank" rel="noopener">官网</a></li>
+<li>FluentMigrator：.net 下的便捷的迁移框架。<a href="https://github.com/schambers/fluentmigrator" target="_blank" rel="noopener">官网</a></li>
+<li>ServiceStack.OrmLite：轻量、简单、快速、基于命名约定的 POCO ORM。<a href="https://github.com/ServiceStack/ServiceStack.OrmLite" target="_blank" rel="noopener">官网</a></li>
+<li>Massive：小型、令人愉悦的数据访问工具，始终关爱你直到永远。<a href="https://github.com/robconery/massive" target="_blank" rel="noopener">官网</a></li>
+<li>LINQ to DB：最快的 LINQ 数据库访问库，简单、轻量、快速、类型安全，在你的对象（POCO）和数据库之间搭建桥梁。<a href="https://github.com/linq2db/linq2db" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="包管理（Package-Management）"><a href="#包管理（Package-Management）" class="headerlink" title="包管理（Package Management）"></a>包管理（Package Management）</h2><ul>
+<li>NuGet：.NET 包管理器。<a href="https://www.nuget.org/" target="_blank" rel="noopener">官网</a></li>
+<li>MyGet：为 NuGet、NPM、Bower 和 VSIX 提供程序包仓库宿主，同样提供 CI 服务。 <strong><a href="https://www.myget.org/opensource" target="_blank" rel="noopener">开源软件免费</a></strong> <strong>[$]</strong> <a href="http://www.myget.org/" target="_blank" rel="noopener">官网</a></li>
+<li>Paket：.NET 的一个包依赖管理器，支持 NuGet 包和 GitHub 仓库。 <a href="http://fsprojects.github.io/Paket/" target="_blank" rel="noopener">官网</a> <a href="https://github.com/fsprojects/Paket" target="_blank" rel="noopener">Github</a></li>
+</ul>
+<h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2><ul>
+<li>ITextSharp：iText 是一个PDF库，用于创建、修改、检查和维护 Portable Document Format（PDF）格式的文档 <strong>[$]</strong> <strong>开源软件免费</strong> <a href="https://github.com/itext/itextsharp" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Profiler"><a href="#Profiler" class="headerlink" title="Profiler"></a>Profiler</h2><ul>
+<li>MiniProfiler：一个简单但有效的小型 profiler，用于 ASP.NET 网站。<a href="https://github.com/MiniProfiler/dotnet" target="_blank" rel="noopener">官网</a></li>
+<li>Glimpse：开源 web 诊断平台。<a href="https://github.com/glimpse/glimpse" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="推送通知（Push-Notifications）"><a href="#推送通知（Push-Notifications）" class="headerlink" title="推送通知（Push Notifications）"></a>推送通知（Push Notifications）</h2><ul>
+<li>PushSharp：服务器端的推送通知类库，支持 iOS、OSX、Android、Chrome、Windows Phone、Windows 8、Backberry 和 Amazon 设备。<a href="https://github.com/Redth/PushSharp" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h2><ul>
+<li>NServiceBus：.NET 平台下最流行的服务总线。<a href="https://github.com/Particular/NServiceBus" target="_blank" rel="noopener">官网</a></li>
+<li>RabbitMQ.NET：AMQP 客户端的 C# 实现，通过 WCF 绑定到已有的 AMQP 服务。<a href="http://hg.rabbitmq.com/rabbitmq-dotnet-client/" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://hao.jobbole.com/netmq/" target="_blank" rel="noopener">NetMQ</a>：NetMQ 是 ZeroMQ 纯 C# 移植版本。<a href="https://github.com/zeromq/netmq" target="_blank" rel="noopener">官网</a></li>
+<li>MassTransit：MassTransit 是一个精简服务总线（lean service bus）的实现，使用 .NET Framework 来构建松耦合应用程序。<a href="https://github.com/MassTransit/MassTransit" target="_blank" rel="noopener">官网</a></li>
+<li>Rebus：Rebus 是一个 .NET 平台的精简服务总线和 NServiceBus、MassTransit类似，只不过更加精简。<a href="https://github.com/rebus-org/Rebus" target="_blank" rel="noopener">官网</a></li>
+<li>EasyNetQ：易于使用的 RabbitMQ .NET API。<a href="https://github.com/mikehadlow/EasyNetQ" target="_blank" rel="noopener">官网</a></li>
+<li>Warewolf ESB：易于使用的服务总线和微服务平台，可以在一个可视化 IDE 中便捷的创建应用和服务。<a href="https://github.com/Warewolf-ESB/Warewolf-ESB" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="响应式编程（Reactive-Programming）"><a href="#响应式编程（Reactive-Programming）" class="headerlink" title="响应式编程（Reactive Programming）"></a>响应式编程（Reactive Programming）</h2><ul>
+<li>Rx.NET：Reactive Extensions （Rx）库使用观察者序列（observable sequences）和 LINQ 风格的查询操作，来进行异步和基于事件的程序开发。<a href="https://github.com/Reactive-Extensions/Rx.NET" target="_blank" rel="noopener">官网</a></li>
+<li>Dynamic Data：用于集合的响应式编程框架。<a href="https://github.com/RolandPheasant/DynamicData" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="计划调度（Scheduling）"><a href="#计划调度（Scheduling）" class="headerlink" title="计划调度（Scheduling）"></a>计划调度（Scheduling）</h2><ul>
+<li><a href="http://hao.jobbole.com/quartz-net/" target="_blank" rel="noopener">QuartzNet</a>：Quartz 是 .NET 平台的企业级调度器。<a href="https://github.com/quartznet/quartznet" target="_blank" rel="noopener">官网</a></li>
+<li>Hangfire：在 ASP.NET 应用中，超简单地实现自主引导（fire-and-forget）、延迟和周期重复任务。高级版需要收费。<a href="https://github.com/HangfireIO/Hangfire" target="_blank" rel="noopener">官网</a></li>
+<li>Hangfire.Redis.StackExchange：Hangfire的redis扩展库，基于StackExchange.Redis的开源实现。<a href="https://github.com/marcoCasamento/Hangfire.Redis.StackExchange" target="_blank" rel="noopener">官网</a></li>
+<li>Azure WebJobs：Azure WebJobs 是Azure中App Services一个附属服务，为Azure中运行的Web App提供后台运行环境（支持多种语言编写Job），有.NET的SDK<a href="https://github.com/Azure/azure-webjobs-sdk" target="_blank" rel="noopener">开源</a>，并且可以直接添加扩展<a href="https://github.com/Azure/azure-webjobs-sdk-extensions" target="_blank" rel="noopener">也开源</a>。<a href="https://azure.microsoft.com/en-us/documentation/articles/app-service-webjobs-readme/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="SDK-和-API-客户端（SDK-and-API-Clients）"><a href="#SDK-和-API-客户端（SDK-and-API-Clients）" class="headerlink" title="SDK 和 API 客户端（SDK and API Clients）"></a>SDK 和 API 客户端（SDK and API Clients）</h2><ul>
+<li>AWS SDK：AWS SDK for .NET 让 .NET 开发者可以便捷地操作 Amazon Web Services。<a href="https://github.com/aws/aws-sdk-net" target="_blank" rel="noopener">官网</a></li>
+<li>Azure PowerShell：一组 PowerShell 命令行，让开发者和管理员开发、部署和管理 Microsoft Azure 应用。<a href="https://github.com/Azure/azure-powershell" target="_blank" rel="noopener">官网</a></li>
+<li>Octokit.NET：.NET 平台下的 GitHub API 客户端库。<a href="https://github.com/octokit/octokit.net" target="_blank" rel="noopener">官网</a></li>
+<li>DropNet：Dropbox API 客户端开发库。<a href="https://github.com/DropNet/DropNet" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="搜索（Search）"><a href="#搜索（Search）" class="headerlink" title="搜索（Search）"></a>搜索（Search）</h2><ul>
+<li>Elasticsearch .NET：Elasticsearch.Net &amp; NEST。<a href="https://github.com/elasticsearch/elasticsearch-net" target="_blank" rel="noopener">官网</a></li>
+<li>PlainElastic.Net：ElasticSearch 的一个简单的 .Net 客户端。<a href="https://github.com/Yegoroff/PlainElastic.Net" target="_blank" rel="noopener">官网</a></li>
+<li>SolrNet：.Net 平台下的 Solr 客户端。<a href="https://github.com/mausch/SolrNet" target="_blank" rel="noopener">官网</a></li>
+<li>Lucene.net：Lucene.Net 是 Lucene 搜索引擎库的移植，使用 C# 编写，面向 .NET 环境的用户。<a href="http://lucenenet.apache.org/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="序列化（Serialization）"><a href="#序列化（Serialization）" class="headerlink" title="序列化（Serialization）"></a>序列化（Serialization）</h2><ul>
+<li>Protobuf.NET：Protocol buffers 是 Google 使用的二进制序列化格式，在 Google 数据通讯中大量使用。<a href="https://github.com/mgravell/protobuf-net" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://hao.jobbole.com/json-net/" target="_blank" rel="noopener">Json.NET</a>：.NET 平台下流行的、高性能 JSON 框架。<a href="https://github.com/JamesNK/Newtonsoft.Json" target="_blank" rel="noopener">官网</a></li>
+<li>ServiceStack.Text：在 servicestack.net 中使用的 JSON、JSV、CSV 文本序列化器。<a href="https://github.com/ServiceStack/ServiceStack.Text" target="_blank" rel="noopener">官网</a></li>
+<li>Msgpack-Cli：MessagePack 的 CLI 实现。<a href="https://github.com/msgpack/msgpack-cli" target="_blank" rel="noopener">官网</a></li>
+<li>Jil：.NET 平台下快速的 JSON 序列化器，基于 Sigil （在 StackOverflow 中使用）。<a href="https://github.com/kevin-montrose/Jil" target="_blank" rel="noopener">官网</a></li>
+<li>ProtoBuf：根据 .proto 规范，为 protocol buffer 序列化内容生成 C# 代码。<a href="https://github.com/hultqvist/ProtoBuf" target="_blank" rel="noopener">官网</a></li>
+<li>F# Data：F# 类型提供程序，访问 XML、JSON、CSV 和 HTML 文件（基于样例文档），以及访问 WorldBank 数据。<a href="http://fsharp.github.io/FSharp.Data/" target="_blank" rel="noopener">官网</a></li>
+<li>Bond：跨平台框架，用于处理系统化（schematized）数据。支持跨平台的序列化、反序列化，以及强大的通用机制来高效处理数据。<a href="https://github.com/Microsoft/bond" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="状态机（State-machines）"><a href="#状态机（State-machines）" class="headerlink" title="状态机（State machines）"></a>状态机（State machines）</h2><ul>
+<li>Stateless：直接使用 .NET 代码创建一个状态机和轻量的基于状态机的工作流。<a href="https://github.com/nblumhardt/stateless" target="_blank" rel="noopener">官网</a></li>
+<li>Automatonymous：.Net 平台的状态机库，允许你编写流式API风格的状态机。<a href="https://github.com/MassTransit/Automatonymous" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="静态网站生成（Static-Site-Generators）"><a href="#静态网站生成（Static-Site-Generators）" class="headerlink" title="静态网站生成（Static Site Generators）"></a>静态网站生成（Static Site Generators）</h2><ul>
+<li>Pretzel：.NET 平台下的网站生成工具（包含后续的一些功能）。<a href="https://github.com/Code52/pretzel" target="_blank" rel="noopener">官网</a></li>
+<li>Sandra.Snow：.NET 平台的静态网站生成工具，借鉴 Jekyll。<a href="https://github.com/Sandra/Sandra.Snow" target="_blank" rel="noopener">官网</a></li>
+<li>Wyam：简单易用、高度模块化、拥有强大配置能力的静态网站生成工具。<a href="http://wyam.io" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="风格指南（Style-Guide）"><a href="#风格指南（Style-Guide）" class="headerlink" title="风格指南（Style Guide）"></a>风格指南（Style Guide）</h2><ul>
+<li>C# Style Guide：StackOverflow 上的C#风格指南 Q &amp; A。<a href="http://stackoverflow.com/questions/4678178/style-guide-for-c" target="_blank" rel="noopener">官网</a></li>
+<li>C# Coding Conventions：MSDN 官方的 C# 代码约定。<a href="http://msdn.microsoft.com/en-us/library/vstudio/ff926074.aspx" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="模板引擎（Template-Engine）"><a href="#模板引擎（Template-Engine）" class="headerlink" title="模板引擎（Template Engine）"></a>模板引擎（Template Engine）</h2><ul>
+<li>RazorEngine：基于微软 Razor 解析器引擎的开源模板引擎。<a href="https://github.com/Antaris/RazorEngine" target="_blank" rel="noopener">官网</a></li>
+<li>Nustache：无逻辑模板的开源库。<a href="https://github.com/jdiamond/Nustache" target="_blank" rel="noopener">官网</a> </li>
+<li>DotLiquid：Ruby Liquid 模板语言的 C# 移植版本。<a href="https://github.com/dotliquid/dotliquid" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="测试（Testing）"><a href="#测试（Testing）" class="headerlink" title="测试（Testing）"></a>测试（Testing）</h2><ul>
+<li>AutoFixture：AutoFixture 是一个用于 .NET 的开源框架，用于简化单元测试中的设置（Arrange）阶段。<a href="https://github.com/AutoFixture/AutoFixture" target="_blank" rel="noopener">官网</a></li>
+<li>FakeItEasy：.NET 平台的一个简单的 mocking 库。<a href="https://github.com/FakeItEasy/FakeItEasy" target="_blank" rel="noopener">官网</a></li>
+<li>Fluent Assertions：一组 .NET 扩展方法，可以让你更自然地指定 TDD 或 BDD 风格测试的期望值。<a href="https://github.com/dennisdoomen/fluentassertions" target="_blank" rel="noopener">官网</a></li>
+<li>Fuchu：F# 的单元测试库，通过 tests-as-values 机制让你更容易创建领域特定语言（DSL）。<a href="https://github.com/mausch/Fuchu" target="_blank" rel="noopener">官网</a></li>
+<li>Machine.Specifications：Machine.Specifications （MSpec）是一个上下文、规范框架，忽略了语言本身的干扰，简化了测试。<a href="https://github.com/machine/machine.specifications" target="_blank" rel="noopener">官网</a></li>
+<li>Moq：.NET 平台下最流行和友好的 mocking 框架。<a href="https://github.com/Moq/moq4" target="_blank" rel="noopener">官网</a></li>
+<li>NBuilder：快速创建测试对象。<a href="https://github.com/garethdown44/nbuilder" target="_blank" rel="noopener">官网</a></li>
+<li>NSubstitute：一个友好的 .NET mocking 框架。<a href="http://nsubstitute.github.io/" target="_blank" rel="noopener">官网</a></li>
+<li>NUnit：<a href="https://github.com/nunit/nunit-framework" target="_blank" rel="noopener">官网</a></li>
+<li>Rhino Mocks：.NET 平台的动态 Mocking 框架。<a href="https://github.com/ayende/rhino-mocks" target="_blank" rel="noopener">官网</a></li>
+<li>Shouldly：Shouldly 是一个断言（assertion）框架，主要功能是在断言失败时，给出简单明了并且友好的错误信息。<a href="https://github.com/shouldly/shouldly" target="_blank" rel="noopener">官网</a></li>
+<li>SpecFlow：将业务需求绑定到 .Net 代码。<a href="https://github.com/techtalk/SpecFlow/" target="_blank" rel="noopener">官网</a></li>
+<li>xUnit：xUnit.net 是一个 .NET 平台下免费、开源、专注社区的单元测试框架。<a href="https://github.com/xunit/xunit" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="交易（Trading）"><a href="#交易（Trading）" class="headerlink" title="交易（Trading）"></a>交易（Trading）</h2><ul>
+<li>Lean：Lean 引擎是一个开源的，完全由 C# 托管代码编写的交易算法引擎，用于桌面和云端。 <a href="https://lean.quantconnect.com" target="_blank" rel="noopener">官网</a> <a href="https://github.com/QuantConnect/Lean" target="_blank" rel="noopener">Github</a></li>
+<li>StockSharp：交易和算法交易（algorithmic trading）的开源平台（用于股票市场、外汇市场、比特币和期权交易）。<a href="https://github.com/StockSharp/StockSharp" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Visual-Studio-插件（Visual-Studio-Plugins）"><a href="#Visual-Studio-插件（Visual-Studio-Plugins）" class="headerlink" title="Visual Studio 插件（Visual Studio Plugins）"></a>Visual Studio 插件（Visual Studio Plugins）</h2><ul>
+<li>Web Essentials：Web Essentials 为 Visual Stduio 扩展了大量的特性，提供了 web 开发人员盼望多年的功能。<a href="https://github.com/madskristensen/WebEssentials2013" target="_blank" rel="noopener">官网</a></li>
+<li>VsVIM：Visual Studio 中的 VIM。<a href="https://github.com/jaredpar/VsVim" target="_blank" rel="noopener">官网</a></li>
+<li>Nuget Package Manager：NuGet 是微软开发平台（包括 .NET）的包管理器。<a href="http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c" target="_blank" rel="noopener">官网</a></li>
+<li>SideWaffle：Visual Studio 2012、2013 中的一组项目模板集合，让 web 开发人员更加轻松。<a href="https://github.com/ligershark/side-waffle" target="_blank" rel="noopener">官网</a></li>
+<li>Resharper：Visual Studio 开发人员生产力工具 <strong>[$]</strong> <a href="http://www.jetbrains.com/resharper/" target="_blank" rel="noopener">官网</a></li>
+<li>Refactoring Essentials：开源 C# 和 VB.NET 重构扩展，包括代码最佳实践分析器。<a href="http://vsrefactoringessentials.com/" target="_blank" rel="noopener">官网</a></li>
+<li>CodeContracts：.NET CodeContracts 工具源代码。<a href="https://github.com/Microsoft/CodeContracts" target="_blank" rel="noopener">官网</a></li>
+<li>Git Diff Margin：在 Visual Studio 滚动条区域实时显示当前文件在 Git 上的差异。<a href="https://github.com/laurentkempe/GitDiffMargin" target="_blank" rel="noopener">官网</a></li>
+<li>Productivity Power Tools：一组 Visual Studio 专业版（及更高版本）的扩展，用于提高开发人员的生产力。<a href="https://visualstudiogallery.msdn.microsoft.com/d0d33361-18e2-46c0-8ff2-4adea1e34fef" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Web-框架（Web-Frameworks）"><a href="#Web-框架（Web-Frameworks）" class="headerlink" title="Web 框架（Web Frameworks）"></a>Web 框架（Web Frameworks）</h2><ul>
+<li>ASP.NET MVC：ASP.NET 是一个免费的 web 框架，用于创建优秀的 web 站点和应用程序。<a href="https://aspnetwebstack.codeplex.com/" target="_blank" rel="noopener">官网</a></li>
+<li>FubuMVC：.NET 平台下前端控制器（front-controller）风格的 MVC 框架。<a href="https://github.com/DarthFubuMVC/fubumvc" target="_blank" rel="noopener">官网</a></li>
+<li>NancyFx：在 .Net 和 Mono 平台上创建 HTTP 服务的一个轻量级、非正式的框架。<a href="https://github.com/NancyFx/Nancy" target="_blank" rel="noopener">官网</a></li>
+<li>IISNode：在 IIS 中宿主 NodeJS 应用程序。<a href="https://github.com/tjanczuk/iisnode" target="_blank" rel="noopener">官网</a></li>
+<li>Suave.IO：一个框架/库/web 服务器，当你看到你使用优美的 F# 编写的代码提前完成了你的项目时，它的存在会让你喜极而泣。（一个用 F# 编写 Web 应用的框架和服务器端）<a href="http://suave.io/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Web-服务器（Web-Servers）"><a href="#Web-服务器（Web-Servers）" class="headerlink" title="Web 服务器（Web Servers）"></a>Web 服务器（Web Servers）</h2><ul>
+<li>EmbedIO：基于 Mono 编写的跨平台的 Web 服务器。<a href="https://github.com/unosquare/embedio" target="_blank" rel="noopener">官网</a> </li>
+<li>XSP：Mono 中的 ASP.NET 宿主服务器。该模块包含了 Apache 模块、FastCGI 模块，可以用于挂载到其它 web 服务器或是作为一个测试用的独立服务器存在（类似微软的 Cassini 项目）。<a href="https://github.com/mono/xsp" target="_blank" rel="noopener">官网</a></li>
+<li>Jexus：强劲、坚固、免费、易用的Linux ASP.NET服务器。<a href="http://www.jexus.org/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><ul>
+<li><a href="http://hao.jobbole.com/signalr/" target="_blank" rel="noopener">SignalR</a>：ASP.NET 库，开发者可以通过它在 web 应用程序中非常简单地实现实时功能。<a href="https://github.com/SignalR/SignalR" target="_blank" rel="noopener">官网</a></li>
+<li>Fleck：Fleck 是一个 C# 实现的 WebSocket 服务器。分支自 Nugget 项目。<a href="https://github.com/statianzo/Fleck" target="_blank" rel="noopener">官网</a></li>
+<li>Websocket-Sharp：WebSocket 协议的 C# 实现，包含客户端和服务器端。<a href="https://github.com/sta/websocket-sharp" target="_blank" rel="noopener">官网</a></li>
+<li>XSockets：提供了一组工具，可以在微软 .NET 等平台上构建一个实时应用程序。<a href="http://xsockets.net/" target="_blank" rel="noopener">官网</a></li>
+<li>WebSocket4NET：.NET 2.0+、Xamarin、Mono、Silverlight、Windows Phone 以及 WinRT 下的 WebSocket 客户端。<a href="https://websocket4net.codeplex.com" target="_blank" rel="noopener">官网</a></li>
+<li><a href="http://hao.jobbole.com/supersocket/" target="_blank" rel="noopener">SuperSocket</a>：一个轻量级, 跨平台而且可扩展的 .Net/Mono Socket 服务器程序框架。<a href="http://www.supersocket.net/" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="Windows-服务（Windows-Services）"><a href="#Windows-服务（Windows-Services）" class="headerlink" title="Windows 服务（Windows Services）"></a>Windows 服务（Windows Services）</h2><ul>
+<li>TopShelf：一个简单的服务宿主框架，使用 .NET 构建 Windows 服务。<a href="https://github.com/Topshelf/Topshelf" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="通讯框架（Communication-Frameworks）"><a href="#通讯框架（Communication-Frameworks）" class="headerlink" title="通讯框架（Communication Frameworks）"></a>通讯框架（Communication Frameworks）</h2><ul>
+<li>DotNetty：一个快速开发高性能、高可靠性的非阻塞的事件驱动网络应用框架。<a href="https://github.com/Azure/DotNetty" target="_blank" rel="noopener">官网</a></li>
+<li>Helios：一套高性能的Socket通信中间件。<a href="https://github.com/helios-io/helios" target="_blank" rel="noopener">官网</a></li>
+</ul>
+<h2 id="其他列表（Other-Lists）"><a href="#其他列表（Other-Lists）" class="headerlink" title="其他列表（Other Lists）"></a>其他列表（Other Lists）</h2><ul>
+<li><a href="https://github.com/tallesl/.NET-libraries-that-make-your-life-easier" target="_blank" rel="noopener">.NET-libraries-that-make-your-life-easier</a>：开源的 .NET 库，让你的生活更加轻松、</li>
+<li><a href="https://github.com/aloisdg/awesome-linq" target="_blank" rel="noopener">awesome-LINQ</a>：一组精心挑选的超棒的 LINQ 类库、工具等。</li>
+</ul>
+<h3 id="websites">知名网站</h3>
+*值得关注的 DotNet 技术站点。*
+
+<h4>中文站点</h4>
+
+<p>待补充</p>
+<h4>英文站点</h4>
+
+<p>待补充</p>
+<h3 id="weibo-weixin">微信公众号</h3>
+* 「DotNet」：专注 .NET 相关内容，包括：.NET 和 C# 开发心得、工具资源和相关动态。
+<br><img src="http://ww4.sinaimg.cn/small/63918611gw1epb2c79isfj20460460tr.jpg" width=150 height=150>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c#</a>
+              <a href="/tags/dotnet/" rel="tag"># dotnet</a>
+              <a href="/tags/awesome/" rel="tag"># awesome</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/03/21/awesome-mysql/" rel="prev" title="资源mysql大全">
+      <i class="fa fa-chevron-left"></i> 资源mysql大全
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/05/30/hexo-theme-dynamic-bg/" rel="next" title="next主题如何添加动态背景">
+      next主题如何添加动态背景 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DotNet-资源大全中文版"><span class="nav-number">1.</span> <span class="nav-text">DotNet 资源大全中文版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">1.1.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用框架（Application-Frameworks）"><span class="nav-number">1.2.</span> <span class="nav-text">应用框架（Application Frameworks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用模板（Application-Templates）"><span class="nav-number">1.3.</span> <span class="nav-text">应用模板（Application Templates）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人工智能（Artificial-Intelligence）"><span class="nav-number">1.4.</span> <span class="nav-text">人工智能（Artificial Intelligence）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序集处理（Assembly-Manipulation）"><span class="nav-number">1.5.</span> <span class="nav-text">程序集处理（Assembly Manipulation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源（Assets）"><span class="nav-number">1.6.</span> <span class="nav-text">资源（Assets）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认证和授权（Authentication-and-Authorization）"><span class="nav-number">1.7.</span> <span class="nav-text">认证和授权（Authentication and Authorization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动构建（Build-Automation）"><span class="nav-number">1.8.</span> <span class="nav-text">自动构建（Build Automation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存（Caching）"><span class="nav-number">1.9.</span> <span class="nav-text">缓存（Caching）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI"><span class="nav-number">1.10.</span> <span class="nav-text">CLI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLR"><span class="nav-number">1.11.</span> <span class="nav-text">CLR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMS"><span class="nav-number">1.12.</span> <span class="nav-text">CMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析和度量（Code-Analysis-and-Metrics）"><span class="nav-number">1.13.</span> <span class="nav-text">代码分析和度量（Code Analysis and Metrics）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译器（Compiler）"><span class="nav-number">1.14.</span> <span class="nav-text">编译器（Compiler）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩（Compression）"><span class="nav-number">1.15.</span> <span class="nav-text">压缩（Compression）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续集成（Continuous-Integration）"><span class="nav-number">1.16.</span> <span class="nav-text">持续集成（Continuous Integration）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密（Cryptography）"><span class="nav-number">1.17.</span> <span class="nav-text">加密（Cryptography）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库（Database）"><span class="nav-number">1.18.</span> <span class="nav-text">数据库（Database）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库驱动（Database-Drivers）"><span class="nav-number">1.19.</span> <span class="nav-text">数据库驱动（Database Drivers）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反编译（Decompilation）"><span class="nav-number">1.20.</span> <span class="nav-text">反编译（Decompilation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署（Deployment）"><span class="nav-number">1.21.</span> <span class="nav-text">部署（Deployment）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DirectX"><span class="nav-number">1.22.</span> <span class="nav-text">DirectX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式计算（Distributed-Computing）"><span class="nav-number">1.23.</span> <span class="nav-text">分布式计算（Distributed Computing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档（Documentation）"><span class="nav-number">1.24.</span> <span class="nav-text">文档（Documentation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电子商务和支付（E-Commerce-and-Payments）"><span class="nav-number">1.25.</span> <span class="nav-text">电子商务和支付（E-Commerce and Payments）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境管理（Environment-Management）"><span class="nav-number">1.26.</span> <span class="nav-text">环境管理（Environment Management）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ETL"><span class="nav-number">1.27.</span> <span class="nav-text">ETL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏（Game）"><span class="nav-number">1.28.</span> <span class="nav-text">游戏（Game）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地理信息系统（Gis）"><span class="nav-number">1.29.</span> <span class="nav-text">地理信息系统（Gis）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git工具（Git-Tools）"><span class="nav-number">1.30.</span> <span class="nav-text">Git工具（Git Tools）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形（Graphics）"><span class="nav-number">1.31.</span> <span class="nav-text">图形（Graphics）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI"><span class="nav-number">1.32.</span> <span class="nav-text">GUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-和-CSS（HTML-and-CSS）"><span class="nav-number">1.33.</span> <span class="nav-text">HTML 和 CSS（HTML and CSS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">1.34.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE"><span class="nav-number">1.35.</span> <span class="nav-text">IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像处理（Image-Processing）"><span class="nav-number">1.36.</span> <span class="nav-text">图像处理（Image Processing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装工具（Install-Tools）"><span class="nav-number">1.37.</span> <span class="nav-text">安装工具（Install Tools）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国际化（Internationalization）"><span class="nav-number">1.38.</span> <span class="nav-text">国际化（Internationalization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#互操作（Interoperability）"><span class="nav-number">1.39.</span> <span class="nav-text">互操作（Interoperability）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC"><span class="nav-number">1.40.</span> <span class="nav-text">IoC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志（Logging）"><span class="nav-number">1.41.</span> <span class="nav-text">日志（Logging）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习和数据科学（Machine-Learning-and-Data-Science）"><span class="nav-number">1.42.</span> <span class="nav-text">机器学习和数据科学（Machine Learning and Data Science）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-处理（Markdown-Processors）"><span class="nav-number">1.43.</span> <span class="nav-text">Markdown 处理（Markdown Processors）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件（Mail）"><span class="nav-number">1.44.</span> <span class="nav-text">邮件（Mail）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学（Mathematics）"><span class="nav-number">1.45.</span> <span class="nav-text">数学（Mathematics）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多媒体（Media）"><span class="nav-number">1.46.</span> <span class="nav-text">多媒体（Media）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量（Metrics）"><span class="nav-number">1.47.</span> <span class="nav-text">度量（Metrics）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微框架（Micro-Framework）"><span class="nav-number">1.48.</span> <span class="nav-text">微框架（Micro Framework）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杂项（Misc）"><span class="nav-number">1.49.</span> <span class="nav-text">杂项（Misc）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM"><span class="nav-number">1.50.</span> <span class="nav-text">MVVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Office"><span class="nav-number">1.51.</span> <span class="nav-text">Office</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM"><span class="nav-number">1.52.</span> <span class="nav-text">ORM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包管理（Package-Management）"><span class="nav-number">1.53.</span> <span class="nav-text">包管理（Package Management）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PDF"><span class="nav-number">1.54.</span> <span class="nav-text">PDF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Profiler"><span class="nav-number">1.55.</span> <span class="nav-text">Profiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送通知（Push-Notifications）"><span class="nav-number">1.56.</span> <span class="nav-text">推送通知（Push Notifications）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列（Queue）"><span class="nav-number">1.57.</span> <span class="nav-text">队列（Queue）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式编程（Reactive-Programming）"><span class="nav-number">1.58.</span> <span class="nav-text">响应式编程（Reactive Programming）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计划调度（Scheduling）"><span class="nav-number">1.59.</span> <span class="nav-text">计划调度（Scheduling）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDK-和-API-客户端（SDK-and-API-Clients）"><span class="nav-number">1.60.</span> <span class="nav-text">SDK 和 API 客户端（SDK and API Clients）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索（Search）"><span class="nav-number">1.61.</span> <span class="nav-text">搜索（Search）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列化（Serialization）"><span class="nav-number">1.62.</span> <span class="nav-text">序列化（Serialization）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态机（State-machines）"><span class="nav-number">1.63.</span> <span class="nav-text">状态机（State machines）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态网站生成（Static-Site-Generators）"><span class="nav-number">1.64.</span> <span class="nav-text">静态网站生成（Static Site Generators）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风格指南（Style-Guide）"><span class="nav-number">1.65.</span> <span class="nav-text">风格指南（Style Guide）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板引擎（Template-Engine）"><span class="nav-number">1.66.</span> <span class="nav-text">模板引擎（Template Engine）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试（Testing）"><span class="nav-number">1.67.</span> <span class="nav-text">测试（Testing）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交易（Trading）"><span class="nav-number">1.68.</span> <span class="nav-text">交易（Trading）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Studio-插件（Visual-Studio-Plugins）"><span class="nav-number">1.69.</span> <span class="nav-text">Visual Studio 插件（Visual Studio Plugins）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-框架（Web-Frameworks）"><span class="nav-number">1.70.</span> <span class="nav-text">Web 框架（Web Frameworks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-服务器（Web-Servers）"><span class="nav-number">1.71.</span> <span class="nav-text">Web 服务器（Web Servers）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.72.</span> <span class="nav-text">WebSocket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-服务（Windows-Services）"><span class="nav-number">1.73.</span> <span class="nav-text">Windows 服务（Windows Services）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通讯框架（Communication-Frameworks）"><span class="nav-number">1.74.</span> <span class="nav-text">通讯框架（Communication Frameworks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他列表（Other-Lists）"><span class="nav-number">1.75.</span> <span class="nav-text">其他列表（Other Lists）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#websites"><span class="nav-number">1.75.1.</span> <span class="nav-text">知名网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.75.1.1.</span> <span class="nav-text">中文站点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.75.1.2.</span> <span class="nav-text">英文站点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weibo-weixin"><span class="nav-number">1.75.2.</span> <span class="nav-text">微信公众号</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

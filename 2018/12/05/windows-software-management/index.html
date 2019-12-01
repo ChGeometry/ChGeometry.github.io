@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.dotnetlog.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="如果使用过Linux的话，一定会被其简洁的软件包管理系统所折服。在Linux世界中，安装一个软件不需要在浏览器中寻找软件的官网，然后将其下载下来，然后双击进行安装。只需要一条简单的命令，就可以完成搜索、安装、更新、卸载等所有操作 Debian &#x2F; Ubuntu 下有 apt-get Fedora 下有yum &#x2F; dnf">
+<meta name="keywords" content="windows,scoop,chocolatey">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows 系统的包管理器">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;2018&#x2F;12&#x2F;05&#x2F;windows-software-management&#x2F;index.html">
+<meta property="og:site_name" content="L O G">
+<meta property="og:description" content="如果使用过Linux的话，一定会被其简洁的软件包管理系统所折服。在Linux世界中，安装一个软件不需要在浏览器中寻找软件的官网，然后将其下载下来，然后双击进行安装。只需要一条简单的命令，就可以完成搜索、安装、更新、卸载等所有操作 Debian &#x2F; Ubuntu 下有 apt-get Fedora 下有yum &#x2F; dnf">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-01T03:25:42.783Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.dotnetlog.com/2018/12/05/windows-software-management/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>windows 系统的包管理器 | L O G</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d7117342b6f3dbeb2a7ee4db9bd221d8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">L O G</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-魔方游戏">
+
+    <a href="/rubik/" rel="section"><i class="fa fa-fw fa-cube"></i>魔方游戏</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/12/05/windows-software-management/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          windows 系统的包管理器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-05 12:42:05" itemprop="dateCreated datePublished" datetime="2018-12-05T12:42:05+08:00">2018-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>如果使用过Linux的话，一定会被其简洁的软件包管理系统所折服。在Linux世界中，安装一个软件不需要在浏览器中寻找软件的官网，然后将其下载下来，然后双击进行安装。只需要一条简单的命令，就可以完成搜索、安装、更新、卸载等所有操作</p>
+<p>Debian / Ubuntu 下有 apt-get</p>
+<p>Fedora 下有yum / dnf</p>
+<p>Arch 下有pacman</p>
+<p>Mac 下有 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> + <a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm 2</a> + <a href="http://fishshell.com/" target="_blank" rel="noopener">Fish shell</a> </p>
+<p>Windows 下 <a href="https://chocolatey.org/" target="_blank" rel="noopener">Chocolatey</a> / <a href="https://scoop.sh/" target="_blank" rel="noopener">Scoop</a> + <a href="http://cmder.net/" target="_blank" rel="noopener">Cmder</a></p>
+<blockquote>
+<p>国外有人把 Windows 下主流的包管理工具做了一个对比，分别列出了各自的优缺点，还有很多人投票，网站链接： <a href="https://www.slant.co/improve/topics/1843/~windows-package-managers" target="_blank" rel="noopener">What are the best Windows package managers?</a></p>
+</blockquote>
+<h2 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a>Chocolatey</h2><p>官网号称 Chocolatey 是在 Windows 上管理软件的明智方式，轻松管理 Windows 软件的各个方面（安装，配置，升级和卸载）。其他介绍请看官网：<a href="https://chocolatey.org/" target="_blank" rel="noopener">https://chocolatey.org/</a></p>
+<h3 id="Chocolatey-安装"><a href="#Chocolatey-安装" class="headerlink" title="Chocolatey 安装"></a>Chocolatey 安装</h3><p>Chocolatey 的安装要求用户系统至少是 Windows 7 以上或者 Server 版本 2003 以上，PowerShell 至少是 v2 以上。还需要 <code>.NET Framework 4+</code>，不过在安装 Chocolatey 前会自动检查，如果没有就会自动安装。<br>Chocolatey 可以通过两种方式安装：使用 cmd.exe 来安装和使用 PowerShell.exe 来安装。安装的具体事项可以看官网的 <a href="https://chocolatey.org/install" target="_blank" rel="noopener">Install</a></p>
+<h4 id="使用-cmd-exe-方式安装"><a href="#使用-cmd-exe-方式安装" class="headerlink" title="使用 cmd.exe 方式安装"></a>使用 cmd.exe 方式安装</h4><p>建议优先使用此方式安装，因为 cmd.exe 安装过程没有其他操作步骤。打开 CMD 命令行，然后输入如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"</span></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>如果安装失败，安装过程报错，报错信息如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Installation of Chocolatey to default folder requires Administrative permissions. Please run from elevated prompt.</span></pre></td></tr></table></figure>
+<p>上面这个错误产生的原因是因为没有以管理员身份启动 cmd.exe。如何以管理员身份启动 cmd.exe 请自行搜索，这里就不再啰嗦了</p>
+<h4 id="使用-PowerShell-exe-方式安装"><a href="#使用-PowerShell-exe-方式安装" class="headerlink" title="使用 PowerShell.exe 方式安装"></a>使用 PowerShell.exe 方式安装</h4><p>如果 cmd.exe 方式安装不成功再尝试这种方式， PowerShell.exe 安装过程会有安全性提示，要输入命令来确认。打开 PowerShell 命令行，然后输入如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy AllSigned; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))</span></pre></td></tr></table></figure>
+
+<p>安装过程可能会有安全性提示，按照提示来操作就行了</p>
+<blockquote>
+<p>使用<code>Win + R</code> 快捷键，接着输入<code>cmd</code>然后回车打开 CMD，输入 <code>powershell</code> 然后回车打开 PowerShell。如果安装报错，也有可能跟第一种安装方式一样是因为没有使用管理员身份运行 PowerShell 的原因。默认以管理员身份启动 PowerShell 的设置可以参考 <a href="http://www.pstips.net/set-powershell-icon-launch-to-default-to-run-as-administrator.html/" target="_blank" rel="noopener">让PowerShell控制台默认以管理员启动</a> </p>
+</blockquote>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">choco -h                       # 查看帮助</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">choco &lt;command&gt; -h             #查看相应命令的帮助</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">choco install &lt;package name&gt;   #安装软件包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">choco search &lt;keyword&gt;         #搜索软件包，会列出跟关键字相关的所有软件包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">choco upgrade &lt;package name&gt;   #升级软件包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">choco uninstall &lt;package name&gt; #卸载软件包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">choco list --local-only        #查看本地安装的软件包</span></pre></td></tr></table></figure>
+
+<p>更多命令请参考 <a href="https://chocolatey.org/docs/commands-reference#how-to-pass-options--switches" target="_blank" rel="noopener">Command Reference</a> </p>
+<p><strong>注意：</strong><code>choco list</code> 命令查看的是所有软件包，包括本地已安装和远程存在的软件包，所以这个命令执行很耗时。一般我们查看的都是本地已安装的软件包，所以要加上 <code>--local-only</code> 参数，如果要查看远程的软件包，直接使用 <code>choco search</code> 搜索指定软件包</p>
+<h3 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">choco install googlechrome #安装 Chrome 浏览器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">choco install autohotkey.portable #安装 AutoHotKey</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">choco install ccleaner #安装清理工具</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">choco install visualstudiocode #安装 VS Code</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">choco install conemu #安装ConEmu</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">choco install sourcetree #安装SourceTree</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">choco install winrar #安装压缩软件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">choco install android-sdk #安装 Android SDK</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">choco install git #安装Git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">choco install jdk8 #安装jdk8</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">choco install nodejs #安装Node.js</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">choco install virtualbox #安装虚拟机</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">choco install vim #安装 Vim</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">choco install docker #安装Docker</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">choco install wget #安装Wget</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">choco install dropbox #安装 Dropbox</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">choco install tortoisesvn #安装 TortoiseSVN</span></pre></td></tr></table></figure>
+
+<p>你所能想到的 Windows 上常用的软件差不多都能找到，想要找什么软件，直接使用 <code>choco search &lt;keyword&gt;</code> 用关键字搜索，如果不知道自己想要啥软件或者记不起来要装啥软件，可以去官网的 <a href="https://chocolatey.org/packages" target="_blank" rel="noopener">Packages</a> 页下找找，几千个软件包，慢慢找去吧</p>
+<h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a>Scoop</h2><p>Scoop 是 Windows 上的命令行安装程序，主要针对命令行下的开发者工具，和程序员更配哦。关于 Scoop 的更多介绍请看官网：<a href="http://scoop.sh/" target="_blank" rel="noopener">http://scoop.sh/</a> ，同时，Scoop 是开源的项目，仓库地址<a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">点这里</a></p>
+<h3 id="Scoop-安装"><a href="#Scoop-安装" class="headerlink" title="Scoop 安装"></a>Scoop 安装</h3><p>Scoop 的安装要求 Windows 上安装的 PowerShell 版本至少的 PowerShell 3，而且必须为你的用户帐户启用 PowerShell 。Windows 10 或 Windows Server 2012 应该默认安装的是 PowerShell 3，但 Windows 7 和Windows Server 2008 可能是比较老的版本</p>
+<h4 id="升级-PowerShell"><a href="#升级-PowerShell" class="headerlink" title="升级 PowerShell"></a>升级 PowerShell</h4><p>如果是 Windows 7 系统可能需要升级一下 PowerShell，有两种方式可以升级：一是直接下载 <a href="https://www.microsoft.com/en-us/download/details.aspx?id=34595" target="_blank" rel="noopener">PowerShell 3 的安装包</a>，二是通过 Chocolatey 升级。推荐使用第二种方式，下面重点介绍一下第二种方式的升级方法。<br>首先安装 Chocolatey ， 安装方法见上文。使用 <code>choco search powershell</code> 命令只搜索到 PowerShell 4 和 PowerShell 5。虽然在官网 <a href="https://chocolatey.org/packages" target="_blank" rel="noopener">Packages</a> 上搜索到了 <a href="https://chocolatey.org/packages/PowerShell/3.0.20121027" target="_blank" rel="noopener">PowerShell 3</a>，但是好像没通过审核，而且我强行安装失败，最后我直接安装的 PowerShell 5，在 PowerShell 命令行下输入如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">choco install powershell  #默认安装的最新版</span></pre></td></tr></table></figure>
+
+<p>安装过程需要同意，提示 <code>Do you want to run the script?([Y]es/[N]o/[P]rint):</code> 时，输入<code>y</code>就行了。</p>
+<blockquote>
+<p><strong>提示：</strong>可以使用 <code>Get-Host</code> 命令查看 PowerShell 版本，安装完后需要重启电脑，新版 PowerShell 才能生效</p>
+</blockquote>
+<h4 id="开始安装-Scoop"><a href="#开始安装-Scoop" class="headerlink" title="开始安装 Scoop"></a>开始安装 Scoop</h4><p>安装 Scoop 前需要确保你已经允许 PowerShell 执行本地脚本，执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">set-executionpolicy remotesigned -scope currentuser</span></pre></td></tr></table></figure>
+
+<p>执行这个命令时可能会提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Do you want to change the execution policy?</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):</span></pre></td></tr></table></figure>
+
+<p>输入 <code>y</code> 或者 <code>a</code> 就可以了。接下来开始安装 Scoop，执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">iex (new-object net.webclient).downloadstring('https://get.scoop.sh')</span></pre></td></tr></table></figure>
+
+<h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">scoop install 7zip #安装压缩软件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">scoop install git  #安装Git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">scoop install openssh #安装OpenSSH</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">scoop install concfg #安装控制台配置文件导入导出工具</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">concfg import solarized small #导入 Solarized 主题</span></pre></td></tr></table></figure>
+
+<p>其实只需要记住 <code>scoop help</code> 这一个命令就行了，其他命令忘记了直接通过这个命令查看就行了</p>
+<h3 id="常用软件-1"><a href="#常用软件-1" class="headerlink" title="常用软件"></a>常用软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">scoop install 7zip #安装压缩软件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">scoop install git  #安装Git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">scoop install openssh #安装OpenSSH</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">scoop install concfg #安装控制台配置文件导入导出工具</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">concfg import solarized small #导入 Solarized 主题</span></pre></td></tr></table></figure>
+
+<p>上面的四条命令可以合并成一个命令 <code>scoop install 7zip git openssh concfg</code> 支持的更多软件看这里：<a href="https://github.com/lukesampson/scoop/tree/master/bucket" target="_blank" rel="noopener">https://github.com/lukesampson/scoop/tree/master/bucket</a> </p>
+<h3 id="Scoop-VS-Chocolatey"><a href="#Scoop-VS-Chocolatey" class="headerlink" title="Scoop VS Chocolatey"></a>Scoop VS Chocolatey</h3><p>Scoop 和 Chocolatey 不同的地方在于下面几点：</p>
+<ol>
+<li>独立安装，和已有软件不冲突</li>
+<li>没有权限对话框，因为程序安装到用户目录</li>
+<li>不会污染路径</li>
+<li>不使用 NuGet，无需担心依赖</li>
+<li>不是软件包管理器，它仅读取一个关于如何安装程序的 JSON</li>
+<li>不安装特定版本，仅仅支持最新版本</li>
+<li><strong>专注于开发者的工具</strong></li>
+</ol>
+<p>更多请参考 <a href="https://github.com/lukesampson/scoop/wiki/Chocolatey-Comparison" target="_blank" rel="noopener">Chocolatey Comparison</a></p>
+<h2 id="一键装机"><a href="#一键装机" class="headerlink" title="一键装机"></a>一键装机</h2><p>当你在一台电脑上用 Chocolatey 和 Scoop（非程序员可以不装 Scoop） 配置过一次工作环境后，你只需要记住你所使用的软件包的名称，然后将所有的安装命令的清单云同步，那么当你换电脑了就可以很轻松的同步工作环境的配置，非常便捷。我的命令清单如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">使用 Chocolatey 安装</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">choco install googlechrome #安装 Chrome 浏览器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">choco install unity #安装最新版 Unity3D 游戏引擎</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">choco install visualstudiocode #安装 VS Code</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">choco install jdk8 #安装jdk8</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">choco install android-sdk #安装 Android SDK</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">使用 Scoop 安装</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">scoop install concfg git #安装 concfg、git 等</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">scoop install cmder-full #安装 cmder</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">scoop install pshazz #安装自定义提示和具有 Git&amp;SSH 特性的插件</span></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/scoop/" rel="tag"># scoop</a>
+              <a href="/tags/chocolatey/" rel="tag"># chocolatey</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/10/18/git-proxy-setting/" rel="prev" title="git设置代理">
+      <i class="fa fa-chevron-left"></i> git设置代理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/03/10/scoop-software-management/" rel="next" title="scoop windows包管理器">
+      scoop windows包管理器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chocolatey"><span class="nav-number">1.</span> <span class="nav-text">Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chocolatey-安装"><span class="nav-number">1.1.</span> <span class="nav-text">Chocolatey 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-cmd-exe-方式安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用 cmd.exe 方式安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-PowerShell-exe-方式安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用 PowerShell.exe 方式安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用软件"><span class="nav-number">1.3.</span> <span class="nav-text">常用软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scoop"><span class="nav-number">2.</span> <span class="nav-text">Scoop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scoop-安装"><span class="nav-number">2.1.</span> <span class="nav-text">Scoop 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#升级-PowerShell"><span class="nav-number">2.1.1.</span> <span class="nav-text">升级 PowerShell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始安装-Scoop"><span class="nav-number">2.1.2.</span> <span class="nav-text">开始安装 Scoop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令-1"><span class="nav-number">2.2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用软件-1"><span class="nav-number">2.3.</span> <span class="nav-text">常用软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scoop-VS-Chocolatey"><span class="nav-number">2.4.</span> <span class="nav-text">Scoop VS Chocolatey</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一键装机"><span class="nav-number">3.</span> <span class="nav-text">一键装机</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GEOMCH"
+      src="https://octodex.github.com/images/hubot.jpg">
+  <p class="site-author-name" itemprop="name">GEOMCH</p>
+  <div class="site-description" itemprop="description">share knowledge and insights</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/connself" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;connself" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:connself@gmail.com" title="E-Mail → mailto:connself@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GEOMCH <a href="/sitemap.xml">站点地图</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1258242383&web_id=1258242383"></script>
+  </div>
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
