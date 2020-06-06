@@ -54,12 +54,12 @@
 <meta property="og:site_name" content="L O G">
 <meta property="og:description" content="IdentityServer4 整体介绍1.整体情况现代应用程序看起来更像这个：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-2-1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-2-2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-2-3.png">
-<meta property="og:updated_time" content="2019-12-01T03:25:42.754Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-2-1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-2-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-2-3.png">
+<meta property="og:updated_time" content="2020-06-06T13:54:42.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-2-1.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-2-1.png">
 
 <link rel="canonical" href="http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/">
 
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+                <time title="修改时间：2020-06-06 21:54:42" itemprop="dateModified" datetime="2020-06-06T21:54:42+08:00">2020-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
 
       
         <h1 id="IdentityServer4-整体介绍"><a href="#IdentityServer4-整体介绍" class="headerlink" title="IdentityServer4 整体介绍"></a>IdentityServer4 整体介绍</h1><h2 id="1-整体情况"><a href="#1-整体情况" class="headerlink" title="1.整体情况"></a>1.整体情况</h2><p>现代应用程序看起来更像这个：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-2-1.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-2-1.png" alt=""></p>
 <p>最常见的相互作用：</p>
 <ul>
 <li>浏览器与Web应用程序的通信 Browser -&gt; Web App</li>
@@ -293,7 +293,7 @@
 <p>通常，每个层（前端、中间层和后端）必须保护资源并实现身份验证或授权——通常针对同一个用户存储区。</p>
 <p>将这些基本安全功能外包给安全令牌服务可以防止在这些应用程序和端点上复制该功能。</p>
 <p>应用支持安全令牌服务将引起下面的体系结构和协议：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-2-2.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-2-2.png" alt=""></p>
 <h2 id="2-认证（Authentication）"><a href="#2-认证（Authentication）" class="headerlink" title="2.认证（Authentication）"></a>2.认证（Authentication）</h2><p>认证可以让一个应用程序知道当前用户的身份。 通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他访问的数据。最常见的示例是Web应用程序，但基于本地和基于js的应用程序也需要进行身份验证</p>
 <p>最常用的认证协议saml2p、WS-Federation和OpenID，saml2p协议是最流行和实际应用最多的</p>
 <p>OpenID Connect对于现在应用来说是被认为是未来最有潜力的，这是专为移动应用场景设计的，一开始就被设计成对移动应用场景友好</p>
@@ -302,7 +302,7 @@
 <h2 id="4-OpenID-Connect-和-OAuth-2-0-结合"><a href="#4-OpenID-Connect-和-OAuth-2-0-结合" class="headerlink" title="4.OpenID Connect 和 OAuth 2.0 结合"></a>4.OpenID Connect 和 OAuth 2.0 结合</h2><p>OpenID Connect 和 OAuth 2.0非常相似，事实上OpenID Connect 是在OAuth 2.0之上的一个扩展。两个基本的安全问题，认证和API访问，被组合成单个协议，通常只需一次往返安全令牌服务。</p>
 <p>我们认为OpenID Connect和OAuth 2.0的组合是可预见在未来是保护现代应用程序的最佳方法。IdentityServer4是这两种协议的实现，并且被高度优化以解决当今移动应用、本地应用和web应用的典型安全问题</p>
 <h2 id="5-IdentityServer4可以帮助你做什么"><a href="#5-IdentityServer4可以帮助你做什么" class="headerlink" title="5.IdentityServer4可以帮助你做什么"></a>5.IdentityServer4可以帮助你做什么</h2><p>IdentityServer是将规范兼容的OpenID Connect和OAuth 2.0端点添加到任意ASP.NET Core应用程序的中间件。通常，您构建（或重新使用）包含登录和注销页面的应用程序，IdentityServer中间件会向其添加必要的协议头，以便客户端应用程序可以与其对话 使用这些标准协议。</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-2-3.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-2-3.png" alt=""></p>
 <p>我们通常建议通过仅包含认证相关的UI来使攻击面尽可能小。</p>
 
     </div>
@@ -384,20 +384,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

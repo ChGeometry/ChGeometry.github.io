@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.dotnetlog.com/2019/09/20/cloudflare301/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/22/efcore-migration/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-12/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/03/IdentityServer4-9/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2016/02/26/Markdown%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/01/IdentityServer4-7/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/02/IdentityServer4-8/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2017/12/28/IdentityServer4-3/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2017/12/30/IdentityServer4-6/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
+    <loc>http://www.dotnetlog.com/2017/06/20/hexo-theme-customization/</loc>
+    <lastmod>2020-06-06</lastmod>
+  </url>  <url>
     <loc>http://www.dotnetlog.com/2019/04/06/mysql-common-cmd/</loc>
     <lastmod>2020-06-06</lastmod>
   </url>  <url>
@@ -46,9 +85,6 @@
     <loc>http://www.dotnetlog.com/2018/04/17/htmlopenapp/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
-    <loc>http://www.dotnetlog.com/2017/06/20/hexo-theme-customization/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
     <loc>http://www.dotnetlog.com/2017/05/30/hexo-theme-dynamic-bg/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
@@ -62,9 +98,6 @@
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
     <loc>http://www.dotnetlog.com/2018/01/05/git-common-cmd/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/22/efcore-migration/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
     <loc>http://www.dotnetlog.com/2019/04/09/free-dns-collection/</loc>
@@ -109,43 +142,13 @@
     <loc>http://www.dotnetlog.com/2018/01/13/aspnet-core-deploy/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/03/IdentityServer4-9/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2016/02/26/Markdown%E7%A4%BA%E4%BE%8B/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/02/IdentityServer4-8/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2017/12/30/IdentityServer4-6/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/01/IdentityServer4-7/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2017/12/28/IdentityServer4-3/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
     <loc>http://www.dotnetlog.com/2017/12/29/IdentityServer4-4/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
     <loc>http://www.dotnetlog.com/2017/12/29/IdentityServer4-5/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
     <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-11/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-12/</loc>
-    <lastmod>2019-12-01</lastmod>
-  </url>  <url>
-    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
     <lastmod>2019-12-01</lastmod>
   </url>  <url>
     <loc>http://www.dotnetlog.com/2017/12/26/IdentityServer4-1/</loc>

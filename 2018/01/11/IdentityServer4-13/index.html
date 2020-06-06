@@ -54,17 +54,17 @@
 <meta property="og:site_name" content="L O G">
 <meta property="og:description" content="IdentityServer4 添加JavaScript客户端这个快速入门将展示如何构建一个JavaScript客户端应用程序。 用户将登录到IdentityServer，使用IdentityServer发出的访问令牌调用Web API，并注销IdentityServer。 创建一个JavaScript客户端新项目">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-3.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-5.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-6.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-7.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-8.png">
-<meta property="og:updated_time" content="2019-12-01T03:25:42.754Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-8.png">
+<meta property="og:updated_time" content="2020-06-06T13:54:42.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;blog.chenlis.com&#x2F;static&#x2F;identityserver4-13-1.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.dotnetlog.com&#x2F;static&#x2F;identityserver4-13-1.png">
 
 <link rel="canonical" href="http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/">
 
@@ -259,7 +259,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+                <time title="修改时间：2020-06-06 21:54:42" itemprop="dateModified" datetime="2020-06-06T21:54:42+08:00">2020-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,10 +287,10 @@
         <h1 id="IdentityServer4-添加JavaScript客户端"><a href="#IdentityServer4-添加JavaScript客户端" class="headerlink" title="IdentityServer4 添加JavaScript客户端"></a>IdentityServer4 添加JavaScript客户端</h1><p>这个快速入门将展示如何构建一个JavaScript客户端应用程序。 用户将登录到IdentityServer，使用IdentityServer发出的访问令牌调用Web API，并注销IdentityServer。</p>
 <h2 id="创建一个JavaScript客户端新项目"><a href="#创建一个JavaScript客户端新项目" class="headerlink" title="创建一个JavaScript客户端新项目"></a>创建一个JavaScript客户端新项目</h2><p>为JavaScript应用程序创建一个新项目。 它可以只是一个空的Web项目，或者一个空的ASP.NET Core应用程序。 这个快速入门将使用一个空的ASP.NET Core应用程序。</p>
 <p>创建一个新的Asp.NET Core web应用程序：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-1.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-1.png" alt=""></p>
 <p>选择“空”模版：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-2.png" alt=""></p>
-<h2 id="修改端口"><a href="#修改端口" class="headerlink" title="修改端口"></a>修改端口</h2><p>将端口修改为5003 请参阅 <a href="http://blog.chenlis.com/2018/01/10/IdentityServer4-12" target="_blank" rel="noopener">http://blog.chenlis.com/2018/01/10/IdentityServer4-12</a></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-2.png" alt=""></p>
+<h2 id="修改端口"><a href="#修改端口" class="headerlink" title="修改端口"></a>修改端口</h2><p>将端口修改为5003 请参阅 <a href="http://www.dotnetlog.com/2018/01/10/IdentityServer4-12">http://www.dotnetlog.com/2018/01/10/IdentityServer4-12</a></p>
 <h2 id="添加静态文件中间件"><a href="#添加静态文件中间件" class="headerlink" title="添加静态文件中间件"></a>添加静态文件中间件</h2><p>考虑到这个项目主要是为了运行客户端，我们需要ASP.NET Core来提供静态HTML和JavaScript文件，这些文件将组成我们的应用程序。 静态文件中间件被设计来做到这一点。</p>
 <p>在Startup.cs中的Configure方法中注册静态文件中间件：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Configure</span>(<span class="params">IApplicationBuilder app</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    app.UseDefaultFiles();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    app.UseStaticFiles();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
@@ -300,11 +300,11 @@
 <p><strong>NPM</strong></p>
 <p>如果你需要使用NPM下载oidc-client库，你需要遵循下面的步骤：</p>
 <p>添加一个NPM的包文件”package.json”</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-3.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-3.png" alt=""></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">"devDependencies": &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  "oidc-client": "1.4.1"</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <p>保存此文件后，Visual Studio应自动将这些软件包恢复到名为node_modules的文件夹中：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-4.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-4.png" alt=""></p>
 <p>在<code>〜/ node_modules / oidc-client / dist</code>文件夹中找到名为<code>oidc-client.js</code>的文件，并将其复制到应用程序的<code>〜/ wwwroot</code>文件夹中。 有更复杂的方法将你的NPM软件包复制到<code>〜/ wwwroot</code>，但是这些技术已经超出了这个快速入门的范围。</p>
 <h2 id="添加HTML和JavaScript文件"><a href="#添加HTML和JavaScript文件" class="headerlink" title="添加HTML和JavaScript文件"></a>添加HTML和JavaScript文件</h2><p>接下来是将你的HTML和JavaScript文件添加到<code>〜/ wwwroot</code>。 我们将添加两个HTML文件和一个特定于应用程序的JavaScript文件（除了oidc-client.js库）。 在<code>〜/ wwwroot</code>中，添加一个名为<code>index.html</code>和<code>callback.html</code>的HTML文件，并添加一个名为<code>app.js</code>的JavaScript文件。</p>
 <p><strong>index.html</strong></p>
@@ -343,13 +343,13 @@
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Configure</span>(<span class="params">IApplicationBuilder app</span>)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    app.UseCors(<span class="string">"default"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    app.UseAuthentication();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    app.UseMvc();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
 
 <h2 id="运行JavaScript应用"><a href="#运行JavaScript应用" class="headerlink" title="运行JavaScript应用"></a>运行JavaScript应用</h2><p>现在你应该可以运行JavaScript客户端应用程序了：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-5.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-5.png" alt=""></p>
 <p>点击“Login”按钮登录。一旦用户返回到JavaScript应用程序，你应该看到他们的个人资料信息：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-6.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-6.png" alt=""></p>
 <p>然后点击“API”按钮来调用Web API：</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-7.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-7.png" alt=""></p>
 <p>最后点击“Logout”注销用户。</p>
-<p><img src="http://blog.chenlis.com/static/identityserver4-13-8.png" alt=""></p>
+<p><img src="http://www.dotnetlog.com/static/identityserver4-13-8.png" alt=""></p>
 <p>现在，您已经有了一个JavaScript客户端应用程序的开始，该应用程序使用IdentityServer来登录，注销和验证对Web API的调用。</p>
 
     </div>
@@ -431,20 +431,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
