@@ -33,7 +33,7 @@
 <h2 id="关于CloudFlare"><a href="#关于CloudFlare" class="headerlink" title="关于CloudFlare"></a>关于CloudFlare</h2><p>CloudFlare是全球最大的CDN和DNS服务商之一，我们目前需要的301重定向服务也是由CloudFlare实现的</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
 <li>在CloudFlare控制面板点击DNS查看DNS记录，确保你的一级域名有有效的解析地址，建议1.1.1.1</li>
-<li>同样在控制面板，有一个Page Rules选项，在该选项下点击Crate Page Rule，填写一级域名，例如<a href="http://dotnetlog.com/，点击Add" target="_blank" rel="noopener">http://dotnetlog.com/，点击Add</a> a Setting，依次选择Forwarding URL，301-Permanent Redirect，在下发框填入需要转发到的域名，例如<a href="https://www.dotnetlog.com，最后点击Save" target="_blank" rel="noopener">https://www.dotnetlog.com，最后点击Save</a> and Deploy即可。<br><img src="http://www.dotnetlog.com/static/idcloudflare301-set.png" alt=""></li>
+<li>同样在控制面板，有一个Page Rules选项，在该选项下点击Crate Page Rule，填写一级域名，例如<a href="http://dotnetlog.com/，点击Add" target="_blank" rel="noopener">http://dotnetlog.com/，点击Add</a> a Setting，依次选择Forwarding URL，301-Permanent Redirect，在下发框填入需要转发到的域名，例如<a href="https://www.dotnetlog.com，最后点击Save" target="_blank" rel="noopener">https://www.dotnetlog.com，最后点击Save</a> and Deploy即可。<br><img src="http://www.dotnetlog.com/static/cloudflare301-set.png" alt=""></li>
 </ul>
 ]]></content>
       <categories>
