@@ -219,6 +219,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/05/03/batch%20-processing-copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
+      <meta itemprop="name" content="GEOMCH">
+      <meta itemprop="description" content="share knowledge and insights">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="L O G">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/05/03/batch%20-processing-copy/" class="post-title-link" itemprop="url">批处理学习之实现复制和剪切文件夹</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-03 19:02:00" itemprop="dateCreated datePublished" datetime="2018-05-03T19:02:00+08:00">2018-05-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index">
+                    <span itemprop="name">windows</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="批处理学习之实现复制和剪切文件夹"><a href="#批处理学习之实现复制和剪切文件夹" class="headerlink" title="批处理学习之实现复制和剪切文件夹"></a>批处理学习之实现复制和剪切文件夹</h1><p> 复制剪切文件夹是Windows系统下最常用的操作之一。今天我们就来学习一下如何使用批处理命令实现复制和剪切文件夹。复制文件的批处理命令较为简单，如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">rem 将D盘的MyDoc文件夹复制到E:\Test目录下  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">xcopy &#x2F;s &#x2F;i &#x2F;y D:\Test\MyDoc E:\Test\MyDoc</span></pre></td></tr></table></figure></p>
+<blockquote>
+<p> 需要指出的是上面的复制是覆盖复制，即默认覆盖同名文件，如果需要提示后覆盖的话，把上面命令的/y去掉即可。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/05/03/batch%20-processing-copy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/05/03/urlPlusSignTovariableSpaces/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -978,97 +1064,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.dotnetlog.com/2018/01/07/frp-intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://octodex.github.com/images/hubot.jpg">
-      <meta itemprop="name" content="GEOMCH">
-      <meta itemprop="description" content="share knowledge and insights">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="L O G">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/07/frp-intro/" class="post-title-link" itemprop="url">FRP内网穿透工具</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-01-07 16:16:00" itemprop="dateCreated datePublished" datetime="2018-01-07T16:16:00+08:00">2018-01-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-01 11:25:42" itemprop="dateModified" datetime="2019-12-01T11:25:42+08:00">2019-12-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">内网穿透</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/frp/" itemprop="url" rel="index">
-                    <span itemprop="name">frp</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><code>frp</code> 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, udp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。</p>
-<p> 以上是对frp的介绍，frp就是类似ngrock的开源程序，他的作用就是让你在本地开发的服务能够实时对外提供服务。</p>
-<h2 id="FRP-的作用"><a href="#FRP-的作用" class="headerlink" title="FRP 的作用"></a>FRP 的作用</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/01/07/frp-intro/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1119,7 +1114,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1169,7 +1164,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
