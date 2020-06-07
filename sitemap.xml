@@ -2,30 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.dotnetlog.com/music/index.html</loc>
+    
+    <lastmod>2020-06-07T05:02:42.038Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.dotnetlog.com/2019/09/20/cloudflare301/</loc>
     
-    <lastmod>2020-06-06T15:20:09.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/22/efcore-migration/</loc>
-    
-    <lastmod>2020-06-06T13:56:25.414Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-12/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.304Z</lastmod>
+    <lastmod>2020-06-07T02:45:18.106Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.dotnetlog.com/2018/01/03/IdentityServer4-9/</loc>
     
-    <lastmod>2020-06-06T13:54:42.303Z</lastmod>
+    <lastmod>2020-06-06T15:20:06.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-12/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2017/12/28/IdentityServer4-3/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2017/12/30/IdentityServer4-6/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/01/IdentityServer4-7/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/02/IdentityServer4-8/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/22/efcore-migration/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
     
   </url>
   
@@ -33,55 +89,6 @@
     <loc>http://www.dotnetlog.com/2016/02/26/Markdown%E7%A4%BA%E4%BE%8B/</loc>
     
     <lastmod>2020-06-06T13:54:42.303Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.302Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/01/IdentityServer4-7/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.302Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/02/IdentityServer4-8/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.302Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2017/12/28/IdentityServer4-3/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.dotnetlog.com/2017/12/30/IdentityServer4-6/</loc>
-    
-    <lastmod>2020-06-06T13:54:42.301Z</lastmod>
     
   </url>
   

@@ -3,7 +3,7 @@
   <entry>
     <title>重装系统后如何恢复使用scoop</title>
     <url>/2019/12/01/scoop-reset/</url>
-    <content><![CDATA[<p>重装系统之后,如果把原有的 scoop 文件夹粘贴回去 user 文件夹,然后在 powershell 中再次安装,会得到一个 Scoop is already installed 错误,要想正确恢复 scoop,<a href="https://github.com/lukesampson/scoop/issues/2894" target="_blank" rel="noopener">根据官方回答</a>,请按照以下步骤:</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>重装系统之后,如果把原有的 scoop 文件夹粘贴回去 user 文件夹,然后在 powershell 中再次安装,会得到一个 Scoop is already installed 错误,要想正确恢复 scoop,<a href="https://github.com/lukesampson/scoop/issues/2894" target="_blank" rel="noopener">根据官方回答</a>,请按照以下步骤:</p>
 <a id="more"></a>
 
 <ol>
@@ -29,11 +29,11 @@
   <entry>
     <title>CloudFlare一级域名跳转二级域名实现</title>
     <url>/2019/09/20/cloudflare301/</url>
-    <content><![CDATA[<h2 id="关于域名跳转"><a href="#关于域名跳转" class="headerlink" title="关于域名跳转"></a>关于域名跳转</h2><p>你是否在访问某些网站时发现直接访问一级域名即可，例如本站的网址，你可以访问blog.newhanly.com，也可以直接访问newhanly.com。那么这是如何实现的呢，301跳转是其中一种方法，客户端在向服务器请求资源时得到一个状态码，指引客户端到一个其它的网页</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="关于域名跳转"><a href="#关于域名跳转" class="headerlink" title="关于域名跳转"></a>关于域名跳转</h2><p>你是否在访问某些网站时发现直接访问一级域名即可，例如本站的网址，你可以访问blog.newhanly.com，也可以直接访问newhanly.com。那么这是如何实现的呢，301跳转是其中一种方法，客户端在向服务器请求资源时得到一个状态码，指引客户端到一个其它的网页</p>
 <h2 id="关于CloudFlare"><a href="#关于CloudFlare" class="headerlink" title="关于CloudFlare"></a>关于CloudFlare</h2><p>CloudFlare是全球最大的CDN和DNS服务商之一，我们目前需要的301重定向服务也是由CloudFlare实现的</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ul>
 <li>在CloudFlare控制面板点击DNS查看DNS记录，确保你的一级域名有有效的解析地址，建议1.1.1.1</li>
-<li>同样在控制面板，有一个Page Rules选项，在该选项下点击Crate Page Rule，填写一级域名，例如<a href="http://dotnetlog.com/，点击Add" target="_blank" rel="noopener">http://dotnetlog.com/，点击Add</a> a Setting，依次选择Forwarding URL，301-Permanent Redirect，在下发框填入需要转发到的域名，例如<a href="https://www.dotnetlog.com，最后点击Save" target="_blank" rel="noopener">https://www.dotnetlog.com，最后点击Save</a> and Deploy即可。<br><img src="http://www.dotnetlog.com/static/cloudflare301-set.png" alt=""></li>
+<li>同样在控制面板，有一个Page Rules选项，在该选项下点击Crate Page Rule，填写一级域名，例如<code>http://dotnetlog.com</code>，点击Add a Setting，依次选择Forwarding URL，301-Permanent Redirect，在下发框填入需要转发到的域名，例如<code>https://www.dotnetlog.com</code>，最后点击Save and Deploy即可。<br><img src="http://www.dotnetlog.com/static/cloudflare301-set.png" alt=""></li>
 </ul>
 ]]></content>
       <categories>
@@ -48,7 +48,7 @@
   <entry>
     <title>一些常用的免费在线工具网站汇总【持续更新】</title>
     <url>/2019/05/04/online-tools-collection/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>一些有用的工具网站</p>
 </blockquote>
 <h2 id="浏览器兼容类"><a href="#浏览器兼容类" class="headerlink" title="浏览器兼容类"></a>浏览器兼容类</h2><ul>
@@ -151,7 +151,7 @@
   <entry>
     <title>Windows10中安装Ubuntn18.04子系统和一些基础的配置</title>
     <url>/2019/04/20/wsl-install-ubuntn1804/</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>适用于 Linux 的 Windows 子系统（英语：Windows Subsystem for Linux，简称WSL）是一个为在Windows 10和Windows Server 2019上能够原生运行Linux二进制可执行文件（ELF格式）的兼容层</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>适用于 Linux 的 Windows 子系统（英语：Windows Subsystem for Linux，简称WSL）是一个为在Windows 10和Windows Server 2019上能够原生运行Linux二进制可执行文件（ELF格式）的兼容层</p>
 <p>WSL提供了一个由微软开发的Linux兼容的内核接口（不包含Linux内核代码），然后可以在其上运行GNU用户空间，例如Ubuntu，openSUSE，SUSE Linux Enterprise Server，Debian和Kali Linux。这样的用户空间可能包含Bash shell和命令语言，使用本机GNU/Linux命令行工具（sed，awk等），编程语言解释器（Ruby，Python等），甚至是图形应用程序（使用主机端的X窗口系统）。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
 <li><p>Windows设置——&gt;更新和安全——&gt;针对开发人员——&gt;开发人员模式</p>
@@ -260,7 +260,7 @@
   <entry>
     <title>SqlServer模仿Mysql函数Find_in_set,group_concat的功能</title>
     <url>/2019/04/16/sqlserver-find_in_ser-group_concat/</url>
-    <content><![CDATA[<h2 id="判断某个逗号隔开的字段中有某个值"><a href="#判断某个逗号隔开的字段中有某个值" class="headerlink" title="判断某个逗号隔开的字段中有某个值"></a>判断某个逗号隔开的字段中有某个值</h2><p><code>FIND_IN_SET(&#39;a&#39;,&#39;a,b,c,d&#39;)</code> 用 <code>CHARINDEX(&#39;,&#39;+&#39;b&#39;+&#39;,&#39; , &#39;,&#39;+&#39;a,b,c&#39;+&#39;,&#39;) &gt; 0</code> 替代</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="判断某个逗号隔开的字段中有某个值"><a href="#判断某个逗号隔开的字段中有某个值" class="headerlink" title="判断某个逗号隔开的字段中有某个值"></a>判断某个逗号隔开的字段中有某个值</h2><p><code>FIND_IN_SET(&#39;a&#39;,&#39;a,b,c,d&#39;)</code> 用 <code>CHARINDEX(&#39;,&#39;+&#39;b&#39;+&#39;,&#39; , &#39;,&#39;+&#39;a,b,c&#39;+&#39;,&#39;) &gt; 0</code> 替代</p>
 <h2 id="模仿mysql的group-concat的示例"><a href="#模仿mysql的group-concat的示例" class="headerlink" title="模仿mysql的group_concat的示例"></a>模仿mysql的group_concat的示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,     </span></pre></td></tr><tr><td class="code"><pre><span class="line">       val=( <span class="keyword">SELECT</span> [<span class="keyword">value</span>] +<span class="string">','</span>     </span></pre></td></tr><tr><td class="code"><pre><span class="line">               <span class="keyword">FROM</span> tb <span class="keyword">AS</span> b     </span></pre></td></tr><tr><td class="code"><pre><span class="line">               <span class="keyword">WHERE</span> b.id = a.id</span></pre></td></tr><tr><td class="code"><pre><span class="line">               <span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span>(<span class="string">''</span>)  )     </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> tb <span class="keyword">AS</span> a      </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span></span></pre></td></tr></table></figure>
 
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,     </span></pre></td></tr><tr><td class="code"><pre><span class="line">       [val]=<span class="keyword">STUFF</span>( (<span class="keyword">SELECT</span> <span class="string">','</span>+[<span class="keyword">value</span>]     </span></pre></td></tr><tr><td class="code"><pre><span class="line">                     <span class="keyword">FROM</span> tb <span class="keyword">AS</span> b     </span></pre></td></tr><tr><td class="code"><pre><span class="line">                     <span class="keyword">WHERE</span> b.id = a.id     </span></pre></td></tr><tr><td class="code"><pre><span class="line">                     <span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span>(<span class="string">''</span>)) , <span class="number">1</span> , <span class="number">1</span> , <span class="string">''</span> )    </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> tb <span class="keyword">AS</span> a      </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span></span></pre></td></tr></table></figure>]]></content>
@@ -275,7 +275,7 @@
   <entry>
     <title>免费公共DNS服务器IP地址收集</title>
     <url>/2019/04/09/free-dns-collection/</url>
-    <content><![CDATA[<p>个人收集全球常用公共DNS服务器 IP地址</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>个人收集全球常用公共DNS服务器 IP地址</p>
 <h3 id="国内常用公共DNS"><a href="#国内常用公共DNS" class="headerlink" title="国内常用公共DNS"></a>国内常用公共DNS</h3><ul>
 <li><p>阿里 AliDNS （223.5.5.5； 223.6.6.6）</p>
 </li>
@@ -342,7 +342,7 @@
   <entry>
     <title>Mysql常用运维命令</title>
     <url>/2019/04/06/mysql-common-cmd/</url>
-    <content><![CDATA[<h2 id="Mysql常用命令"><a href="#Mysql常用命令" class="headerlink" title="Mysql常用命令"></a>Mysql常用命令</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看数据库引擎的运行时信息</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">engine</span> <span class="keyword">innodb</span> <span class="keyword">status</span>\G;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示正在运行的线程</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">processlist</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 筛选运行大于10秒的线程 </span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.processlist <span class="keyword">WHERE</span> Command != <span class="string">'Sleep'</span> <span class="keyword">AND</span> <span class="built_in">Time</span> &gt; <span class="number">10</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Time</span> <span class="keyword">DESC</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 杀死进程</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">kill</span> <span class="keyword">id</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 锁表处理</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> ‘%<span class="keyword">lock</span>%’</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">OPEN</span> <span class="keyword">TABLES</span> <span class="keyword">where</span> In_use &gt; <span class="number">0</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看正在锁的事务</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_LOCKS; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看等待锁的事务</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_LOCK_WAITS; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看服务器状态</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> ‘%<span class="keyword">lock</span>%’;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示一个用户的权限</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> user_name; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示一些系统特定资源的信息</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示系统变量的名称和值</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示BDB存储引擎的日志</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">logs</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示最后一个执行的语句所产生的错误、警告和通知</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">warnings</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 只显示最后一个执行语句所产生的错误</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">errors</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看MySQL服务器运行的各种状态值</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示连接数</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'max_connections'</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">'max_used_connections'</span>;</span></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Mysql常用命令"><a href="#Mysql常用命令" class="headerlink" title="Mysql常用命令"></a>Mysql常用命令</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看数据库引擎的运行时信息</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">engine</span> <span class="keyword">innodb</span> <span class="keyword">status</span>\G;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示正在运行的线程</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">processlist</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 筛选运行大于10秒的线程 </span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.processlist <span class="keyword">WHERE</span> Command != <span class="string">'Sleep'</span> <span class="keyword">AND</span> <span class="built_in">Time</span> &gt; <span class="number">10</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="built_in">Time</span> <span class="keyword">DESC</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 杀死进程</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">kill</span> <span class="keyword">id</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 锁表处理</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> ‘%<span class="keyword">lock</span>%’</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">OPEN</span> <span class="keyword">TABLES</span> <span class="keyword">where</span> In_use &gt; <span class="number">0</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看正在锁的事务</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_LOCKS; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看等待锁的事务</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_LOCK_WAITS; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看服务器状态</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> ‘%<span class="keyword">lock</span>%’;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示一个用户的权限</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">grants</span> <span class="keyword">for</span> user_name; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示一些系统特定资源的信息</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示系统变量的名称和值</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示BDB存储引擎的日志</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">logs</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示最后一个执行的语句所产生的错误、警告和通知</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">warnings</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 只显示最后一个执行语句所产生的错误</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">errors</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看MySQL服务器运行的各种状态值</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span>;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">-- 显示连接数</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'max_connections'</span>; </span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">'max_used_connections'</span>;</span></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>mysql</category>
       </categories>
@@ -353,7 +353,7 @@
   <entry>
     <title>scoop windows包管理器</title>
     <url>/2019/03/10/scoop-software-management/</url>
-    <content><![CDATA[<p>分别试用了chocolatey和scoop一下，最终放弃了chocolatey，选择使用<a href="https://scoop.sh/" target="_blank" rel="noopener">scoop</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>分别试用了chocolatey和scoop一下，最终放弃了chocolatey，选择使用<a href="https://scoop.sh/" target="_blank" rel="noopener">scoop</a></p>
 <h2 id="chocolatey-VS-scoop"><a href="#chocolatey-VS-scoop" class="headerlink" title="chocolatey VS scoop"></a>chocolatey VS scoop</h2><ul>
 <li>chocolatey权限要求高, scoop 使用-g安装才需要管理员权限, 默认普通用户权限.</li>
 <li>scoop可以建软件包仓库, 如果官方仓库里没有想用的软件, 可以自己建一个仓库, 存放自己的软件.</li>
@@ -428,7 +428,7 @@
   <entry>
     <title>windows 系统的包管理器</title>
     <url>/2018/12/05/windows-software-management/</url>
-    <content><![CDATA[<p>如果使用过Linux的话，一定会被其简洁的软件包管理系统所折服。在Linux世界中，安装一个软件不需要在浏览器中寻找软件的官网，然后将其下载下来，然后双击进行安装。只需要一条简单的命令，就可以完成搜索、安装、更新、卸载等所有操作</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>如果使用过Linux的话，一定会被其简洁的软件包管理系统所折服。在Linux世界中，安装一个软件不需要在浏览器中寻找软件的官网，然后将其下载下来，然后双击进行安装。只需要一条简单的命令，就可以完成搜索、安装、更新、卸载等所有操作</p>
 <p>Debian / Ubuntu 下有 apt-get</p>
 <p>Fedora 下有yum / dnf</p>
 <p>Arch 下有pacman</p>
@@ -508,7 +508,7 @@
   <entry>
     <title>git设置代理</title>
     <url>/2018/10/18/git-proxy-setting/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>国内同步github上的项目速度过慢，可以通过设置代理提高速度</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>国内同步github上的项目速度过慢，可以通过设置代理提高速度</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
 <li><p>查看代理配置</p>
   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global --get http.proxy</span></pre></td></tr><tr><td class="code"><pre><span class="line">git config --global --get https.proxy</span></pre></td></tr></table></figure>
@@ -534,7 +534,7 @@
   <entry>
     <title>删除Visual Studio解决方案中的所有Bin和Obj文件夹</title>
     <url>/2018/10/07/deleting-all-bin-obj-folders-in-a-solution/</url>
-    <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一些特殊情况下我们必须在Visual Studio解决方案中递归删除所有bin和obj文件夹。Visual Studio有一个清理解决方案功能，但它不会全部删除它们。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一些特殊情况下我们必须在Visual Studio解决方案中递归删除所有bin和obj文件夹。Visual Studio有一个清理解决方案功能，但它不会全部删除它们。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这是递归删除所有Bin和Obj文件夹的方法。</p>
 <ul>
 <li>创建一个空文件并将其命名为DeleteBinObjFolders.bat</li>
@@ -556,7 +556,7 @@
   <entry>
     <title>批处理学习之实现复制和剪切文件夹</title>
     <url>/2018/05/03/batch%20-processing-copy/</url>
-    <content><![CDATA[<h1 id="批处理学习之实现复制和剪切文件夹"><a href="#批处理学习之实现复制和剪切文件夹" class="headerlink" title="批处理学习之实现复制和剪切文件夹"></a>批处理学习之实现复制和剪切文件夹</h1><p> 复制剪切文件夹是Windows系统下最常用的操作之一。今天我们就来学习一下如何使用批处理命令实现复制和剪切文件夹。复制文件的批处理命令较为简单，如下：<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rem 将D盘的MyDoc文件夹复制到E:\Test目录下  </span></pre></td></tr><tr><td class="code"><pre><span class="line">xcopy &#x2F;s &#x2F;i &#x2F;y D:\Test\MyDoc E:\Test\MyDoc</span></pre></td></tr></table></figure></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="批处理学习之实现复制和剪切文件夹"><a href="#批处理学习之实现复制和剪切文件夹" class="headerlink" title="批处理学习之实现复制和剪切文件夹"></a>批处理学习之实现复制和剪切文件夹</h1><p> 复制剪切文件夹是Windows系统下最常用的操作之一。今天我们就来学习一下如何使用批处理命令实现复制和剪切文件夹。复制文件的批处理命令较为简单，如下：<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rem 将D盘的MyDoc文件夹复制到E:\Test目录下  </span></pre></td></tr><tr><td class="code"><pre><span class="line">xcopy &#x2F;s &#x2F;i &#x2F;y D:\Test\MyDoc E:\Test\MyDoc</span></pre></td></tr></table></figure></p>
 <blockquote>
 <p> 需要指出的是上面的复制是覆盖复制，即默认覆盖同名文件，如果需要提示后覆盖的话，把上面命令的/y去掉即可。</p>
 </blockquote>
@@ -576,7 +576,7 @@
   <entry>
     <title>URL 传+号到后台变空格问题解决方案</title>
     <url>/2018/05/03/urlPlusSignTovariableSpaces/</url>
-    <content><![CDATA[<h1 id="URL-传-号到后台变空格问题解决方案"><a href="#URL-传-号到后台变空格问题解决方案" class="headerlink" title="URL 传+号到后台变空格问题解决方案"></a>URL 传+号到后台变空格问题解决方案</h1><p>客户端向服务器传递参数时，参数中的“+”全部变成了空格，原因是URL中默认的将“+”号转义了</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="URL-传-号到后台变空格问题解决方案"><a href="#URL-传-号到后台变空格问题解决方案" class="headerlink" title="URL 传+号到后台变空格问题解决方案"></a>URL 传+号到后台变空格问题解决方案</h1><p>客户端向服务器传递参数时，参数中的“+”全部变成了空格，原因是URL中默认的将“+”号转义了</p>
 <p>解决方法如下：</p>
 <ul>
 <li><p>1.修改客户端，将客户端带“+”的参数中的“+”全部替换为‍“2b%”，这样参数传到服务器端时就能得到“+”了。</p>
@@ -598,7 +598,7 @@
   <entry>
     <title>sqlserver 自增ID插入指定数据</title>
     <url>/2018/05/02/sqlerver-identity-insert/</url>
-    <content><![CDATA[<h1 id="sqlserver-自增ID插入指定数据"><a href="#sqlserver-自增ID插入指定数据" class="headerlink" title="sqlserver 自增ID插入指定数据"></a>sqlserver 自增ID插入指定数据</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> identity_insert 表名 <span class="keyword">ON</span> <span class="comment">--允许对自增列Id插入指定数据</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> table_name(<span class="keyword">Id</span>,<span class="keyword">Name</span>) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'test'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> identity_insert 表名 <span class="keyword">OFF</span> <span class="comment">--关闭对自增列Id插入指定数据</span></span></pre></td></tr></table></figure>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="sqlserver-自增ID插入指定数据"><a href="#sqlserver-自增ID插入指定数据" class="headerlink" title="sqlserver 自增ID插入指定数据"></a>sqlserver 自增ID插入指定数据</h1><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> identity_insert 表名 <span class="keyword">ON</span> <span class="comment">--允许对自增列Id插入指定数据</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> table_name(<span class="keyword">Id</span>,<span class="keyword">Name</span>) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'test'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> identity_insert 表名 <span class="keyword">OFF</span> <span class="comment">--关闭对自增列Id插入指定数据</span></span></pre></td></tr></table></figure>
 
 <blockquote>
 <p>1.set identity_insert只对当前会话生效。</p>
@@ -618,7 +618,7 @@
   <entry>
     <title>html5页面中打开本地app，如果没有跳转下载页面的解决方案</title>
     <url>/2018/04/17/htmlopenapp/</url>
-    <content><![CDATA[<h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><p>直接用window.location.href的方法解决，这个方法的前提条件是需要知道自己app对应的打开协议，如贴吧APP，协议为：com.baidu.tieba://（下边以百度贴吧为例）</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><p>直接用window.location.href的方法解决，这个方法的前提条件是需要知道自己app对应的打开协议，如贴吧APP，协议为：com.baidu.tieba://（下边以百度贴吧为例）</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a标签点击打开的动作，在click事件中注册 --&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"openApp"</span>&gt;</span>贴吧客户端<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementById(<span class="string">'openApp'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="javascript">        <span class="built_in">window</span>.location.href = <span class="string">"com.baidu.tieba://"</span>;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="javascript">        <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="javascript">            <span class="built_in">window</span>.location.href = <span class="string">"https://itunes.apple.com/cn/app/id477927812"</span>;<span class="comment">//打开app下载地址，由app开发人员提供</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        &#125;,2000)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></pre></td></tr></table></figure>
 
 <p>因为Android和iOS的下载包和协议是不同的所以需要判断一下用户的系统类型</p>
@@ -640,7 +640,7 @@
   <entry>
     <title>EntityFrameworkCore 数据库迁移命令整理</title>
     <url>/2018/01/22/efcore-migration/</url>
-    <content><![CDATA[<h1 id="EntityFrameworkCore-数据库迁移命令整理"><a href="#EntityFrameworkCore-数据库迁移命令整理" class="headerlink" title="EntityFrameworkCore 数据库迁移命令整理"></a>EntityFrameworkCore 数据库迁移命令整理</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整理EFCore的两种迁移数据库的方式：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="EntityFrameworkCore-数据库迁移命令整理"><a href="#EntityFrameworkCore-数据库迁移命令整理" class="headerlink" title="EntityFrameworkCore 数据库迁移命令整理"></a>EntityFrameworkCore 数据库迁移命令整理</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整理EFCore的两种迁移数据库的方式：</p>
 <ul>
 <li><p>程序包管理器控制台 , Package Manager Console（PMC）</p>
 <p>  如果你用visual studio 开发建议使用PMC迁移方式，该方式是同时支持efcore和原先的ef 迁移的</p>
@@ -735,7 +735,7 @@
   <entry>
     <title>Linux下常用一键脚本收集</title>
     <url>/2018/01/19/linux-script-collection/</url>
-    <content><![CDATA[<h1 id="LAMP一键安装包"><a href="#LAMP一键安装包" class="headerlink" title="LAMP一键安装包"></a>LAMP一键安装包</h1><p>LAMP 一键安装包是一个用 Linux Shell 编写的可以为 CentOS/Debian/Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL/MariaDB/Percona + PHP) 生产环境的 Shell 程序</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="LAMP一键安装包"><a href="#LAMP一键安装包" class="headerlink" title="LAMP一键安装包"></a>LAMP一键安装包</h1><p>LAMP 一键安装包是一个用 Linux Shell 编写的可以为 CentOS/Debian/Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL/MariaDB/Percona + PHP) 生产环境的 Shell 程序</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#事前准备（安装 wget、screen、unzip，创建 screen 会话）</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">yum -y install wget screen git      // <span class="keyword">for</span> CentOS</span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get -y install wget screen git  // <span class="keyword">for</span> Debian/Ubuntu</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#git clone 并赋予脚本执行权限</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/teddysun/lamp.git</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> lamp</span></pre></td></tr><tr><td class="code"><pre><span class="line">chmod +x *.sh</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#开始安装</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">screen -S lamp</span></pre></td></tr><tr><td class="code"><pre><span class="line">./lamp.sh</span></pre></td></tr></table></figure>
 <blockquote>
 <p>官网：<a href="https://lamp.sh" target="_blank" rel="noopener">https://lamp.sh</a></p>
@@ -811,7 +811,7 @@
   <entry>
     <title>aspnet core 发布和部署</title>
     <url>/2018/01/13/aspnet-core-deploy/</url>
-    <content><![CDATA[<h1 id="Net-Core-SDK-命令介绍"><a href="#Net-Core-SDK-命令介绍" class="headerlink" title=".Net Core SDK 命令介绍"></a>.Net Core SDK 命令介绍</h1><p>主要介绍 asp.net core 中，使用 dotnet tools 运行 dotnet run 之后的系统执行过程</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Net-Core-SDK-命令介绍"><a href="#Net-Core-SDK-命令介绍" class="headerlink" title=".Net Core SDK 命令介绍"></a>.Net Core SDK 命令介绍</h1><p>主要介绍 asp.net core 中，使用 dotnet tools 运行 dotnet run 之后的系统执行过程</p>
 <h2 id="dotnet-run-介绍"><a href="#dotnet-run-介绍" class="headerlink" title="dotnet run 介绍"></a>dotnet run 介绍</h2><p>dotnet 相关命令是属于 .NET Core command-line (CLI) 的一部分，Microsoft 为我们提供了这个命令行工具以供我们在开发程序中使用，它主要用来进行对代码的编译、NuGet 包的管理、程序的运行、测试等等。</p>
 <p>dotnet 命令目前支持一下操作系统或者 OS 版本：</p>
 <ul>
@@ -869,7 +869,7 @@
   <entry>
     <title>IdentityServer4-13 - 添加JavaScript客户端</title>
     <url>/2018/01/11/IdentityServer4-13/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-添加JavaScript客户端"><a href="#IdentityServer4-添加JavaScript客户端" class="headerlink" title="IdentityServer4 添加JavaScript客户端"></a>IdentityServer4 添加JavaScript客户端</h1><p>这个快速入门将展示如何构建一个JavaScript客户端应用程序。 用户将登录到IdentityServer，使用IdentityServer发出的访问令牌调用Web API，并注销IdentityServer。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-添加JavaScript客户端"><a href="#IdentityServer4-添加JavaScript客户端" class="headerlink" title="IdentityServer4 添加JavaScript客户端"></a>IdentityServer4 添加JavaScript客户端</h1><p>这个快速入门将展示如何构建一个JavaScript客户端应用程序。 用户将登录到IdentityServer，使用IdentityServer发出的访问令牌调用Web API，并注销IdentityServer。</p>
 <h2 id="创建一个JavaScript客户端新项目"><a href="#创建一个JavaScript客户端新项目" class="headerlink" title="创建一个JavaScript客户端新项目"></a>创建一个JavaScript客户端新项目</h2><p>为JavaScript应用程序创建一个新项目。 它可以只是一个空的Web项目，或者一个空的ASP.NET Core应用程序。 这个快速入门将使用一个空的ASP.NET Core应用程序。</p>
 <p>创建一个新的Asp.NET Core web应用程序：</p>
 <p><img src="http://www.dotnetlog.com/static/identityserver4-13-1.png" alt=""></p>
@@ -949,7 +949,7 @@
   <entry>
     <title>IdentityServer4-12 - 使用 ASP.NET Core Identity</title>
     <url>/2018/01/10/IdentityServer4-12/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-使用-ASP-NET-Core-Identity"><a href="#IdentityServer4-使用-ASP-NET-Core-Identity" class="headerlink" title="IdentityServer4 使用 ASP.NET Core Identity"></a>IdentityServer4 使用 ASP.NET Core Identity</h1><p>IdentityServer具有非常好的扩展性，其中用户及其数据（包括密码）部分你可以使用任何想要的数据库进行持久化。 如果需要一个新的用户数据库，那么ASP.NET Core Identity是你的一个选择。 本快速入门介绍了如何将ASP.NET Core Identity 和 IdentityServer4一起使用。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-使用-ASP-NET-Core-Identity"><a href="#IdentityServer4-使用-ASP-NET-Core-Identity" class="headerlink" title="IdentityServer4 使用 ASP.NET Core Identity"></a>IdentityServer4 使用 ASP.NET Core Identity</h1><p>IdentityServer具有非常好的扩展性，其中用户及其数据（包括密码）部分你可以使用任何想要的数据库进行持久化。 如果需要一个新的用户数据库，那么ASP.NET Core Identity是你的一个选择。 本快速入门介绍了如何将ASP.NET Core Identity 和 IdentityServer4一起使用。</p>
 <p>在阅读这篇文章是，希望你能把前面的文章全部看一遍，了解基本使用和相关的理论。 这个快速入门使用ASP.NET Core Identity的方法是从Visual Studio中的ASP.NET Core Identity模板创建一个新项目。 这个新的项目将取代之前在之前的快速入门中从头开始构建的IdentityServer项目。 此解决方案中的所有其他项目（对于客户端和API）将保持不变。</p>
 <h2 id="建立ASP-NET-Identity新项目"><a href="#建立ASP-NET-Identity新项目" class="headerlink" title="建立ASP.NET Identity新项目"></a>建立ASP.NET Identity新项目</h2><p>第一步是为您的解决方案添加一个ASP.NET Core Identity的新项目。 鉴于ASP.NET Core Identity需要大量代码，因此使用Visual Studio中的模板是最好的。 你最终将删除IdentityServer的旧项目，但有几个项目需要迁移（或按照之前的快速入门所述从头开始重新编写）。</p>
 <p>创建一个ASP.NET Core Web应用程序</p>
@@ -1012,7 +1012,7 @@
   <entry>
     <title>IdentityServer4-11 - 使用Hybrid Flow并添加API访问控制</title>
     <url>/2018/01/10/IdentityServer4-11/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-使用Hybrid-Flow并添加API访问控制"><a href="#IdentityServer4-使用Hybrid-Flow并添加API访问控制" class="headerlink" title="IdentityServer4 使用Hybrid Flow并添加API访问控制"></a>IdentityServer4 使用Hybrid Flow并添加API访问控制</h1><h2 id="关于Hybrid-Flow-和-implicit-flow"><a href="#关于Hybrid-Flow-和-implicit-flow" class="headerlink" title="关于Hybrid Flow 和 implicit flow"></a>关于Hybrid Flow 和 implicit flow</h2><p>前一篇文章使用OpenID Connect添加用户认证中提到了implicit flow，那么它们是什么呢，它和Hybrid Flow有什么不同呢，这里简单讲一下.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-使用Hybrid-Flow并添加API访问控制"><a href="#IdentityServer4-使用Hybrid-Flow并添加API访问控制" class="headerlink" title="IdentityServer4 使用Hybrid Flow并添加API访问控制"></a>IdentityServer4 使用Hybrid Flow并添加API访问控制</h1><h2 id="关于Hybrid-Flow-和-implicit-flow"><a href="#关于Hybrid-Flow-和-implicit-flow" class="headerlink" title="关于Hybrid Flow 和 implicit flow"></a>关于Hybrid Flow 和 implicit flow</h2><p>前一篇文章使用OpenID Connect添加用户认证中提到了implicit flow，那么它们是什么呢，它和Hybrid Flow有什么不同呢，这里简单讲一下.</p>
 <p>Hybrid Flow 和 implicit flow是OIDC（OpenID Connect）协议中的术语，Implicit Flow是指使用OAuth2的Implicit流程获取Id Token和Access Token；Hybrid Flow是指混合Authorization Code Flow（OAuth授权码流程）和Implici Flow。</p>
 <p>在之前的文章，我们探索了API访问控制和身份认证。 现在我们要把这两个部分结合在一起。</p>
 <p>OpenID Connect和OAuth 2.0组合的优点在于，您可以使用单一协议和令牌服务进行单一交换。</p>
@@ -1050,7 +1050,7 @@
   <entry>
     <title>FRP内网穿透工具</title>
     <url>/2018/01/07/frp-intro/</url>
-    <content><![CDATA[<p><code>frp</code> 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, udp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><code>frp</code> 是一个高性能的反向代理应用，可以帮助您轻松地进行内网穿透，对外网提供服务，支持 tcp, udp, http, https 等协议类型，并且 web 服务支持根据域名进行路由转发。</p>
 <p> 以上是对frp的介绍，frp就是类似ngrock的开源程序，他的作用就是让你在本地开发的服务能够实时对外提供服务。</p>
 <h2 id="FRP-的作用"><a href="#FRP-的作用" class="headerlink" title="FRP 的作用"></a>FRP 的作用</h2><p>解决处于内网或防火墙后的机器，对外网提供 http 或 https 的WEB服务。对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。同时对外网环境提供 tcp/udp 服务，例如在家里通过 ssh 访问处于公司内网环境内的主机。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>在本机开发好的网站想让客户测试不再需要上传到服务器上面，使用我们的免费Frp内网穿透服务轻松解决；微信开发也不需要再上传到服务器，使用我们的免费Frp内网穿透服务器帮您解决80端口问题，实现微信服务器直接访问到您本机的web服务。</p>
@@ -1076,7 +1076,7 @@
   <entry>
     <title>常用的git命令行</title>
     <url>/2018/01/05/git-common-cmd/</url>
-    <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>自己在工作中常用的git命令行！</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>自己在工作中常用的git命令行！</p>
 <h2 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a><a name="basic">Git基本操作</a></h2><h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><p>当我们要进行Git提交的时候，我们作为提交者要以什么姓名和电子邮件地址进行提交？</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name "Default"</span></pre></td></tr><tr><td class="code"><pre><span class="line">git config --global user.email abc@example.com</span></pre></td></tr></table></figure>
 <h2 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --list</span></pre></td></tr></table></figure>
@@ -1193,7 +1193,7 @@
   <entry>
     <title>IdentityServer4-10 - 添加对外部认证的支持之QQ登录</title>
     <url>/2018/01/04/IdentityServer4-10/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-添加对外部认证的支持之QQ登录"><a href="#IdentityServer4-添加对外部认证的支持之QQ登录" class="headerlink" title="IdentityServer4 添加对外部认证的支持之QQ登录"></a>IdentityServer4 添加对外部认证的支持之QQ登录</h1><h2 id="IdentityServer4-前言"><a href="#IdentityServer4-前言" class="headerlink" title="IdentityServer4 前言"></a>IdentityServer4 前言</h2><p>前面我们提到过IdentityServer4是可以添加外部认证的，如果外部认证支持OAuth2，那么添加到IdentityServer4是非常简单的，在ASP.NET Core下提供了非常多的外部认证实现，比如Google，Facebook，Twitter，Microsoft帐户和OpenID Connect等，但是对于我们国内来说最常用的莫过于QQ登录。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-添加对外部认证的支持之QQ登录"><a href="#IdentityServer4-添加对外部认证的支持之QQ登录" class="headerlink" title="IdentityServer4 添加对外部认证的支持之QQ登录"></a>IdentityServer4 添加对外部认证的支持之QQ登录</h1><h2 id="IdentityServer4-前言"><a href="#IdentityServer4-前言" class="headerlink" title="IdentityServer4 前言"></a>IdentityServer4 前言</h2><p>前面我们提到过IdentityServer4是可以添加外部认证的，如果外部认证支持OAuth2，那么添加到IdentityServer4是非常简单的，在ASP.NET Core下提供了非常多的外部认证实现，比如Google，Facebook，Twitter，Microsoft帐户和OpenID Connect等，但是对于我们国内来说最常用的莫过于QQ登录。</p>
 <h2 id="申请QQ登录"><a href="#申请QQ登录" class="headerlink" title="申请QQ登录"></a>申请QQ登录</h2><h3 id="访问QQ互联官方网站：https-connect-qq-com"><a href="#访问QQ互联官方网站：https-connect-qq-com" class="headerlink" title="访问QQ互联官方网站：https://connect.qq.com/"></a>访问QQ互联官方网站：<a href="https://connect.qq.com/" target="_blank" rel="noopener">https://connect.qq.com/</a></h3><h3 id="点击“应用管理”-gt-“创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。"><a href="#点击“应用管理”-gt-“创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。" class="headerlink" title="点击“应用管理”-&gt; “创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。"></a>点击“应用管理”-&gt; “创建应用”，填写你的网站信息，这里的信息请不要胡乱填写，这个会影响审核的，以后要是修改了这些信息需要重新审核。</h3><p><img src="http://www.dotnetlog.com/static/identityserver4-10-1.png" alt=""></p>
 <p>填写完善资料的时候，唯一一个需要注意的就是回调地址，这里我们后面详细介绍。</p>
 <h3 id="等待审核结果，这里审核还是非常快的，一般一天左右就行了"><a href="#等待审核结果，这里审核还是非常快的，一般一天左右就行了" class="headerlink" title="等待审核结果，这里审核还是非常快的，一般一天左右就行了"></a>等待审核结果，这里审核还是非常快的，一般一天左右就行了</h3><p><img src="http://www.dotnetlog.com/static/identityserver4-10-2.png" alt=""></p>
@@ -1245,7 +1245,7 @@
   <entry>
     <title>IdentityServer4-9 - 使用OpenID Connect添加用户认证</title>
     <url>/2018/01/03/IdentityServer4-9/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-使用OpenID-Connect添加用户认证"><a href="#IdentityServer4-使用OpenID-Connect添加用户认证" class="headerlink" title="IdentityServer4 使用OpenID Connect添加用户认证"></a>IdentityServer4 使用OpenID Connect添加用户认证</h1><h2 id="IdentityServer4-OpenID-Connect"><a href="#IdentityServer4-OpenID-Connect" class="headerlink" title="IdentityServer4 OpenID Connect"></a>IdentityServer4 OpenID Connect</h2><p>OpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。 它允许客户端基于授权服务器执行的身份验证来验证最终用户的身份，以及以可互操作和类似REST的方式获取关于最终用户的基本配置文件信息。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-使用OpenID-Connect添加用户认证"><a href="#IdentityServer4-使用OpenID-Connect添加用户认证" class="headerlink" title="IdentityServer4 使用OpenID Connect添加用户认证"></a>IdentityServer4 使用OpenID Connect添加用户认证</h1><h2 id="IdentityServer4-OpenID-Connect"><a href="#IdentityServer4-OpenID-Connect" class="headerlink" title="IdentityServer4 OpenID Connect"></a>IdentityServer4 OpenID Connect</h2><p>OpenID Connect 1.0是OAuth 2.0协议之上的一个简单的身份层。 它允许客户端基于授权服务器执行的身份验证来验证最终用户的身份，以及以可互操作和类似REST的方式获取关于最终用户的基本配置文件信息。</p>
 <p>OpenID Connect允许所有类型的客户端（包括基于Web的移动和JavaScript客户端）请求和接收关于认证会话和最终用户的信息。 规范套件是可扩展的，允许参与者使用可选功能，例如身份数据的加密，OpenID提供商的发现和会话管理。</p>
 <p><img src="http://www.dotnetlog.com/static/identityserver4-9-1.png" alt=""></p>
 <h2 id="OpenID-Connect-和-OAuth的关系"><a href="#OpenID-Connect-和-OAuth的关系" class="headerlink" title="OpenID Connect 和 OAuth的关系"></a>OpenID Connect 和 OAuth的关系</h2><p>OpenID Connect 在OAuth2上构建了一个身份层，是一个基于OAuth2协议的身份认证标准协议。我们都知道OAuth2是一个授权协议，它无法提供完善的身份认证功能，OpenID Connect 使用OAuth2的授权服务器来为第三方客户端提供用户的身份认证，并把对应的身份认证信息传递给客户端，且可以适用于各种类型的客户端（比如服务端应用，移动APP，JS应用），且完全兼容OAuth2，也就是说你搭建了一个OpenID Connect 的服务后，也可以当作一个OAuth2的服务来用。应用场景如图</p>
@@ -1327,7 +1327,7 @@
   <entry>
     <title>IdentityServer4-8 - 使用密码认证方式控制API访问</title>
     <url>/2018/01/02/IdentityServer4-8/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-使用密码认证方式控制API访问"><a href="#IdentityServer4-使用密码认证方式控制API访问" class="headerlink" title="IdentityServer4 使用密码认证方式控制API访问"></a>IdentityServer4 使用密码认证方式控制API访问</h1><h2 id="IdentityServer4-前言"><a href="#IdentityServer4-前言" class="headerlink" title="IdentityServer4 前言"></a>IdentityServer4 前言</h2><p>上一篇博文在API项目中我使用了Microsoft.AspNetCore.Authentication.JwtBearer组件来代替IdentityServer4.AccessTokenValidation组件，今天我发现后者已经更新到了2.0.0，支持.net core 2.0，所以现在所使用的组件已经更新为后者。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-使用密码认证方式控制API访问"><a href="#IdentityServer4-使用密码认证方式控制API访问" class="headerlink" title="IdentityServer4 使用密码认证方式控制API访问"></a>IdentityServer4 使用密码认证方式控制API访问</h1><h2 id="IdentityServer4-前言"><a href="#IdentityServer4-前言" class="headerlink" title="IdentityServer4 前言"></a>IdentityServer4 前言</h2><p>上一篇博文在API项目中我使用了Microsoft.AspNetCore.Authentication.JwtBearer组件来代替IdentityServer4.AccessTokenValidation组件，今天我发现后者已经更新到了2.0.0，支持.net core 2.0，所以现在所使用的组件已经更新为后者。</p>
 <h2 id="资源所有者密码授权"><a href="#资源所有者密码授权" class="headerlink" title="资源所有者密码授权"></a>资源所有者密码授权</h2><p>OAuth 2.0 资源所有者密码授权允许一个客户端发送用户名和密码到IdentityServer并获得一个表示该用户的可以用于访问api的Token。</p>
 <p>该规范建议仅对“受信任”应用程序使用资源所有者密码授权。 一般来说，当您要验证用户并请求访问令牌时，通常使用交互式OpenID Connect流会更好。</p>
 <p>不过，这个授权类型允许我们在 IdentityServer 快速入门中引入 用户 的概念，这是我们要展示它的原因。</p>
@@ -1376,7 +1376,7 @@
   <entry>
     <title>IdentityServer4-7 - 使用客户端证书控制API访问</title>
     <url>/2018/01/01/IdentityServer4-7/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-使用客户端证书控制API访问"><a href="#IdentityServer4-使用客户端证书控制API访问" class="headerlink" title="IdentityServer4 使用客户端证书控制API访问"></a>IdentityServer4 使用客户端证书控制API访问</h1><h2 id="IdentityServer4-使用客户端证书保护API"><a href="#IdentityServer4-使用客户端证书保护API" class="headerlink" title="IdentityServer4 使用客户端证书保护API"></a>IdentityServer4 使用客户端证书保护API</h2><p>此示例介绍了使用IdentityServer保护API的最基本场景。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-使用客户端证书控制API访问"><a href="#IdentityServer4-使用客户端证书控制API访问" class="headerlink" title="IdentityServer4 使用客户端证书控制API访问"></a>IdentityServer4 使用客户端证书控制API访问</h1><h2 id="IdentityServer4-使用客户端证书保护API"><a href="#IdentityServer4-使用客户端证书保护API" class="headerlink" title="IdentityServer4 使用客户端证书保护API"></a>IdentityServer4 使用客户端证书保护API</h2><p>此示例介绍了使用IdentityServer保护API的最基本场景。</p>
 <p>在这种情况下，我们将定义一个API和要访问它的客户端。 客户端将在IdentityServer上请求访问令牌，并使用它来访问API。</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>创建一个名为QuickstartIdentityServer的ASP.NET Core Web 空项目（asp.net core 2.0），端口5000</p>
 <p>创建一个名为Api的ASP.NET Core Web Api 项目（asp.net core 2.0），端口5001</p>
@@ -1450,7 +1450,7 @@
   <entry>
     <title>IdentityServer4-6 - 开始</title>
     <url>/2017/12/30/IdentityServer4-6/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-开始"><a href="#IdentityServer4-开始" class="headerlink" title="IdentityServer4 开始"></a>IdentityServer4 开始</h1><h2 id="IdentityServer4-安装和概述"><a href="#IdentityServer4-安装和概述" class="headerlink" title="IdentityServer4 安装和概述"></a>IdentityServer4 安装和概述</h2><p>启动一个新的IdentityServer项目有两种基本方法：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-开始"><a href="#IdentityServer4-开始" class="headerlink" title="IdentityServer4 开始"></a>IdentityServer4 开始</h1><h2 id="IdentityServer4-安装和概述"><a href="#IdentityServer4-安装和概述" class="headerlink" title="IdentityServer4 安装和概述"></a>IdentityServer4 安装和概述</h2><p>启动一个新的IdentityServer项目有两种基本方法：</p>
 <ul>
 <li>从头开始</li>
 <li>从Visual Studio中的ASP.NET身份模板开始</li>
@@ -1499,7 +1499,7 @@
   <entry>
     <title>IdentityServer4-5 - 包和构建</title>
     <url>/2017/12/29/IdentityServer4-5/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-包和构建"><a href="#IdentityServer4-包和构建" class="headerlink" title="IdentityServer4 包和构建"></a>IdentityServer4 包和构建</h1><h2 id="IdentityServer4-包和构建-1"><a href="#IdentityServer4-包和构建-1" class="headerlink" title="IdentityServer4 包和构建"></a>IdentityServer4 包和构建</h2><p>IdentityServer有许多nuget包</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-包和构建"><a href="#IdentityServer4-包和构建" class="headerlink" title="IdentityServer4 包和构建"></a>IdentityServer4 包和构建</h1><h2 id="IdentityServer4-包和构建-1"><a href="#IdentityServer4-包和构建-1" class="headerlink" title="IdentityServer4 包和构建"></a>IdentityServer4 包和构建</h2><p>IdentityServer有许多nuget包</p>
 <h2 id="IdentityServer4"><a href="#IdentityServer4" class="headerlink" title="IdentityServer4"></a>IdentityServer4</h2><p><a href="https://www.nuget.org/packages/IdentityServer4/" target="_blank" rel="noopener">NuGet</a>,<br><a href="https://github.com/identityserver/IdentityServer4" target="_blank" rel="noopener">GitHub</a></p>
 <h2 id="Quickstart-UI"><a href="#Quickstart-UI" class="headerlink" title="Quickstart UI"></a>Quickstart UI</h2><p><a href="https://github.com/IdentityServer/IdentityServer4.Quickstart.UI" target="_blank" rel="noopener">GitHub</a></p>
 <blockquote>
@@ -1530,7 +1530,7 @@
   <entry>
     <title>IdentityServer4-4 - 支持的规范</title>
     <url>/2017/12/29/IdentityServer4-4/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-支持的规范"><a href="#IdentityServer4-支持的规范" class="headerlink" title="IdentityServer4 支持的规范"></a>IdentityServer4 支持的规范</h1><p>IdentityServer实现以下规范：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-支持的规范"><a href="#IdentityServer4-支持的规范" class="headerlink" title="IdentityServer4 支持的规范"></a>IdentityServer4 支持的规范</h1><p>IdentityServer实现以下规范：</p>
 <h4 id="OpenID-Connect-Unordered-Lists"><a href="#OpenID-Connect-Unordered-Lists" class="headerlink" title="OpenID Connect Unordered Lists (-)"></a>OpenID Connect Unordered Lists (-)</h4><ul>
 <li>OpenID Connect Core 1.0 (<a href="http://openid.net/specs/openid-connect-core-1_0.html" target="_blank" rel="noopener">spec</a>)</li>
 <li>OpenID Connect Discovery 1.0 (<a href="http://openid.net/specs/openid-connect-discovery-1_0.html" target="_blank" rel="noopener">spec</a>)</li>
@@ -1560,7 +1560,7 @@
   <entry>
     <title>IdentityServer4-3 - 术语的解释</title>
     <url>/2017/12/28/IdentityServer4-3/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-术语的解释"><a href="#IdentityServer4-术语的解释" class="headerlink" title="IdentityServer4 术语的解释"></a>IdentityServer4 术语的解释</h1><h2 id="IdentityServer4-术语"><a href="#IdentityServer4-术语" class="headerlink" title="IdentityServer4 术语"></a>IdentityServer4 术语</h2><p>IdentityServer4的规范、文档和对象模型使用了一些你应该了解的术语</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-术语的解释"><a href="#IdentityServer4-术语的解释" class="headerlink" title="IdentityServer4 术语的解释"></a>IdentityServer4 术语的解释</h1><h2 id="IdentityServer4-术语"><a href="#IdentityServer4-术语" class="headerlink" title="IdentityServer4 术语"></a>IdentityServer4 术语</h2><p>IdentityServer4的规范、文档和对象模型使用了一些你应该了解的术语</p>
 <p><img src="http://www.dotnetlog.com/static/identityserver4-3-1.png" alt=""></p>
 <h2 id="身份认证服务器（IdentityServer）"><a href="#身份认证服务器（IdentityServer）" class="headerlink" title="身份认证服务器（IdentityServer）"></a>身份认证服务器（IdentityServer）</h2><p>IdentityServer是一个OpenID Connect提供程序，它实现了OpenID Connect 和 OAuth 2.0 协议。</p>
 <p>同样的角色，不同的文档使用不同的术语。在有些文档中，它（IdentityServer）可能会被叫做安全令牌服务器（security token service）、身份提供者（identity provider）、授权服务器（authorization server）、 标识提供方（(IP-STS，什么是IP-STS）等等。</p>
@@ -1596,7 +1596,7 @@
   <entry>
     <title>IdentityServer4-2 - 整体介绍</title>
     <url>/2017/12/27/IdentityServer4-2/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-整体介绍"><a href="#IdentityServer4-整体介绍" class="headerlink" title="IdentityServer4 整体介绍"></a>IdentityServer4 整体介绍</h1><h2 id="1-整体情况"><a href="#1-整体情况" class="headerlink" title="1.整体情况"></a>1.整体情况</h2><p>现代应用程序看起来更像这个：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-整体介绍"><a href="#IdentityServer4-整体介绍" class="headerlink" title="IdentityServer4 整体介绍"></a>IdentityServer4 整体介绍</h1><h2 id="1-整体情况"><a href="#1-整体情况" class="headerlink" title="1.整体情况"></a>1.整体情况</h2><p>现代应用程序看起来更像这个：</p>
 <p><img src="http://www.dotnetlog.com/static/identityserver4-2-1.png" alt=""></p>
 <p>最常见的相互作用：</p>
 <ul>
@@ -1634,7 +1634,7 @@
   <entry>
     <title>IdentityServer4-1 - 特性</title>
     <url>/2017/12/26/IdentityServer4-1/</url>
-    <content><![CDATA[<h1 id="IdentityServer4-特性"><a href="#IdentityServer4-特性" class="headerlink" title="IdentityServer4 特性"></a>IdentityServer4 特性</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>IdentityServer4 系列教程 转载于 [cnBlogs 晓晨Master](https://www.cnblogs.com/stulzq/p/8119928.html)</code></pre><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><pre><code>IdentityServer4是ASP.NET Core的一个包含OpenID和OAuth 2.0协议的框架。OpenID和OAuth 的区别请看 [链接](https://www.zhihu.com/question/19628327)</code></pre><p>它使你的应用程序具有如下特点：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="IdentityServer4-特性"><a href="#IdentityServer4-特性" class="headerlink" title="IdentityServer4 特性"></a>IdentityServer4 特性</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>IdentityServer4 系列教程 转载于 [cnBlogs 晓晨Master](https://www.cnblogs.com/stulzq/p/8119928.html)</code></pre><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><pre><code>IdentityServer4是ASP.NET Core的一个包含OpenID和OAuth 2.0协议的框架。OpenID和OAuth 的区别请看 [链接](https://www.zhihu.com/question/19628327)</code></pre><p>它使你的应用程序具有如下特点：</p>
 <h2 id="2-作为服务的身份验证"><a href="#2-作为服务的身份验证" class="headerlink" title="2.作为服务的身份验证"></a>2.作为服务的身份验证</h2><pre><code>集中控制你的所有应用（ (web, native, mobile, services)）的登录逻辑和工作流</code></pre><h2 id="3-单点登录-登出"><a href="#3-单点登录-登出" class="headerlink" title="3.单点登录/登出"></a>3.单点登录/登出</h2><pre><code>在多种类型的应用程序上单点登录/登出</code></pre><h2 id="4-API访问控制"><a href="#4-API访问控制" class="headerlink" title="4.API访问控制"></a>4.API访问控制</h2><pre><code>为各种类型的客户机发放API访问令牌，例如服务器到服务器、Web应用程序、SPA和native/mobile apps。</code></pre><h2 id="5-联合网关"><a href="#5-联合网关" class="headerlink" title="5.联合网关"></a>5.联合网关</h2><pre><code>支持第三方登录，比如Azure Active Directory, Google, Facebook 等等，这保护您的应用程序连接到这些外部登录提供商的细节。</code></pre><h2 id="6-专注于定制"><a href="#6-专注于定制" class="headerlink" title="6.专注于定制"></a>6.专注于定制</h2><pre><code>identityserver的许多方面可以被定制以适合你的需求的最重要的部分。因为identityserver是一个框架，而不是一个盒装产品或SaaS，您可以为你的使用场景来编写代码以适应系统的方式。</code></pre>]]></content>
       <categories>
         <category>IdentityServer4</category>
@@ -1648,7 +1648,7 @@
   <entry>
     <title>通用简历模板</title>
     <url>/2017/12/25/resume_web/</url>
-    <content><![CDATA[<h2 id="先讲讲怎样才是一份好的技术简历"><a href="#先讲讲怎样才是一份好的技术简历" class="headerlink" title="先讲讲怎样才是一份好的技术简历"></a>先讲讲怎样才是一份好的技术简历</h2><p>首先，一份好的简历不光说明事实，更通过FAB模式来增强其说服力。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="先讲讲怎样才是一份好的技术简历"><a href="#先讲讲怎样才是一份好的技术简历" class="headerlink" title="先讲讲怎样才是一份好的技术简历"></a>先讲讲怎样才是一份好的技术简历</h2><p>首先，一份好的简历不光说明事实，更通过FAB模式来增强其说服力。</p>
 <ul>
 <li>Feature：是什么</li>
 <li>Advantage：比别人好在哪些地方</li>
@@ -1740,7 +1740,7 @@
   <entry>
     <title>jexus 添加自启 ubuntu</title>
     <url>/2017/12/19/jexus-ubuntu-powerboot/</url>
-    <content><![CDATA[<p>linux的服务开机设置一般在 /etc/init.d/里</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>linux的服务开机设置一般在 /etc/init.d/里</p>
 <p>而jexus的默认安装目录在 /usr/jexus里 启动文件为 jws 参数 有start stop restart</p>
 <p>jexus的开启启动脚本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">### BEGIN INIT INFO</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Provides:  jws</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Required-Start:   $local_fs  $remote_fs</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Required-Stop:    $local_fs  $remote_fs</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Default-Start:    2 3 4 5</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Default-Stop:     0 1 6</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Short-Description:    jws</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment"># Description:  This file should be used to construct scripts to be placed in /etc/init.d.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">#</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">### END INIT INFO</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">## Fill in name of program here.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">PROG=<span class="string">"jws"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">PROG_PATH=<span class="string">"/usr/jexus"</span> <span class="comment">## Not need, but sometimes helpful (if $PROG resides in /opt for example).</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">PROG_ARGS=<span class="string">"start"</span> </span></pre></td></tr><tr><td class="code"><pre><span class="line">PID_PATH=<span class="string">"/var/run/"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> [ -e <span class="string">"<span class="variable">$PID_PATH</span>/<span class="variable">$PROG</span>.pid"</span> ]; <span class="keyword">then</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment">## Program is running, exit with error.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="string">"Error! <span class="variable">$PROG</span> is currently running!"</span> 1&gt;&amp;2</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 1</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">else</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment">## Change from /dev/null to something like /var/log/$PROG if you want to save output.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="variable">$PROG_PATH</span>/<span class="variable">$PROG</span> <span class="variable">$PROG_ARGS</span> 2&gt;&amp;1 &gt;/var/<span class="built_in">log</span>/<span class="variable">$PROG</span> &amp;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="variable">$pid</span>=`ps ax | grep -i <span class="string">'jws'</span> | sed <span class="string">'s/^\([0-9]\&#123;1,\&#125;\).*/\1/g'</span> | head -n 1`</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$PROG</span> started"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="variable">$pid</span> &gt; <span class="string">"<span class="variable">$PID_PATH</span>/<span class="variable">$PROG</span>.pid"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">fi</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">echo</span> <span class="string">"begin stop"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> [ -e <span class="string">"<span class="variable">$PID_PATH</span>/<span class="variable">$PROG</span>.pid"</span> ]; <span class="keyword">then</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment">## Program is running, so stop it</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    pid=`ps ax | grep -i <span class="string">'jws'</span> | sed <span class="string">'s/^\([0-9]\&#123;1,\&#125;\).*/\1/g'</span> | head -n 1`</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">kill</span> <span class="variable">$pid</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        </span></pre></td></tr><tr><td class="code"><pre><span class="line">        rm -f  <span class="string">"<span class="variable">$PID_PATH</span>/<span class="variable">$PROG</span>.pid"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="string">"<span class="variable">$PROG</span> stopped"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">else</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="comment">## Program is not running, exit with error.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="string">"Error! <span class="variable">$PROG</span> not started!"</span> 1&gt;&amp;2</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 1</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="keyword">fi</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">## Check to see if we are running as root first.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="comment">## Found at http://www.cyberciti.biz/tips/shell-root-user-check-script.html</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$(id -u)</span>"</span> != <span class="string">"0"</span> ]; <span class="keyword">then</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">echo</span> <span class="string">"This script must be run as root"</span> 1&gt;&amp;2</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="built_in">exit</span> 1</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">fi</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    start)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        start</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 0</span></pre></td></tr><tr><td class="code"><pre><span class="line">    ;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    stop)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        stop</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 0</span></pre></td></tr><tr><td class="code"><pre><span class="line">    ;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    restart)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        stop</span></pre></td></tr><tr><td class="code"><pre><span class="line">        start</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 0</span></pre></td></tr><tr><td class="code"><pre><span class="line">    ;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    **)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|restart&#125;"</span> 1&gt;&amp;2</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="built_in">exit</span> 1</span></pre></td></tr><tr><td class="code"><pre><span class="line">    ;;</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="keyword">esac</span></span></pre></td></tr></table></figure>
@@ -1766,7 +1766,7 @@
   <entry>
     <title>jexus 支持dotnet core 项目</title>
     <url>/2017/12/19/jexus-dotnetcore/</url>
-    <content><![CDATA[<p>Jexus 即 Jexus Web Server，简称JWS，是Linux平台上的一款ASP.NET WEB服务器，是 Linux、Unix、FreeBSD 等非Windows系统架设 ASP.NET WEB 服务器的核心程序，是企业级ASP.NET跨平台部署的一种可选方案。与其它WEB服务器相比，Jexus不但具有跨平台ASP.NET服务器这样的标志性特征，同时还拥有内核级的安全监控、入侵检测、URL重写、无文件路由等一系列重要功能和专有特性。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Jexus 即 Jexus Web Server，简称JWS，是Linux平台上的一款ASP.NET WEB服务器，是 Linux、Unix、FreeBSD 等非Windows系统架设 ASP.NET WEB 服务器的核心程序，是企业级ASP.NET跨平台部署的一种可选方案。与其它WEB服务器相比，Jexus不但具有跨平台ASP.NET服务器这样的标志性特征，同时还拥有内核级的安全监控、入侵检测、URL重写、无文件路由等一系列重要功能和专有特性。</p>
 <p>关于它的定义简单明了，就是一款Linux上的Asp.Net Web服务器，相当于我们的Windows上的IIS，Jexus5.8.2的正式发布为Asp.Net Core进入生产环境提供了平台支持。</p>
 <p>本版的亮点是新增“AppHost”配置项，将HTTP自宿主应用程序（如Asp.net Core应用程序、Node.js应用程序等）统一纳入Jexus的工作进程序列进行管控（启动、停止、重启、崩溃后自动恢复等管理、监控功能），为Asp.Net Core应用程序进入企业化生产环境提供了强有力的平台保障。使用 jexus整合asp.net core的优点：</p>
 <pre><code>1)支持多站点，同一端口可以同时支持任何多的asp.net core应用程序；
@@ -1904,7 +1904,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源unity大全</title>
     <url>/2017/07/01/awesome-unity/</url>
-    <content><![CDATA[<h1 id="Awesome-Unity"><a href="#Awesome-Unity" class="headerlink" title="Awesome Unity"></a>Awesome Unity</h1><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Awesome-Unity"><a href="#Awesome-Unity" class="headerlink" title="Awesome Unity"></a>Awesome Unity</h1><ul>
 <li><a href="#awesome-unity">Awesome Unity</a><ul>
 <li><a href="#2d">2D</a></li>
 <li><a href="#ai">AI</a></li>
@@ -2050,7 +2050,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源dotnet core大全</title>
     <url>/2017/06/21/awesome-dotnet-core/</url>
-    <content><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
 <li><a href="#general">General</a></li>
 <li><a href="#frameworks-libraries-and-tools">Frameworks, Libraries and Tools</a><ul>
 <li><a href="#api">API</a></li>
@@ -2643,7 +2643,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>hexo的next主题个性化教程:打造炫酷网站</title>
     <url>/2017/06/20/hexo-theme-customization/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><hr>
 <blockquote>
 <p>看到有些next主题的网站很炫酷，那么是怎么配置的呢？接下来我会讲一讲如何实现一些炫酷的效果</p>
 </blockquote>
@@ -3051,7 +3051,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>next主题如何添加动态背景</title>
     <url>/2017/05/30/hexo-theme-dynamic-bg/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><hr>
 <blockquote>
 <p><strong>注意</strong>：如果next主题在5.1.1以上的话就不用我这样设置，直接在主题配置文件中找到canvas_nest: false，把它改为canvas_nest: true就行了（注意分号后面要加一个空格）</p>
 </blockquote>
@@ -3090,7 +3090,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源dotnet大全中文版</title>
     <url>/2017/04/21/awesome-dotnet-cn/</url>
-    <content><![CDATA[<h1 id="DotNet-资源大全中文版"><a href="#DotNet-资源大全中文版" class="headerlink" title="DotNet 资源大全中文版"></a>DotNet 资源大全中文版</h1><p>（注：下面用 [$] 标注的表示收费工具，但部分收费工具针对开源软件的开发/部署/托管是免费的）</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="DotNet-资源大全中文版"><a href="#DotNet-资源大全中文版" class="headerlink" title="DotNet 资源大全中文版"></a>DotNet 资源大全中文版</h1><p>（注：下面用 [$] 标注的表示收费工具，但部分收费工具针对开源软件的开发/部署/托管是免费的）</p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
 <li>框架<ul>
 <li>NancyFx：轻量、用于构建 HTTP 基础服务的非正式（low-ceremony）框架，基于.Net 及 Mono 平台。<a href="https://github.com/NancyFx/Nancy" target="_blank" rel="noopener">官网</a></li>
@@ -3596,7 +3596,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源mysql大全</title>
     <url>/2017/03/21/awesome-mysql/</url>
-    <content><![CDATA[<h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><ul>
 <li><p><a href="#awesome-mysql">Awesome MySQL</a></p>
 <ul>
 <li><a href="#analysis">Analysis</a></li>
@@ -3777,7 +3777,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>ngrok内网穿透工具</title>
     <url>/2017/03/07/ngrok-intro/</url>
-    <content><![CDATA[<h2 id="关于Ngrok"><a href="#关于Ngrok" class="headerlink" title="关于Ngrok"></a>关于Ngrok</h2><p><code>ngrok</code>是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="关于Ngrok"><a href="#关于Ngrok" class="headerlink" title="关于Ngrok"></a>关于Ngrok</h2><p><code>ngrok</code>是非常流行的反向代理服务，可以进行内网穿透，支持80端口以及自定义tcp端口转发</p>
 <p>值得注意的有以下几点：</p>
 <ul>
 <li>Ngrok并不仅仅用来22端口的SSH内网穿透，通过简单配置，它可以将遵循TCP/UDP协议的多个端口进行内网穿透。</li>
@@ -3816,7 +3816,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源vue大全</title>
     <url>/2017/02/21/awesome-vue/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>A curated list of awesome things related to Vue.js</p>
 </blockquote>
 <ul>
@@ -5437,7 +5437,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源nodejs大全</title>
     <url>/2016/12/16/awesome-nodejs/</url>
-    <content><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
 <li><a href="#packages">Packages</a><ul>
 <li><a href="#mad-science">Mad science</a></li>
 <li><a href="#command-line-apps">Command-line apps</a></li>
@@ -6274,7 +6274,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源jquery大全</title>
     <url>/2016/11/29/awesome-jquery/</url>
-    <content><![CDATA[<h1 id="Awesome-jQuery"><a href="#Awesome-jQuery" class="headerlink" title="Awesome jQuery"></a>Awesome jQuery</h1><h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Awesome-jQuery"><a href="#Awesome-jQuery" class="headerlink" title="Awesome jQuery"></a>Awesome jQuery</h1><h2 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h2><ul>
 <li><a href="#resources">Resources</a><ul>
 <li><a href="#tutorials">Tutorials</a></li>
 <li><a href="#books">Books</a><ul>
@@ -6597,7 +6597,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源Windows大全中文版</title>
     <url>/2016/11/21/awesome-windows-cn/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>Windows上优质&amp;精选的最佳应用程序及工具列表。</p>
 </blockquote>
 <ul>
@@ -6922,7 +6922,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源javascript大全中文版</title>
     <url>/2016/11/21/awesome-javascript-cn/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><hr>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
 <li><a href="#awesome-javascript-cn">JavaScript资源大全中文版</a><ul>
 <li><a href="#package-managers">包管理器</a></li>
@@ -7766,7 +7766,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>资源大全</title>
     <url>/2016/11/01/awesome/</url>
-    <content><![CDATA[<h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul>
 <li><a href="#platforms">Platforms</a></li>
 <li><a href="#programming-languages">Programming Languages</a></li>
 <li><a href="#front-end-development">Front-End Development</a></li>
@@ -8320,7 +8320,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>Markdown示例</title>
     <url>/2016/02/26/Markdown%E7%A4%BA%E4%BE%8B/</url>
-    <content><![CDATA[<h1 id="Markdown-完整示例"><a href="#Markdown-完整示例" class="headerlink" title="Markdown 完整示例"></a>Markdown 完整示例</h1><p><strong>目录 (Table of Contents)</strong></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="Markdown-完整示例"><a href="#Markdown-完整示例" class="headerlink" title="Markdown 完整示例"></a>Markdown 完整示例</h1><p><strong>目录 (Table of Contents)</strong></p>
 <p>[TOCM]</p>
 <p>[TOC]</p>
 <h1 id="Heading-1"><a href="#Heading-1" class="headerlink" title="Heading 1"></a>Heading 1</h1><h2 id="Heading-2"><a href="#Heading-2" class="headerlink" title="Heading 2"></a>Heading 2</h2><h3 id="Heading-3"><a href="#Heading-3" class="headerlink" title="Heading 3"></a>Heading 3</h3><h4 id="Heading-4"><a href="#Heading-4" class="headerlink" title="Heading 4"></a>Heading 4</h4><h5 id="Heading-5"><a href="#Heading-5" class="headerlink" title="Heading 5"></a>Heading 5</h5><h6 id="Heading-6"><a href="#Heading-6" class="headerlink" title="Heading 6"></a>Heading 6</h6><h1 id="Heading-1-link-Heading-link"><a href="#Heading-1-link-Heading-link" class="headerlink" title="Heading 1 link Heading link"></a>Heading 1 link <a href="" title="Heading link">Heading link</a></h1><h2 id="Heading-2-link-Heading-link"><a href="#Heading-2-link-Heading-link" class="headerlink" title="Heading 2 link Heading link"></a>Heading 2 link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a></h2><h3 id="Heading-3-link-Heading-link"><a href="#Heading-3-link-Heading-link" class="headerlink" title="Heading 3 link Heading link"></a>Heading 3 link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a></h3><h4 id="Heading-4-link-Heading-link-Heading-link-Heading-link"><a href="#Heading-4-link-Heading-link-Heading-link-Heading-link" class="headerlink" title="Heading 4 link Heading link Heading link Heading link"></a>Heading 4 link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a> Heading link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a></h4><h5 id="Heading-5-link-Heading-link"><a href="#Heading-5-link-Heading-link" class="headerlink" title="Heading 5 link Heading link"></a>Heading 5 link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a></h5><h6 id="Heading-6-link-Heading-link"><a href="#Heading-6-link-Heading-link" class="headerlink" title="Heading 6 link Heading link"></a>Heading 6 link <a href="http://www.dotnetlog.com" title="Heading link">Heading link</a></h6><h4 id="标题（用底线的形式）Heading-underline"><a href="#标题（用底线的形式）Heading-underline" class="headerlink" title="标题（用底线的形式）Heading (underline)"></a>标题（用底线的形式）Heading (underline)</h4><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1"></a>This is an H1</h1><h2 id="This-is-an-H2"><a href="#This-is-an-H2" class="headerlink" title="This is an H2"></a>This is an H2</h2><h3 id="字符效果和横线等"><a href="#字符效果和横线等" class="headerlink" title="字符效果和横线等"></a>字符效果和横线等</h3><hr>
@@ -8590,7 +8590,7 @@ fastcgi.add=需要fcgi处理的文件扩展名|socket:路径
   <entry>
     <title>Hello World</title>
     <url>/2016/02/20/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
