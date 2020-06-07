@@ -27,6 +27,188 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo添加live2d看板动画</title>
+    <url>/2019/10/07/live2d-on-hexo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这个神奇的看板生物我第一次碰巧看到后就瞬间觉得太好玩了吧</p>
+<p>Hexo 配置好玩的 Live2D 还是非常简单的</p>
+<h2 id="安装-hexo-helper-live2d"><a href="#安装-hexo-helper-live2d" class="headerlink" title="安装 hexo-helper-live2d"></a>安装 hexo-helper-live2d</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-helper-live2d --save</span></pre></td></tr></table></figure>
+
+<h2 id="配置-hexo-helper-live2d"><a href="#配置-hexo-helper-live2d" class="headerlink" title="配置 hexo-helper-live2d"></a>配置 hexo-helper-live2d</h2><p>在开始配置之前，你需要先获取 Live2D 的资源，很多手游中都有 Live2D 资源可以获取；为了能够快速配置好看板动画，可以在 <a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">插件作者的博客</a> 里挑选一种你喜欢的动画，然后记录下它的名字</p>
+<h3 id="安装你看中的动画"><a href="#安装你看中的动画" class="headerlink" title="安装你看中的动画"></a>安装你看中的动画</h3><p>上方页面中提供的 Live2D 资源已经都被作者发布成 npm 包啦</p>
+<p>只需要简单滴安装 live2d-widget-model-你选中的动画名字 即可获得对应的 Live2D 资源，我们这里以 hijiki 这只黑喵为例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install live2d-widget-model-hijiki --save</span></pre></td></tr></table></figure>
+
+<h3 id="配置你看中的动画"><a href="#配置你看中的动画" class="headerlink" title="配置你看中的动画"></a>配置你看中的动画</h3><p>在<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">官方文档</a>中可以很容易获取配置文件的样例，下方提供的配置可以直接使用 hijiki</p>
+<p>打开博客根目录下的配置文件 _config.yml，在配置文件的最后添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Live2D</span></pre></td></tr><tr><td class="code"><pre><span class="line">## https:&#x2F;&#x2F;github.com&#x2F;EYHN&#x2F;hexo-helper-live2d</span></pre></td></tr><tr><td class="code"><pre><span class="line">live2d:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    enable: true</span></pre></td></tr><tr><td class="code"><pre><span class="line">    scriptFrom: jsdelivr # 默认</span></pre></td></tr><tr><td class="code"><pre><span class="line">    pluginRootPath: live2dw&#x2F; # 插件在站点上的根目录(相对路径)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    pluginJsPath: lib&#x2F; # 脚本文件相对与插件根目录路径</span></pre></td></tr><tr><td class="code"><pre><span class="line">    pluginModelPath: assets&#x2F; # 模型文件相对与插件根目录路径</span></pre></td></tr><tr><td class="code"><pre><span class="line">    # scriptFrom: jsdelivr # jsdelivr CDN</span></pre></td></tr><tr><td class="code"><pre><span class="line">    # scriptFrom: unpkg # unpkg CDN</span></pre></td></tr><tr><td class="code"><pre><span class="line">    # scriptFrom: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;live2d-widget@3.x&#x2F;lib&#x2F;L2Dwidget.min.js # 你的自定义 url</span></pre></td></tr><tr><td class="code"><pre><span class="line">    tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中</span></pre></td></tr><tr><td class="code"><pre><span class="line">    debug: false # 调试, 是否在控制台输出日志</span></pre></td></tr><tr><td class="code"><pre><span class="line">    model:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        # use: live2d-widget-model-hijiki # npm-module package name</span></pre></td></tr><tr><td class="code"><pre><span class="line">        # use: hijiki # 博客根目录&#x2F;live2d_models&#x2F; 下的目录名</span></pre></td></tr><tr><td class="code"><pre><span class="line">        # use: .&#x2F;wives&#x2F;hijiki # 相对于博客根目录的路径</span></pre></td></tr><tr><td class="code"><pre><span class="line">        use: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;live2d-widget-model-hijiki@1.0.5&#x2F;assets&#x2F;hijiki.model.json # 你的自定义 url</span></pre></td></tr><tr><td class="code"><pre><span class="line">        scale: 1</span></pre></td></tr><tr><td class="code"><pre><span class="line">        hHeadPos: 0.5</span></pre></td></tr><tr><td class="code"><pre><span class="line">        vHeadPos: 0.618</span></pre></td></tr><tr><td class="code"><pre><span class="line">    display:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        superSample: 2</span></pre></td></tr><tr><td class="code"><pre><span class="line">        width: 125</span></pre></td></tr><tr><td class="code"><pre><span class="line">        height: 125</span></pre></td></tr><tr><td class="code"><pre><span class="line">        position: left</span></pre></td></tr><tr><td class="code"><pre><span class="line">        hOffset: 30</span></pre></td></tr><tr><td class="code"><pre><span class="line">        vOffset: 0</span></pre></td></tr><tr><td class="code"><pre><span class="line">    mobile:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        show: false</span></pre></td></tr><tr><td class="code"><pre><span class="line">        scale: 0.05</span></pre></td></tr><tr><td class="code"><pre><span class="line">    react:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        opacityDefault: 1</span></pre></td></tr><tr><td class="code"><pre><span class="line">        opacityOnHover: 0.2</span></pre></td></tr></table></figure>
+
+<p>然后执行命令 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code>，即可在本地 4000 端口预览</p>
+<h3 id="配置详解"><a href="#配置详解" class="headerlink" title="配置详解"></a>配置详解</h3><p>在下方表格中列出了位置、大小、属性等配置内容，并不是用到了所有配置</p>
+<p>这里给出作者的 API 文档，此文档应该是作者根据版本更新的：<a href="https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html" target="_blank" rel="noopener">live2d-widget.js API</a></p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>属性</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>enable</td>
+<td>Boolean</td>
+<td>true 或者 false</td>
+<td>控制 live2d 插件是否生效</td>
+</tr>
+<tr>
+<td>scriptFrom</td>
+<td>String</td>
+<td>local 或者 jsdelivr 或者 unpkg</td>
+<td>l2dwidget.js 使用的 CDN 地址，local 表示使用本地地址</td>
+</tr>
+<tr>
+<td>pluginRootPath</td>
+<td>String</td>
+<td>例如：live2dw/</td>
+<td>插件在站点上根目录的相对路径</td>
+</tr>
+<tr>
+<td>pluginJsPath</td>
+<td>String</td>
+<td>例如：lib/</td>
+<td>脚本文件相对与插件根目录路径</td>
+</tr>
+<tr>
+<td>pluginModelPath</td>
+<td>String</td>
+<td>例如：assets/</td>
+<td>模型文件相对与插件根目录路径</td>
+</tr>
+<tr>
+<td>tagMode</td>
+<td>Boolean</td>
+<td>true 或者 false</td>
+<td>标签模式，控制是否仅替换 tag 标签而非插入到所有页面中</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Boolean</td>
+<td>true 或者 false</td>
+<td>调试模式，控制是否在控制台输出日志</td>
+</tr>
+<tr>
+<td>model.use</td>
+<td>String</td>
+<td>例如：live2d-widget-model-hijiki</td>
+<td>npm 模块包名</td>
+</tr>
+<tr>
+<td>model.use</td>
+<td>String</td>
+<td>例如：hijiki</td>
+<td>博客根目录 /live2d_models/ 下的目录名</td>
+</tr>
+<tr>
+<td>model.use</td>
+<td>String</td>
+<td>例如：./wives/hijiki</td>
+<td>相对于博客根目录的路径</td>
+</tr>
+<tr>
+<td>model.use</td>
+<td>String</td>
+<td>例如：https://域名/model.json</td>
+<td>你自定义 live2d 模型 json 文件的 url</td>
+</tr>
+<tr>
+<td>model.scale</td>
+<td>Number</td>
+<td>可选值，默认值为 1</td>
+<td>模型与 canvas 的缩放</td>
+</tr>
+<tr>
+<td>model.hHeadPos</td>
+<td>Number</td>
+<td>可选值，默认值为 0.5</td>
+<td>模型头部横坐标</td>
+</tr>
+<tr>
+<td>model.vHeadPos</td>
+<td>Number</td>
+<td>可选值，默认值为 0.618</td>
+<td>模型头部纵坐标</td>
+</tr>
+<tr>
+<td>display.superSample</td>
+<td>Number</td>
+<td>可选值，默认值为 2</td>
+<td>超采样等级</td>
+</tr>
+<tr>
+<td>display.width</td>
+<td>Number</td>
+<td>可选值，默认值为 150</td>
+<td>canvas 的长度</td>
+</tr>
+<tr>
+<td>display.height</td>
+<td>Number</td>
+<td>可选值，默认值为 300</td>
+<td>canvas 的高度</td>
+</tr>
+<tr>
+<td>display.position</td>
+<td>Number</td>
+<td>可选值，默认值为 right</td>
+<td>显示位置：左或右</td>
+</tr>
+<tr>
+<td>display.hOffset</td>
+<td>Number</td>
+<td>可选值，默认值为 0</td>
+<td>canvas 水平偏移</td>
+</tr>
+<tr>
+<td>display.vOffset</td>
+<td>Number</td>
+<td>可选值，默认值为 -20</td>
+<td>canvas 垂直偏移</td>
+</tr>
+<tr>
+<td>mobile.show</td>
+<td>Boolean</td>
+<td>可选值，默认值为 true</td>
+<td>控制是否在移动设备上显示</td>
+</tr>
+<tr>
+<td>mobile.scale</td>
+<td>Number</td>
+<td>可选值，默认值为 0.5</td>
+<td>移动设备上的缩放</td>
+</tr>
+<tr>
+<td>react.opacityDefault</td>
+<td>Number</td>
+<td>可选值，默认值为 0.7</td>
+<td>默认透明度</td>
+</tr>
+<tr>
+<td>react.opacityOnHover</td>
+<td>Number</td>
+<td>可选值，默认值为 0.2</td>
+<td>鼠标移上透明度</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>live2d</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CloudFlare一级域名跳转二级域名实现</title>
     <url>/2019/09/20/cloudflare301/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="关于域名跳转"><a href="#关于域名跳转" class="headerlink" title="关于域名跳转"></a>关于域名跳转</h2><p>你是否在访问某些网站时发现直接访问一级域名即可，例如本站的网址，你可以访问blog.newhanly.com，也可以直接访问newhanly.com。那么这是如何实现的呢，301跳转是其中一种方法，客户端在向服务器请求资源时得到一个状态码，指引客户端到一个其它的网页</p>
