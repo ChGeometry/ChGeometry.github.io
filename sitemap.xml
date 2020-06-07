@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
-    
-    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.dotnetlog.com/2018/01/10/IdentityServer4-12/</loc>
     
     <lastmod>2020-06-06T15:20:06.107Z</lastmod>
@@ -44,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
+    <loc>http://www.dotnetlog.com/2018/01/04/IdentityServer4-10/</loc>
     
     <lastmod>2020-06-06T15:20:06.107Z</lastmod>
     
@@ -52,6 +45,13 @@
   
   <url>
     <loc>http://www.dotnetlog.com/2017/12/28/IdentityServer4-3/</loc>
+    
+    <lastmod>2020-06-06T15:20:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
     
     <lastmod>2020-06-06T15:20:06.107Z</lastmod>
     
