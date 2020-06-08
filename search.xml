@@ -460,8 +460,8 @@
         <category>windows</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>windows</tag>
+        <tag>linux</tag>
         <tag>wsl</tag>
       </tags>
   </entry>
@@ -759,6 +759,41 @@
       </categories>
       <tags>
         <tag>Visual Studio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>彻底的卸载和删除Windows Service</title>
+    <url>/2018/06/18/complete-sc-delete-serv/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>最近安装Windows Service服务停止或卸载的时候出错了，而结果在服务列表中就一直驻留，并且系统进程一直在运行，怎么都杀不掉，最后终于找到办法了</p>
+<ul>
+<li><p>常规做法</p>
+<p>  管理员权限运行cmd</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">net stop service_name</span></pre></td></tr><tr><td class="code"><pre><span class="line">sc delete service_name</span></pre></td></tr></table></figure>
+<p>  如果还是没有用，那就继续尝试</p>
+</li>
+<li><p>找到系统注册表，删掉服务的注册表信息，通常路径在：<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services</code> 找到你的服务的名字，然后把整个文件夹删掉</p>
+<p>  如果还是在继续运行，service列表中还显示的话 </p>
+<p>  用管理员权限打开cmd，再次运行</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sc delete service_name</span></pre></td></tr></table></figure>
+
+<p>  如果提示 “the specified service is marked as deletion”，导致windows service不能部署，也不能被删除，使用 SC 命令也不奏效</p>
+</li>
+<li><p>最后我们再尝试</p>
+<ul>
+<li>关闭所有windows service控制面板</li>
+<li>查找windows service的PID，管理员权限运行cmd  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sc queryex service_name</span></pre></td></tr></table></figure></li>
+<li>杀掉进程  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">taskkill &#x2F;PID service_pid &#x2F;f  # service_pid为上面显示的PID</span></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>

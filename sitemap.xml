@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.dotnetlog.com/2018/06/18/complete-sc-delete-serv/</loc>
+    
+    <lastmod>2020-06-08T14:55:14.182Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.dotnetlog.com/2019/07/10/topshelf-windows-service/</loc>
     
     <lastmod>2020-06-07T14:15:14.952Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
+    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
     
     <lastmod>2020-06-06T15:20:06.107Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2017/12/27/IdentityServer4-2/</loc>
+    <loc>http://www.dotnetlog.com/2018/01/11/IdentityServer4-13/</loc>
     
     <lastmod>2020-06-06T15:20:06.107Z</lastmod>
     
@@ -177,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/05/03/urlPlusSignTovariableSpaces/</loc>
+    <loc>http://www.dotnetlog.com/2018/12/05/windows-software-management/</loc>
     
     <lastmod>2019-12-01T03:25:42.783Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/12/05/windows-software-management/</loc>
+    <loc>http://www.dotnetlog.com/2018/05/03/urlPlusSignTovariableSpaces/</loc>
     
     <lastmod>2019-12-01T03:25:42.783Z</lastmod>
     
@@ -247,13 +254,6 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/10/18/git-proxy-setting/</loc>
-    
-    <lastmod>2019-12-01T03:25:42.773Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.dotnetlog.com/2016/02/20/hello-world/</loc>
     
     <lastmod>2019-12-01T03:25:42.773Z</lastmod>
@@ -261,14 +261,21 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/01/07/frp-intro/</loc>
+    <loc>http://www.dotnetlog.com/2018/10/18/git-proxy-setting/</loc>
+    
+    <lastmod>2019-12-01T03:25:42.773Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dotnetlog.com/2018/01/05/git-common-cmd/</loc>
     
     <lastmod>2019-12-01T03:25:42.772Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2018/01/05/git-common-cmd/</loc>
+    <loc>http://www.dotnetlog.com/2018/01/07/frp-intro/</loc>
     
     <lastmod>2019-12-01T03:25:42.772Z</lastmod>
     
@@ -331,14 +338,14 @@
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2016/11/29/awesome-jquery/</loc>
+    <loc>http://www.dotnetlog.com/2017/03/21/awesome-mysql/</loc>
     
     <lastmod>2019-12-01T03:25:42.764Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.dotnetlog.com/2017/03/21/awesome-mysql/</loc>
+    <loc>http://www.dotnetlog.com/2016/11/29/awesome-jquery/</loc>
     
     <lastmod>2019-12-01T03:25:42.764Z</lastmod>
     
