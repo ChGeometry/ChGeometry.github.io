@@ -460,8 +460,8 @@
         <category>windows</category>
       </categories>
       <tags>
-        <tag>windows</tag>
         <tag>linux</tag>
+        <tag>windows</tag>
         <tag>wsl</tag>
       </tags>
   </entry>
